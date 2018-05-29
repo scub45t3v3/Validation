@@ -1,0 +1,50 @@
+{
+  "name": "@scuba-squad/validation",
+  "description": "Validation library with several data validation methods",
+  "version": "0.0.0",
+  "public": true,
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Steve Winberg",
+    "email": "stevewin21@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scub45t3v3/Validation"
+  },
+  "keywords": [
+    "scuba-squad",
+    "validation",
+    "validator",
+    "valid"
+  ],
+  "scripts": {
+    "pretest": "grunt",
+    "test": "nyc --reporter=html --reporter=text mocha test",
+    "lint": "grunt coffeelint",
+    "build": "grunt"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "devDependencies": {
+    "coffeelint": "^2.1.0",
+    "grunt": "^1.0.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-coffeelint": "0.0.16",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-coffee": "^2.0.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "unit.js": "^2.0.0"
+  },
+  "dependencies": {
+    "@scuba-squad/country": "^1.0.0",
+    "bignumber.js": "^7.1.0",
+    "google-libphonenumber": "^3.1.4",
+    "moment": "^2.22.1",
+    "pluralize": "^7.0.0",
+    "underscore": "^1.9.0"
+  }
+}

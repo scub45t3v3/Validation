@@ -1,0 +1,53 @@
+(function() {
+  var isAlpha, noop, unit;
+
+  unit = require('unit.js');
+
+  ({noop} = require('underscore'));
+
+  isAlpha = require('../isAlpha');
+
+  describe('#isAlpha', function() {
+    it('should be a function', function() {
+      unit.function(isAlpha);
+      return null;
+    });
+    it('should return true for valid alpha only strings', function() {
+      unit.bool(isAlpha('aslkdjfh')).isTrue().bool(isAlpha('alsdiufhdsn')).isTrue().bool(isAlpha('qweidswekjsadkjbas')).isTrue().bool(isAlpha('dfkjhfkmnkckmbefawklndfs')).isTrue().bool(isAlpha('dh')).isTrue().bool(isAlpha('y')).isTrue().bool(isAlpha('adfsfoijdsfklfdskn')).isTrue().bool(isAlpha('awewiuhdfskjndsv')).isTrue().bool(isAlpha('sdflkhdfsknf')).isTrue().bool(isAlpha('sdkljhdslgldnfsf')).isTrue().bool(isAlpha('ekjhsdfkjdsf')).isTrue().bool(isAlpha('aweofhsdfdskfbn')).isTrue().bool(isAlpha('asdflkhdsmdsfkjds')).isTrue().bool(isAlpha('ewfkjfdslkdfskljdfs')).isTrue();
+      return null;
+    });
+    it('should return false for invalid strings', function() {
+      unit.bool(isAlpha('we48tuer')).isFalse().bool(isAlpha('we[foewf]')).isFalse().bool(isAlpha('34w98uerj')).isFalse().bool(isAlpha('*&TYY')).isFalse().bool(isAlpha('serreg;dfskdfkjfgjh')).isFalse().bool(isAlpha('sdf.,.mdf')).isFalse().bool(isAlpha('we;o9tu49')).isFalse().bool(isAlpha('q23qo98441`')).isFalse().bool(isAlpha('ewr09ti34*&')).isFalse().bool(isAlpha('%sdkjvnnd')).isFalse().bool(isAlpha('=adkljfhsd')).isFalse().bool(isAlpha('sadkjfh{sdkjf}')).isFalse().bool(isAlpha('aweklhd[asldkfjsd]')).isFalse().bool(isAlpha(',foiadfoihf<lkewf')).isFalse();
+      return null;
+    });
+    it('should return false for integers', function() {
+      unit.bool(isAlpha(14)).isFalse().bool(isAlpha(234987)).isFalse().bool(isAlpha(-2398)).isFalse().bool(isAlpha(2)).isFalse();
+      return null;
+    });
+    it('should return false for floats', function() {
+      unit.bool(isAlpha(98.00007)).isFalse().bool(isAlpha(-32407.3)).isFalse().bool(isAlpha(0.1)).isFalse();
+      return null;
+    });
+    it('should return false for functions', function() {
+      unit.bool(isAlpha(noop)).isFalse().bool(isAlpha(isAlpha)).isFalse();
+      return null;
+    });
+    it('should return false for regexs', function() {
+      unit.bool(isAlpha(/asd/)).isFalse().bool(isAlpha(/\d+/)).isFalse().bool(isAlpha(/1/)).isFalse().bool(isAlpha(new RegExp('3'))).isFalse();
+      return null;
+    });
+    it('should return false for arrays', function() {
+      unit.bool(isAlpha([])).isFalse().bool(isAlpha([1, 2, 3])).isFalse().bool(isAlpha(['a', 5, {}])).isFalse();
+      return null;
+    });
+    it('should return false for null', function() {
+      unit.bool(isAlpha(null)).isFalse();
+      return null;
+    });
+    return it('should return false for undefined', function() {
+      unit.bool(isAlpha()).isFalse().bool(isAlpha(void 0)).isFalse();
+      return null;
+    });
+  });
+
+}).call(this);
