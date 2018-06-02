@@ -78,8 +78,6 @@
 
   exports.isDiscover = require('./isDiscover');
 
-  exports.isFinite = require('./isFinite');
-
   exports.isFloat = require('./isFloat');
 
   exports.isHexadecimal = require('./isHexadecimal');
