@@ -49,7 +49,7 @@ describe '#isAfter', ->
   it 'should return true for numeric arrays', ->
     now = new Date()
     unit
-      .bool isAfter([now.getFullYear(), now.getMonth(), now.getDate() + 1])
+      .bool isAfter([now.getFullYear() + 1, now.getMonth(), now.getDate()])
       .isTrue()
       .bool isAfter([2011], [2010, 1, 6])
       .isTrue()

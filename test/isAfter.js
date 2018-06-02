@@ -38,7 +38,7 @@
     it('should return true for numeric arrays', function() {
       var now;
       now = new Date();
-      unit.bool(isAfter([now.getFullYear(), now.getMonth(), now.getDate() + 1])).isTrue().bool(isAfter([2011], [2010, 1, 6])).isTrue().bool(isAfter([2000, 6, 15, 5], [2000, 6, 15, 4, 20, 0])).isTrue();
+      unit.bool(isAfter([now.getFullYear() + 1, now.getMonth(), now.getDate()])).isTrue().bool(isAfter([2011], [2010, 1, 6])).isTrue().bool(isAfter([2000, 6, 15, 5], [2000, 6, 15, 4, 20, 0])).isTrue();
       return null;
     });
     it('should return true for integers', function() {
