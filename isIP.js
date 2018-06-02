@@ -1,9 +1,12 @@
 (function() {
-  var isIP, net;
+  var debug, isIP, net;
+
+  debug = require('debug')('@scuba-squad:validation:isIP');
 
   net = require('net');
 
   isIP = function(value, version) {
+    debug('call:isIP(%o, %o)', value, version);
     switch (version) {
       case 4:
       case '4':

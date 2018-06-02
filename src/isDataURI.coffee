@@ -1,3 +1,5 @@
+debug = require('debug') '@scuba-squad:validation:isDataURI'
+
 REGEX = ///^
 data:                                                 # schema
 (?:
@@ -9,6 +11,8 @@ data:                                                 # schema
 $///i
 
 isDataURI = (value) ->
+  debug 'call:isDataURI(%o)', value
+
   return REGEX.test value
 
 module.exports = isDataURI

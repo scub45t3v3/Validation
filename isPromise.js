@@ -1,7 +1,10 @@
 (function() {
-  var isPromise;
+  var debug, isPromise;
+
+  debug = require('debug')('@scuba-squad:validation:isPromise');
 
   isPromise = function(value) {
+    debug('call:isPromise(%o)', value);
     return value instanceof Promise;
   };
 

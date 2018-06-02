@@ -1,3 +1,4 @@
+debug = require('debug') '@scuba-squad:validation:isURL'
 url = require 'url'
 isIP = require './isIP'
 
@@ -29,6 +30,8 @@ $///i
 DOMAIN_REGEX = /^(?:[a-z\d]+(?:-+[a-z\d]+)*\.)+[a-z][a-z\d-]*[a-z\d]$/i
 
 isURL = (value) ->
+  debug 'call:isURL(%o)', value
+
   if !REGEX.test(value)
     return false
 

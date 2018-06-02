@@ -1,5 +1,7 @@
 (function() {
-  var Country, PhoneNumberUtil, isPhoneNumber, isString;
+  var Country, PhoneNumberUtil, debug, isPhoneNumber, isString;
+
+  debug = require('debug')('@scuba-squad:validation:isPhoneNumber');
 
   ({PhoneNumberUtil} = require('google-libphonenumber'));
 
@@ -9,6 +11,7 @@
 
   isPhoneNumber = function(value, country) {
     var error, iso, parsed, ref, util;
+    debug('call:isPhoneNumber(%o, %o)', value, country);
     util = PhoneNumberUtil.getInstance();
     if (isString(country)) {
       iso = country != null ? typeof country.trim === "function" ? (ref = country.trim()) != null ? typeof ref.toUpperCase === "function" ? ref.toUpperCase() : void 0 : void 0 : void 0 : void 0;

@@ -1,3 +1,5 @@
+debug = require('debug') '@scuba-squad:validation:isPunctuation'
+
 REGEX = ///^
 (?:
   [-!"#%&'()*,\./:;?@\[\]\\_{}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387
@@ -36,6 +38,8 @@ REGEX = ///^
 $///
 
 isPunctuation = (value) ->
+  debug 'call:isPunctuation(%o)', value
+
   return REGEX.test value
 
 module.exports = isPunctuation

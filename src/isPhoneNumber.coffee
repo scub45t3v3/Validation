@@ -1,8 +1,10 @@
+debug = require('debug') '@scuba-squad:validation:isPhoneNumber'
 {PhoneNumberUtil} = require 'google-libphonenumber'
 Country = require '@scuba-squad/country'
 isString = require './isString'
 
 isPhoneNumber = (value, country) ->
+  debug 'call:isPhoneNumber(%o, %o)', value, country
   util = PhoneNumberUtil.getInstance()
 
   if isString(country)

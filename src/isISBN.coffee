@@ -1,7 +1,11 @@
+debug = require('debug') '@scuba-squad:validation:isISBN'
+
 REGEX_10 = /^\d{9}[\dX]$/
 REGEX_13 = /^\d{13}$/
 
 isISBN = (value, version) ->
+  debug 'call:isISBN(%o, %o)', value, version
+
   sanitized = value?.toString?()?.toUpperCase?().replace /[\s-]+/g, ''
   version or= sanitized?.length
 
@@ -14,6 +18,8 @@ isISBN = (value, version) ->
       return false
 
 isISBN10 = (value) ->
+  debug 'call:isISBN10(%o)', value
+
   if !REGEX_10.test(value)
     return false
 
@@ -29,6 +35,8 @@ isISBN10 = (value) ->
   return !(sum % 11)
 
 isISBN13 = (value) ->
+  debug 'call:isISBN13(%o)', value
+
   if !REGEX_13.test(value)
     return false
 

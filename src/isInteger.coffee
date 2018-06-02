@@ -1,19 +1,27 @@
+debug = require('debug') '@scuba-squad:validation:isInteger'
 BigNumber = require 'bignumber.js'
 isFloat = require './isFloat'
 
 isInteger = (value, opt = {}) ->
+  debug 'call:isInteger(%o, %o)', value, opt
   value = new BigNumber value
 
   if !value?.isFinite?()
     return false
 
   if opt?.min? && !isFloat(opt.min)
+    debug 'error:min %o is not a number', opt.min
+
     throw new TypeError 'opt.min must be a valid number'
 
   if opt?.max? && !isFloat(opt.max)
+    debug 'error:max %o is not a number', opt.max
+
     throw new TypeError 'opt.min must be a valid number'
 
   if opt?.step? && !isFloat(opt.step)
+    debug 'error:step %o is not a number', opt.step
+
     throw new TypeError 'opt.step must be a valid number'
 
   if !!opt.safe

@@ -1,7 +1,9 @@
 (function() {
-  var _, isArray, isFunction, isString, toCallable;
+  var _, debug, isArray, isFunction, isString, toCallable;
 
   _ = require('underscore');
+
+  debug = require('debug')('@scuba-squad:validation:util:toCallable');
 
   isFunction = require('../isFunction');
 
@@ -11,6 +13,7 @@
 
   toCallable = function(value) {
     var func;
+    debug('call:toCallable(%o)', value);
     if (isFunction(value)) {
       return value;
     }
@@ -21,6 +24,7 @@
       func = toCallable(_.first(value));
       return _.partial(func, _, ..._.rest(value, 1));
     }
+    debug('error:value %o can not be converted to a function', value);
     throw new TypeError(`${value} can not be called`);
   };
 

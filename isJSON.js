@@ -1,8 +1,11 @@
 (function() {
-  var isJSON;
+  var debug, isJSON;
+
+  debug = require('debug')('@scuba-squad:validation:isJSON');
 
   isJSON = function(value) {
     var error;
+    debug('call:isJSON(%o)', value);
     try {
       JSON.parse(value);
       return true;

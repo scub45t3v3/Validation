@@ -1,5 +1,7 @@
 (function() {
-  var REGEX, isISIN, isLuhn;
+  var REGEX, debug, isISIN, isLuhn;
+
+  debug = require('debug')('@scuba-squad:validation:isISIN');
 
   isLuhn = require('./isLuhn');
 
@@ -7,6 +9,7 @@
 
   isISIN = function(value) {
     var sanitized;
+    debug('call:isISIN(%o)', value);
     sanitized = value != null ? typeof value.toString === "function" ? value.toString().replace(/[a-z]/gim, function(match) {
       return `${parseInt(match, 36)}`;
     }) : void 0 : void 0;

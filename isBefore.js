@@ -1,5 +1,7 @@
 (function() {
-  var isBefore, isDate, isFloat, moment;
+  var debug, isBefore, isDate, isFloat, moment;
+
+  debug = require('debug')('@scuba-squad:validation:isBefore');
 
   moment = require('moment');
 
@@ -8,6 +10,7 @@
   isDate = require('./isDate');
 
   isBefore = function(value, compare = Date.now()) {
+    debug('call:isBefore(%o, %o)', value, compare);
     if (isFloat(value) && isFloat(compare)) {
       return parseFloat(value) < parseFloat(compare);
     } else if (isDate(value)) {

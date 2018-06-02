@@ -1,5 +1,7 @@
 (function() {
-  var Country, isPostalCode, isString;
+  var Country, debug, isPostalCode, isString;
+
+  debug = require('debug')('@scuba-squad:validation:isPostalCode');
 
   Country = require('@scuba-squad/country');
 
@@ -7,6 +9,7 @@
 
   isPostalCode = function(value, country) {
     var iso, ref;
+    debug('call:isPostalCode(%o, %o)', value, country);
     if (!country) {
       return !!Country.getByPostalCode(value);
     }

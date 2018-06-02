@@ -1,5 +1,7 @@
 (function() {
-  var REGEX_10, REGEX_13, isISBN, isISBN10, isISBN13;
+  var REGEX_10, REGEX_13, debug, isISBN, isISBN10, isISBN13;
+
+  debug = require('debug')('@scuba-squad:validation:isISBN');
 
   REGEX_10 = /^\d{9}[\dX]$/;
 
@@ -7,6 +9,7 @@
 
   isISBN = function(value, version) {
     var ref, sanitized;
+    debug('call:isISBN(%o, %o)', value, version);
     sanitized = value != null ? typeof value.toString === "function" ? (ref = value.toString()) != null ? typeof ref.toUpperCase === "function" ? ref.toUpperCase().replace(/[\s-]+/g, '') : void 0 : void 0 : void 0 : void 0;
     version || (version = sanitized != null ? sanitized.length : void 0);
     switch (version) {
@@ -23,6 +26,7 @@
 
   isISBN10 = function(value) {
     var i, idx, len, sum, val;
+    debug('call:isISBN10(%o)', value);
     if (!REGEX_10.test(value)) {
       return false;
     }
@@ -40,6 +44,7 @@
 
   isISBN13 = function(value) {
     var i, idx, len, ref, sum, val;
+    debug('call:isISBN13(%o)', value);
     if (!REGEX_13.test(value)) {
       return false;
     }

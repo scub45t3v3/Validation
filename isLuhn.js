@@ -1,7 +1,9 @@
 (function() {
-  var DOUBLE, REGEX, _, isLuhn;
+  var DOUBLE, REGEX, _, debug, isLuhn;
 
   _ = require('underscore');
+
+  debug = require('debug')('@scuba-squad:validation:isLuhn');
 
   REGEX = /^\d+$/;
 
@@ -9,6 +11,7 @@
 
   isLuhn = function(value) {
     var sum;
+    debug('call:isLuhn(%o)', value);
     if (!REGEX.test(value)) {
       return false;
     }

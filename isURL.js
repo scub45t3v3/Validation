@@ -1,5 +1,7 @@
 (function() {
-  var DOMAIN_REGEX, REGEX, isIP, isURL, url;
+  var DOMAIN_REGEX, REGEX, debug, isIP, isURL, url;
+
+  debug = require('debug')('@scuba-squad:validation:isURL');
 
   url = require('url');
 
@@ -28,6 +30,7 @@
 
   isURL = function(value) {
     var parse;
+    debug('call:isURL(%o)', value);
     if (!REGEX.test(value)) {
       return false;
     }

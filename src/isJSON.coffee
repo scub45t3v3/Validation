@@ -1,4 +1,8 @@
+debug = require('debug') '@scuba-squad:validation:isJSON'
+
 isJSON = (value) ->
+  debug 'call:isJSON(%o)', value
+
   try
     JSON.parse value
 

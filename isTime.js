@@ -1,5 +1,7 @@
 (function() {
-  var REGEX, isTime;
+  var REGEX, debug, isTime;
+
+  debug = require('debug')('@scuba-squad:validation:isTime');
 
   REGEX = /^([0-1]?\d|2[0-3])(?::?([0-5]\d)(?::?([0-5]\d)(?:[.,](\d{1,9}))?)?)?\s*((?:[ap][.,\s-]*m[.,-]*)(?!\w))?\s*(Z|[+-](?:[0-1]?\d|2[0-3])(?::?[0-5]\d)?|[a-z]{2,5}|[a-z\u00c0-\u024f\s'-]+time|[a-z_]{1,256}\/[a-z_]{1,256})?$/i; // hour
   // minute
@@ -16,6 +18,7 @@
 
   isTime = function(value) {
     var ref, ref1;
+    debug('call:isTime(%o)', value);
     value = (ref = (value != null ? typeof value.toString === "function" ? value.toString() : void 0 : void 0) || `${value}`) != null ? typeof ref.trim === "function" ? (ref1 = ref.trim()) != null ? ref1.match(REGEX) : void 0 : void 0 : void 0;
     return !!value && (((value != null ? value[5] : void 0) == null) || parseInt(value != null ? value[1] : void 0) < 13);
   };

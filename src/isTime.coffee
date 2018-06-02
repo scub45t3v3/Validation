@@ -1,3 +1,5 @@
+debug = require('debug') '@scuba-squad:validation:isTime'
+
 REGEX = ///^
 ([0-1]?\d|2[0-3])                           # hour
 (?:
@@ -22,6 +24,8 @@ REGEX = ///^
 $///i
 
 isTime = (value) ->
+  debug 'call:isTime(%o)', value
+
   value = (value?.toString?() || "#{value}")?.trim?()?.match REGEX
 
   return !!value && (!value?[5]? || parseInt(value?[1]) < 13)

@@ -1,7 +1,10 @@
+debug = require('debug') '@scuba-squad:validation:isPostalCode'
 Country = require '@scuba-squad/country'
 isString = require './isString'
 
 isPostalCode = (value, country) ->
+  debug 'call:isPostalCode(%o, %o)', value, country
+
   if !country
     return !!Country.getByPostalCode value
 

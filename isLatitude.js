@@ -1,9 +1,12 @@
 (function() {
-  var isFloat, isLatitude;
+  var debug, isFloat, isLatitude;
+
+  debug = require('debug')('@scuba-squad:validation:isLatitude');
 
   isFloat = require('./isFloat');
 
   isLatitude = function(value) {
+    debug('call:isLatitude(%o)', value);
     return isFloat(value, {
       min: -90,
       max: 90

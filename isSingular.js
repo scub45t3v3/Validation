@@ -1,11 +1,14 @@
 (function() {
-  var isSingular, isString, pluralize;
+  var debug, isSingular, isString, pluralize;
+
+  debug = require('debug')('@scuba-squad:validation:isSingular');
 
   pluralize = require('pluralize');
 
   isString = require('./isString');
 
   isSingular = function(value) {
+    debug('call:isSingular(%o)', value);
     return isString(value) && pluralize.isSingular(value);
   };
 

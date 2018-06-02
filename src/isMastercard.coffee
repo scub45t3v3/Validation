@@ -1,3 +1,4 @@
+debug = require('debug') '@scuba-squad:validation:isMastercard'
 isLuhn = require './isLuhn'
 
 REGEX = ///^
@@ -13,6 +14,8 @@ REGEX = ///^
 $///
 
 isMastercard = (value) ->
+  debug 'call:isMastercard(%o)', value
+
   return REGEX.test(value) && isLuhn(value)
 
 module.exports = isMastercard

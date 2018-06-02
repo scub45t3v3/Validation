@@ -1,3 +1,5 @@
+debug = require('debug') '@scuba-squad:validation:isEmailAddress'
+
 REGEX = ///^
 (?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+    # username
 @                                                         # @ seperator
@@ -5,6 +7,8 @@ REGEX = ///^
 $///i
 
 isEmailAddress = (value) ->
+  debug 'call:isEmailAddress(%o)', value
+
   return REGEX.test value
 
 module.exports = isEmailAddress

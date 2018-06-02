@@ -1,8 +1,13 @@
 (function() {
-  var isSymbol;
+  var REGEX, debug, isSymbol;
+
+  debug = require('debug')('@scuba-squad:validation:isSymbol');
+
+  REGEX = /^Symbol\(.*\)$/;
 
   isSymbol = function(value) {
-    return typeof value === 'symbol' || /^Symbol\(.*\)$/.test(value);
+    debug('call:isSymbol(%o)', value);
+    return typeof value === 'symbol' || REGEX.test(value);
   };
 
   module.exports = isSymbol;

@@ -1,6 +1,10 @@
+debug = require('debug') '@scuba-squad:validation:isISSN'
+
 REGEX = /^\d{4}-?\d{3}[\dX]$/i
 
 isISSN = (value) ->
+  debug 'call:isISSN(%o)', value
+
   if !REGEX.test(value)
     return false
 

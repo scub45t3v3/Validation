@@ -1,4 +1,5 @@
 _ = require 'underscore'
+debug = require('debug') '@scuba-squad:validation:isLuhn'
 
 REGEX = /^\d+$/
 DOUBLE = [
@@ -15,6 +16,8 @@ DOUBLE = [
 ]
 
 isLuhn = (value) ->
+  debug 'call:isLuhn(%o)', value
+
   if !REGEX.test(value)
     return false
 

@@ -1,6 +1,8 @@
+debug = require('debug') '@scuba-squad:validation:isLength'
 isInteger = require './isInteger'
 
 isLength = (value, opt = {}) ->
+  debug 'call:isLength(%o, %o)', value, opt
   length = value?.length || value?.size
 
   if isInteger(opt)
