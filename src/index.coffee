@@ -58,6 +58,7 @@ exports.isLongitude = require './isLongitude'
 exports.isLuhn = require './isLuhn'
 exports.isMastercard = require './isMastercard'
 exports.isPhoneNumber = require './isPhoneNumber'
+exports.isSemVer = require './isSemVer'
 exports.isVIN = require './isVIN'
 exports.isVisa = require './isVisa'
 

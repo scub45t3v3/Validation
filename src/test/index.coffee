@@ -60,6 +60,7 @@ FUNCTIONS = [
   'isPunctuation'
   'isRegExp'
   'isSealed'
+  'isSemVer'
   'isSet'
   'isSHA1'
   'isSHA256'

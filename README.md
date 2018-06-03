@@ -1302,6 +1302,26 @@ Validation.isSealed({a: 5}); // false
 Validation.isSealed([1, 2]); // false
 ```
 
+### `isSemVer(value: mixed): boolean`
+**Added in:** v1.0.0
+
+Check if the `value` is a [semver](https://semver.org/) string
+
+**arguments:**
+1. `value: mixed`
+
+**returns:** boolean
+
+```javascript
+const Validation = require('@scuba-squad/validation');
+
+Validation.isSemVer('1.0.0'); // true
+Validation.isSemVer('1.0.0-beta.0.7+rc.2.6'); // true
+
+Validation.isSemVer('v1.0.5'); // false
+Validation.isSemVer('1.0.0-00.1'); // false
+```
+
 ### `isSet(value: mixed): boolean`
 **Added in:** v1.0.0
 
