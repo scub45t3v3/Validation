@@ -1,3 +1,5 @@
+debug = require('debug') '@scuba-squad:validation:isSemVer'
+
 REGEX = ///^
 (?:\d+\.){2}\d+                                   # MAJOR.MINOR.PATCH
 (?:-
@@ -8,6 +10,8 @@ REGEX = ///^
 $///i
 
 isSemVer = (value) ->
+  debug 'call:isSemVer(%o)', value
+
   return REGEX.test value
 
 module.exports = isSemVer
