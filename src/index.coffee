@@ -5,7 +5,7 @@ exports.isAll = require './isAll'
 # Type
 exports.isArray = require './isArray'
 exports.isArguments = require './isArguments'
-exports.isBool = require './isBool'
+exports.isBoolean = require './isBoolean'
 exports.isEmpty = require './isEmpty'
 exports.isEqual = require './isEqual'
 exports.isError = require './isError'

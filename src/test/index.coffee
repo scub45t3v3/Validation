@@ -12,7 +12,7 @@ FUNCTIONS = [
   'isAscii'
   'isBase64'
   'isBefore'
-  'isBool'
+  'isBoolean'
   'isCreditCard'
   'isDataURI'
   'isDate'

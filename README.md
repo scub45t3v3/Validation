@@ -258,7 +258,7 @@ Validation.isBefore(9); // true / compare defaults to Date.now()
 Validation.isBefore('2030-01-01'); // false / compare defaults to Date.now()
 ```
 
-### `isBool(value: mixed): boolean`
+### `isBoolean(value: mixed): boolean`
 **Added in:** v1.0.0
 
 Check if the `value` is a [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) object or primitive
@@ -271,12 +271,12 @@ Check if the `value` is a [Boolean](https://developer.mozilla.org/en-US/docs/Web
 ```javascript
 const Validation = require('@scuba-squad/validation');
 
-Validation.isBool(true); // true
-Validation.isBool(false); // true
-Validation.isBool(new Boolean()); // true
+Validation.isBoolean(true); // true
+Validation.isBoolean(false); // true
+Validation.isBoolean(new Boolean()); // true
 
-Validation.isBool(1); // false
-Validation.isBool('true'); // false
+Validation.isBoolean(1); // false
+Validation.isBoolean('true'); // false
 ```
 
 ### `isCreditCard(value: string): boolean`

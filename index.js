@@ -9,7 +9,7 @@
 
   exports.isArguments = require('./isArguments');
 
-  exports.isBool = require('./isBool');
+  exports.isBoolean = require('./isBoolean');
 
   exports.isEmpty = require('./isEmpty');
 

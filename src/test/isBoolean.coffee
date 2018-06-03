@@ -1,115 +1,115 @@
 unit = require 'unit.js'
 {noop} = require 'underscore'
-isBool = require '../isBool'
+isBoolean = require '../isBoolean'
 
-describe '#isBool', ->
+describe '#isBoolean', ->
   it 'should be a function', ->
     unit
-      .function isBool
+      .function isBoolean
 
     return null
 
   it 'should return true for bools', ->
     unit
-      .bool isBool(true)
+      .bool isBoolean(true)
       .isTrue()
-      .bool isBool(false)
+      .bool isBoolean(false)
       .isTrue()
-      .bool isBool(new Boolean())
+      .bool isBoolean(new Boolean())
       .isTrue()
-      .bool isBool(new Boolean(1))
+      .bool isBoolean(new Boolean(1))
       .isTrue()
 
     return null
 
   it 'should return false for arrays', ->
     unit
-      .bool isBool([])
+      .bool isBoolean([])
       .isFalse()
-      .bool isBool([1, 2])
+      .bool isBoolean([1, 2])
       .isFalse()
-      .bool isBool(['a', {}, 6])
+      .bool isBoolean(['a', {}, 6])
       .isFalse()
 
     return null
 
   it 'should return false for integers', ->
     unit
-      .bool isBool(1)
+      .bool isBoolean(1)
       .isFalse()
-      .bool isBool(234987)
+      .bool isBoolean(234987)
       .isFalse()
-      .bool isBool(-239874)
+      .bool isBoolean(-239874)
       .isFalse()
-      .bool isBool(0)
+      .bool isBoolean(0)
       .isFalse()
 
     return null
 
   it 'should return false for floats', ->
     unit
-      .bool isBool(1.1)
+      .bool isBoolean(1.1)
       .isFalse()
-      .bool isBool(-0.4)
+      .bool isBoolean(-0.4)
       .isFalse()
-      .bool isBool(234.4)
+      .bool isBoolean(234.4)
       .isFalse()
-      .bool isBool(54.00000000001)
+      .bool isBoolean(54.00000000001)
       .isFalse()
 
     return null
 
   it 'should return false for functions', ->
     unit
-      .bool isBool(noop)
+      .bool isBoolean(noop)
       .isFalse()
-      .bool isBool(isBool)
+      .bool isBoolean(isBoolean)
       .isFalse()
 
     return null
 
   it 'should return false for strings', ->
     unit
-      .bool isBool('adsf')
+      .bool isBoolean('adsf')
       .isFalse()
-      .bool isBool('34.6')
+      .bool isBoolean('34.6')
       .isFalse()
-      .bool isBool('-45fg')
+      .bool isBoolean('-45fg')
       .isFalse()
 
     return null
 
   it 'should return false for regexs', ->
     unit
-      .bool isBool(/asd/)
+      .bool isBoolean(/asd/)
       .isFalse()
-      .bool isBool(/\d+/)
+      .bool isBoolean(/\d+/)
       .isFalse()
-      .bool isBool(/1/)
+      .bool isBoolean(/1/)
       .isFalse()
-      .bool isBool(new RegExp('3'))
+      .bool isBoolean(new RegExp('3'))
       .isFalse()
 
     return null
 
   it 'should return false for objects', ->
     unit
-      .bool isBool({})
+      .bool isBoolean({})
       .isFalse()
-      .bool isBool(new String('asd'))
+      .bool isBoolean(new String('asd'))
       .isFalse()
-      .bool isBool({a: 5})
+      .bool isBoolean({a: 5})
       .isFalse()
 
     return null
 
   it 'should return false for Set', ->
     unit
-      .bool isBool(new Set())
+      .bool isBoolean(new Set())
       .isFalse()
-      .bool isBool(new Set().add(1))
+      .bool isBoolean(new Set().add(1))
       .isFalse()
-      .bool isBool(new Set([1, 2, 3]))
+      .bool isBoolean(new Set([1, 2, 3]))
       .isFalse()
 
     return null
