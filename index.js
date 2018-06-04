@@ -37,6 +37,8 @@
 
   exports.isNull = require('./isNull');
 
+  exports.isPrimitive = require('./isPrimitive');
+
   exports.isPromise = require('./isPromise');
 
   exports.isRegExp = require('./isRegExp');

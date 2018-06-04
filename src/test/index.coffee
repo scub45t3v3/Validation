@@ -56,6 +56,7 @@ FUNCTIONS = [
   'isPhoneNumber'
   'isPlural'
   'isPostalCode'
+  'isPrimitive'
   'isPromise'
   'isPunctuation'
   'isRegExp'

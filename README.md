@@ -1226,6 +1226,33 @@ Validation.isPostalCode('90210', 'AU'); // false
 Validation.isPostalCode('9115-41034', 'US'); // false
 ```
 
+### `isPrimitive(value: mixed): boolean`
+**Added in:** v1.0.0
+
+Check if the `value` is a [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
+
+**arguments:**
+1. `value: mixed`
+
+**returns:** boolean
+
+```javascript
+const Validation = require('@scuba-squad/validation');
+
+Validation.isPrimitive(undefined); // true
+Validation.isPrimitive(null); // true
+Validation.isPrimitive(false); // true
+Validation.isPrimitive(0); // true
+Validation.isPrimitive(''); // true
+Validation.isPrimitive(NaN); // true
+Validation.isPrimitive(Infinity); // true
+Validation.isPrimitive(Symbol()); // true
+
+Validation.isPrimitive(new Boolean()); // false
+Validation.isPrimitive(new Number(0)); // false
+Validation.isPrimitive(new String('')); // false
+```
+
 ### `isPromise(value: mixed): boolean`
 **Added in:** v1.0.0
 
