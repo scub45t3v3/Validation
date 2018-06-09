@@ -159,4 +159,6 @@
 
   exports.isURL = require('./isURL');
 
+  exports.isURN = require('./isURN');
+
 }).call(this);

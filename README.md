@@ -1566,6 +1566,27 @@ Validation.isURL('http://-error-.invalid/'); // false
 Validation.isURL('http://foo.bar?q=Spaces should be encoded'); // false
 ```
 
+### `isURN(value: string): boolean`
+**Added in:** v1.0.0
+
+Check if the `value` is a [URN](https://en.wikipedia.org/wiki/Uniform_Resource_Name) string
+
+**arguments:**
+1. `value: string`
+
+**returns:** boolean
+
+```javascript
+const Validation = require('@scuba-squad/validation');
+
+Validation.isURN('urn:ietf:rfc:2648'); // true
+Validation.isURN('URN:EXAMPLE:a123%2cz456'); // true
+Validation.isURN('urn:example:weather?+lang=en-US?=lat=39.56&lon=-104.85#tomorrow'); // true
+
+Validation.isURN('urn:isbn/0451450523'); // false
+Validation.isURN('urn:example:weather?=q=this should be percent encoded'); // false
+```
+
 ### `isUUID(value: string): boolean`
 **Added in:** v1.0.0
 

@@ -73,6 +73,7 @@ FUNCTIONS = [
   'isTime'
   'isUndefined'
   'isURL'
+  'isURN'
   'isUUID'
   'isVIN'
   'isVisa'
