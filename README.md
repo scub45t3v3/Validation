@@ -496,26 +496,6 @@ Validation.isExtensible(1); // false
 Validation.isExtensible(Object.preventExtensions({a: 5})); // false
 ```
 
-### `isFinite(value: mixed): boolean`
-**Added in:** v1.0.0
-
-Check if the `value` is a finite number
-
-**arguments:**
-1. `value: mixed`
-
-**returns:** boolean
-
-```javascript
-const Validation = require('@scuba-squad/validation');
-
-Validation.isFinite(6); // true
-Validation.isFinite(-3975983.57594); // true
-
-Validation.isFinite(Infinity); // false
-Validation.isFinite(NaN); // false
-```
-
 ### `isFloat(value: mixed, opt: {min: ?number, max: ?number, step: ?number, safe: ?boolean} = {}): boolean`
 **Added in:** v1.0.0
 
