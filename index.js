@@ -125,6 +125,8 @@
 
   exports.isDataURI = require('./isDataURI');
 
+  exports.isDomainName = require('./isDomainName');
+
   exports.isEmailAddress = require('./isEmailAddress');
 
   exports.isHexColor = require('./isHexColor');

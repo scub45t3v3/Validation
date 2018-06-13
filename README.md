@@ -386,6 +386,26 @@ Validation.isDiscover('378282246310004'); // false
 Validation.isDiscover('6011111111111116'); // false
 ```
 
+### `isDomainName(value: mixed, idn: boolean = true): boolean`
+**Added in:** v1.0.0
+
+Check if the `value` is a [domain name](https://en.wikipedia.org/wiki/Domain_name)
+
+**arguments:**
+1. `value: mixed`
+
+**returns:** boolean
+
+```javascript
+const Validation = require('@scuba-squad/validation');
+
+Validation.isDomainName('code.google.com'); // true
+Validation.isDomainName('例子.测试'); // true
+
+Validation.isDomainName('.foo.com'); // false
+Validation.isDomainName('##.$/'); // false
+```
+
 ### `isEmailAddress(value: string): boolean`
 **Added in:** v1.0.0
 

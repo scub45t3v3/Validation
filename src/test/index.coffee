@@ -18,6 +18,7 @@ FUNCTIONS = [
   'isDate'
   'isDinersClub'
   'isDiscover'
+  'isDomainName'
   'isEmailAddress'
   'isEmpty'
   'isEqual'
