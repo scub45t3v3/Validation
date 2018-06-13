@@ -108,6 +108,8 @@
 
   exports.isPhoneNumber = require('./isPhoneNumber');
 
+  exports.isPort = require('./isPort');
+
   exports.isSemVer = require('./isSemVer');
 
   exports.isVIN = require('./isVIN');

@@ -1203,6 +1203,27 @@ Validation.isPlural('table'); // false
 Validation.isPlural('chair'); // false
 ```
 
+### `isPort(value: mixed): boolean`
+**Added in:** v1.0.0
+
+Check if the `value` is a [network port](https://en.wikipedia.org/wiki/Port_(computer_networking))
+
+**arguments:**
+1. `value: mixed`
+
+**returns:** boolean
+
+```javascript
+const Validation = require('@scuba-squad/validation');
+
+Validation.isPort(26); // true
+Validation.isPort('80'); // true
+Validation.isPort(65535); //true
+
+Validation.isPort(0); // false
+Validation.isPort(65536); // false
+```
+
 ### `isPostalCode(value: string, country: ?string | @scuba-squad/country): boolean`
 **Added in:** v1.0.0
 
