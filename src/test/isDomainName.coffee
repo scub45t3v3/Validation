@@ -9,7 +9,7 @@ describe '#isDomainName', ->
 
     return null
 
-  it 'should return true for valid url strings', ->
+  it 'should return true for valid domain name strings', ->
     unit
       .bool isDomainName('foo.com')
       .isTrue()
@@ -51,7 +51,7 @@ describe '#isDomainName', ->
 
     return null
 
-  it 'should return false for invalid url strings', ->
+  it 'should return false for invalid domain name strings', ->
     unit
       .bool isDomainName('')
       .isFalse()

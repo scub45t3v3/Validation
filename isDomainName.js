@@ -5,8 +5,7 @@
 
   punycode = require('punycode');
 
-  REGEX = /^(?:(?:[\w\-~!$&'()*+,;=']|%[\da-f]{2})+\.)+[a-z\d](?:[\w\-~!$&'()*+,;=']|%[\da-f]{2})*[a-z\d]$/; // subdomain(s)
-  // top level domain
+  REGEX = /^(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z][a-z\d-]*[a-z\d]$/i;
 
   isDomainName = function(value, idn = true) {
     var err;
