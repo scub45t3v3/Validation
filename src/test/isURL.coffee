@@ -63,7 +63,9 @@ describe '#isURL', ->
       .isTrue()
       .bool isURL('http://a.b-c.de')
       .isTrue()
-      .bool isURL('http://223.255.255.254')
+      .bool isURL('http://223.255.255.254/path/to?q=1#hash')
+      .isTrue()
+      .bool isURL('http://[2001:db8::ff00:42:8329]/path/to?q=1#hash')
       .isTrue()
 
     return null
