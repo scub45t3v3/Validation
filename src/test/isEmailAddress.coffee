@@ -19,7 +19,15 @@ describe '#isEmailAddress', ->
       .isTrue()
       .bool isEmailAddress('firstname+lastname@example.com')
       .isTrue()
-      .bool isEmailAddress('email@123.123.123.123')
+      .bool isEmailAddress('disposable.style.email.with+symbol@example.com')
+      .isTrue()
+      .bool isEmailAddress('other.email-with-hyphen@example.com')
+      .isTrue()
+      .bool isEmailAddress('fully-qualified-domain@example.com')
+      .isTrue()
+      .bool isEmailAddress('user.name+tag+sorting@example.com')
+      .isTrue()
+      .bool isEmailAddress('example-indeed@strange-example.com')
       .isTrue()
       .bool isEmailAddress('x@example.com')
       .isTrue()
@@ -50,6 +58,8 @@ describe '#isEmailAddress', ->
       .isFalse()
       .bool isEmailAddress('just"not"right@example.com')
       .isFalse()
+      .bool isEmailAddress('this is"not\allowed@example.com')
+      .isFalse()
       .bool isEmailAddress('this\ still\"not\\allowed@example.com')
       .isFalse()
       .bool isEmailAddress('john..doe@example.com')
@@ -60,6 +70,18 @@ describe '#isEmailAddress', ->
       .isFalse()
       .bool isEmailAddress('email@example.com ')
       .isFalse()
+      .bool isEmailAddress('" "@example.org')
+      .isFalse()
+      .bool isEmailAddress('1234567890123456789012345678901234567890123456789012345678901234+x@example.com')
+      .isFalse()
+      .bool isEmailAddress('email@[123.123.123.123]')
+      .isFalse() # technically valid but discouraged
+      .bool isEmailAddress('user@[2001:DB8::1]')
+      .isFalse() # technically valid but discouraged
+      .bool isEmailAddress('"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com')
+      .isFalse() # technically valid but discouraged
+      .bool isEmailAddress('user@localserver')
+      .isFalse() # technically valid but discouraged
 
     return null
 
