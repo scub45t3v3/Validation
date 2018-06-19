@@ -11,11 +11,11 @@ describe '#isPromise', ->
 
   it 'should return true for Promise objects', ->
     unit
-      .bool isPromise(new Promise(noop, noop))
+      .bool isPromise(new Promise(noop))
       .isTrue()
       .bool isPromise(Promise.resolve())
       .isTrue()
-      .bool isPromise(Promise.reject())
+      .bool isPromise(Promise.reject().catch(noop))
       .isTrue()
 
     return null

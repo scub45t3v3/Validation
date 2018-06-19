@@ -13,7 +13,7 @@
       return null;
     });
     it('should return true for Promise objects', function() {
-      unit.bool(isPromise(new Promise(noop, noop))).isTrue().bool(isPromise(Promise.resolve())).isTrue().bool(isPromise(Promise.reject())).isTrue();
+      unit.bool(isPromise(new Promise(noop))).isTrue().bool(isPromise(Promise.resolve())).isTrue().bool(isPromise(Promise.reject().catch(noop))).isTrue();
       return null;
     });
     it('should return false for Set objects', function() {
