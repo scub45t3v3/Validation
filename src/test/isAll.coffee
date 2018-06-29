@@ -31,6 +31,22 @@ describe '#isAll', ->
 
     return null
 
+  it 'should return true for a value that passes truth test for provided RegExp', ->
+    test = [
+      /^\d+$/,
+      /5$/
+    ]
+
+    unit
+      .bool isAll('15', test...)
+      .isTrue()
+      .bool isAll(5, test...)
+      .isTrue()
+      .bool isAll('09545', test...)
+      .isTrue()
+
+    return null
+
   it 'should return true for a value that passes truth test for provided function references with additional arguments', ->
     test = [
       'isDate'
@@ -69,14 +85,12 @@ describe '#isAll', ->
 
     return null
 
-  it 'should throw an error if any callable argument that can not be resolved to a function', ->
+  it 'should throw an error for any callable argument that can not be resolved to a function', ->
     unit
       .error ->
         isAll 5, {}
       .error ->
         isAll 5, []
-      .error ->
-        isAll 5, /^\d$/
       .error ->
         isAll 5, '5'
       .error ->

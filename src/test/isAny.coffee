@@ -31,6 +31,22 @@ describe '#isAny', ->
 
     return null
 
+  it 'should return true for a value that passes truth test for provided RegExp', ->
+    test = [
+      /^\d+$/,
+      /^hello/i
+    ]
+
+    unit
+      .bool isAny('hello', test...)
+      .isTrue()
+      .bool isAny(5, test...)
+      .isTrue()
+      .bool isAny('0954', test...)
+      .isTrue()
+
+    return null
+
   it 'should return true for a value that passes truth test for provided function references', ->
     test = [
       'isDate'
@@ -70,14 +86,12 @@ describe '#isAny', ->
 
     return null
 
-  it 'should throw an error if any callable argument that can not be resolved to a function', ->
+  it 'should throw an error for any callable argument that can not be resolved to a function', ->
     unit
       .error ->
         isAny 5, {}
       .error ->
         isAny 5, []
-      .error ->
-        isAny 5, /^\d$/
       .error ->
         isAny 5, '5'
       .error ->

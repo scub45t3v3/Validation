@@ -1,5 +1,5 @@
 (function() {
-  var _, debug, isArray, isFunction, isString, toCallable;
+  var _, debug, isArray, isFunction, isRegExp, isString, toCallable;
 
   _ = require('underscore');
 
@@ -8,6 +8,8 @@
   isFunction = require('../isFunction');
 
   isString = require('../isString');
+
+  isRegExp = require('../isRegExp');
 
   isArray = require('../isArray');
 
@@ -19,6 +21,9 @@
     }
     if (isString(value)) {
       return require(`../${value}`);
+    }
+    if (isRegExp(value)) {
+      return value.test.bind(value);
     }
     if (isArray(value)) {
       func = toCallable(_.first(value));

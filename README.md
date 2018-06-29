@@ -49,16 +49,17 @@ Validation.isAfter('2030-01-01'); // true / compare defaults to Date.now()
 Validation.isAfter(9) // false / compare defaults to Date.now()
 ```
 
-### `isAll(value: mixed, ...callable: function | string | array): boolean`
+### `isAll(value: mixed, ...callable: function | string | regexp | array): boolean`
 **Added in:** v1.0.0
 
 Check if the `value` passes all the provided `callable` functions
 
 **arguments:**
 1. `value: mixed`
-2. `...callable: function | string | array`
+2. `...callable: function | string | regexp | array`
   - *function is any function that can be called passing `value` as the first argument*
   - *string is name of a `@scuba-squad/validation` function*
+  - *regexp is a regexp to validate against using a bound `test` method*
   - *array allows for additional arguments to be passed to the function*
 
 **returns:** boolean
@@ -129,16 +130,17 @@ Validation.isAmericanExpress('378282246310005'); // true
 Validation.isAmericanExpress('6011111111111117'); // false
 ```
 
-### `isAny(value: mixed, ...callable: function | string | array): boolean`
+### `isAny(value: mixed, ...callable: function | string | regexp | array): boolean`
 **Added in:** v1.0.0
 
 Check if the `value` passes any of the provided `callable` functions
 
 **arguments:**
 1. `value: mixed`
-2. `...callable: function | string | array`
+2. `...callable: function | string | regexp | array`
   - *function is any function that can be called passing `value` as the first argument*
   - *string is name of a `@scuba-squad/validation` function*
+  - *regexp is a regexp to validate against using a bound `test` method*
   - *array allows for additional arguments to be passed to the function*
 
 **returns:** boolean

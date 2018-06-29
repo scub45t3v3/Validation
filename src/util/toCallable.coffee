@@ -2,6 +2,7 @@ _ = require 'underscore'
 debug = require('debug') '@scuba-squad:validation:util:toCallable'
 isFunction = require '../isFunction'
 isString = require '../isString'
+isRegExp = require '../isRegExp'
 isArray = require '../isArray'
 
 toCallable = (value) ->
@@ -11,6 +12,9 @@ toCallable = (value) ->
 
   if isString(value)
     return require "../#{value}"
+
+  if isRegExp(value)
+    return value.test.bind value
 
   if isArray(value)
     func = toCallable _.first(value)

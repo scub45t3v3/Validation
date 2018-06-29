@@ -28,6 +28,12 @@
       unit.bool(isAll(1, ...test)).isTrue().bool(isAll(99, ...test)).isTrue().bool(isAll(.000001, ...test)).isTrue().bool(isAll(99.99999, ...test)).isTrue();
       return null;
     });
+    it('should return true for a value that passes truth test for provided RegExp', function() {
+      var test;
+      test = [/^\d+$/, /5$/];
+      unit.bool(isAll('15', ...test)).isTrue().bool(isAll(5, ...test)).isTrue().bool(isAll('09545', ...test)).isTrue();
+      return null;
+    });
     it('should return true for a value that passes truth test for provided function references with additional arguments', function() {
       var test;
       test = ['isDate', ['isBefore', '2050-01-01'], ['isAfter', '2000-01-01']];
@@ -44,13 +50,11 @@
       }, ...test)).isFalse();
       return null;
     });
-    return it('should throw an error if any callable argument that can not be resolved to a function', function() {
+    return it('should throw an error for any callable argument that can not be resolved to a function', function() {
       unit.error(function() {
         return isAll(5, {});
       }).error(function() {
         return isAll(5, []);
-      }).error(function() {
-        return isAll(5, /^\d$/);
       }).error(function() {
         return isAll(5, '5');
       }).error(function() {
