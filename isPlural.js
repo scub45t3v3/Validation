@@ -1,17 +1,16 @@
-(function() {
-  var debug, isPlural, isString, pluralize;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isPlural');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isPlural');
+  const pluralize = require('pluralize');
+  const isString = require('./isString');
 
-  pluralize = require('pluralize');
-
-  isString = require('./isString');
-
-  isPlural = function(value) {
+  const isPlural = (value) => {
     debug('call:isPlural(%o)', value);
+
     return isString(value) && pluralize.isPlural(value);
   };
 
   module.exports = isPlural;
-
-}).call(this);
+})(); // end IIFE
