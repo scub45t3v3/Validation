@@ -1,17 +1,15 @@
-(function() {
-  var _isEqual, debug, isEqual;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isEqual');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isEqual');
+  const {isEqual: _isEqual} = require('underscore');
 
-  ({isEqual} = require('underscore'));
-
-  _isEqual = isEqual;
-
-  isEqual = function(value, compare) {
+  const isEqual = (value, compare) => {
     debug('call:isEqual(%o, %o)', value, compare);
+
     return _isEqual(value, compare);
   };
 
   module.exports = isEqual;
-
-}).call(this);
+})(); // end IIFE
