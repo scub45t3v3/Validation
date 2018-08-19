@@ -1,18 +1,18 @@
-(function() {
-  var debug, isFloat, isLatitude;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isLatitude');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isLatitude');
+  const isFloat = require('./isFloat');
 
-  isFloat = require('./isFloat');
-
-  isLatitude = function(value) {
+  const isLatitude = (value) => {
     debug('call:isLatitude(%o)', value);
+
     return isFloat(value, {
       min: -90,
-      max: 90
+      max: 90,
     });
   };
 
   module.exports = isLatitude;
-
-}).call(this);
+})(); // end IIFE
