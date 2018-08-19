@@ -1,21 +1,22 @@
-(function() {
-  var _, debug, isAny, toCallable;
+'use strict';
 
-  _ = require('underscore');
+(() => {
+  // include dependencies
+  const _ = require('underscore');
+  const debug = require('debug')('@scuba-squad:validation:isAny');
+  const toCallable = require('./util/toCallable');
 
-  debug = require('debug')('@scuba-squad:validation:isAny');
-
-  toCallable = require('./util/toCallable');
-
-  isAny = function(value, ...args) {
+  const isAny = (value, ...args) => {
     debug('call:isAny(%o, %o)', value, args);
+
     args = _.map(args, toCallable);
-    return _.any(args, function(func) {
+
+    return _.any(args, (func) => {
       debug('call:%s(%o)', func.name, value);
+
       return func(value);
     });
   };
 
   module.exports = isAny;
-
-}).call(this);
+})(); // end IIFE
