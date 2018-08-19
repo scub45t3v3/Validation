@@ -1,17 +1,19 @@
-(function() {
-  var REGEX, debug, isBase64, isRegExp;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isBase64');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isBase64');
+  const isRegExp = require('./isRegExp');
+  const REGEX = /^[a-z\d+/]+={0,2}$/i;
 
-  isRegExp = require('./isRegExp');
-
-  REGEX = /^[a-z\d+\/]+={0,2}$/i;
-
-  isBase64 = function(value) {
+  const isBase64 = (value) => {
     debug('call:isBase64(%o)', value);
-    return (value != null) && !isRegExp(value) && REGEX.test(value) && !((value != null ? value.length : void 0) % 4);
+
+    return value
+      && !isRegExp(value)
+      && REGEX.test(value)
+      && !(value.length % 4);
   };
 
   module.exports = isBase64;
-
-}).call(this);
+})(); // end IIFE
