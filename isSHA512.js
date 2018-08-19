@@ -1,15 +1,15 @@
-(function() {
-  var debug, isAll, isSHA512;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isSHA512');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isSHA512');
+  const isAll = require('./isAll');
 
-  isAll = require('./isAll');
-
-  isSHA512 = function(value) {
+  const isSHA512 = (value) => {
     debug('call:isSHA512(%o)', value);
+
     return isAll(value, 'isHexadecimal', ['isLength', 128]);
   };
 
   module.exports = isSHA512;
-
-}).call(this);
+})(); // end IIFE
