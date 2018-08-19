@@ -1,21 +1,20 @@
-(function() {
-  var REGEX, debug, isISIN, isLuhn;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isISIN');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isISIN');
+  const isLuhn = require('./isLuhn');
+  const REGEX = /^[a-z\d]{12}$/i;
 
-  isLuhn = require('./isLuhn');
-
-  REGEX = /^[a-z\d]{12}$/i;
-
-  isISIN = function(value) {
-    var sanitized;
+  const isISIN = (value) => {
     debug('call:isISIN(%o)', value);
-    sanitized = value != null ? typeof value.toString === "function" ? value.toString().replace(/[a-z]/gim, function(match) {
+
+    const sanitized = (value && (value.toString() || `${value}`).replace(/[a-z]/gim, (match) => {
       return `${parseInt(match, 36)}`;
-    }) : void 0 : void 0;
+    })) || undefined;
+
     return REGEX.test(value) && isLuhn(sanitized);
   };
 
   module.exports = isISIN;
-
-}).call(this);
+})(); // end IIFE
