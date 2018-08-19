@@ -1,13 +1,14 @@
-(function() {
-  var debug, isSet;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isSet');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isSet');
 
-  isSet = function(value) {
+  const isSet = (value) => {
     debug('call:isSet(%o)', value);
+
     return value instanceof Set;
   };
 
   module.exports = isSet;
-
-}).call(this);
+})(); // end IIFE
