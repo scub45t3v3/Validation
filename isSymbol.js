@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isSymbol;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isSymbol');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isSymbol');
+  const REGEX = /^Symbol\(.*\)$/;
 
-  REGEX = /^Symbol\(.*\)$/;
-
-  isSymbol = function(value) {
+  const isSymbol = (value) => {
     debug('call:isSymbol(%o)', value);
+
     return typeof value === 'symbol' || REGEX.test(value);
   };
 
   module.exports = isSymbol;
-
-}).call(this);
+})(); // end IIFE
