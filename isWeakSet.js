@@ -1,13 +1,14 @@
-(function() {
-  var debug, isWeakSet;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isWeakSet');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isWeakSet');
 
-  isWeakSet = function(value) {
+  const isWeakSet = (value) => {
     debug('call:isWeakSet(%o)', value);
+
     return value instanceof WeakSet;
   };
 
   module.exports = isWeakSet;
-
-}).call(this);
+})(); // end IIFE
