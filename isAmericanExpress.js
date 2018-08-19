@@ -1,17 +1,16 @@
-(function() {
-  var REGEX, debug, isAmericanExpress, isLuhn;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isAmericanExpress');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isAmericanExpress');
+  const isLuhn = require('./isLuhn');
+  const REGEX = /^3[47][0-9]{13}$/;
 
-  isLuhn = require('./isLuhn');
-
-  REGEX = /^3[47][0-9]{13}$/;
-
-  isAmericanExpress = function(value) {
+  const isAmericanExpress = (value) => {
     debug('call:isAmericanExpress(%o)', value);
+
     return REGEX.test(value) && isLuhn(value);
   };
 
   module.exports = isAmericanExpress;
-
-}).call(this);
+})(); // end IIFE
