@@ -1,15 +1,15 @@
-(function() {
-  var debug, isAll, isMD5;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isMD5');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isMD5');
+  const isAll = require('./isAll');
 
-  isAll = require('./isAll');
-
-  isMD5 = function(value) {
+  const isMD5 = (value) => {
     debug('call:isMD5(%o)', value);
+
     return isAll(value, 'isHexadecimal', ['isLength', 32]);
   };
 
   module.exports = isMD5;
-
-}).call(this);
+})(); // end IIFE
