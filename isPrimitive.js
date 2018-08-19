@@ -1,15 +1,16 @@
-(function() {
-  var debug, isPrimitive;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isPrimitive');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isPrimitive');
 
-  isPrimitive = function(value) {
-    var primitives;
+  const isPrimitive = (value) => {
     debug('call:isPrimitive(%o)', value);
-    primitives = ['boolean', 'string', 'number', 'symbol'];
+
+    const primitives = ['boolean', 'string', 'number', 'symbol'];
+
     return (value == null) || !!~primitives.indexOf(typeof value);
   };
 
   module.exports = isPrimitive;
-
-}).call(this);
+})(); // end IIFE
