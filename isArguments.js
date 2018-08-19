@@ -1,13 +1,14 @@
-(function() {
-  var debug, isArguments;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isArguments');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isArguments');
 
-  isArguments = function(value) {
+  const isArguments = (value) => {
     debug('call:isArguments(%o)', value);
-    return ((value != null ? typeof value.toString === "function" ? value.toString() : void 0 : void 0) || `${value}`) === '[object Arguments]';
+
+    return (value && (value.toString() || `${value}`)) === '[object Arguments]';
   };
 
   module.exports = isArguments;
-
-}).call(this);
+})(); // end IIFE
