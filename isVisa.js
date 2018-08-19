@@ -1,17 +1,16 @@
-(function() {
-  var REGEX, debug, isLuhn, isVisa;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isVisa');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isVisa');
+  const isLuhn = require('./isLuhn');
+  const REGEX = /^4\d{12}(?:\d{3})?$/;
 
-  isLuhn = require('./isLuhn');
-
-  REGEX = /^4\d{12}(?:\d{3})?$/;
-
-  isVisa = function(value) {
+  const isVisa = (value) => {
     debug('call:isVisa(%o)', value);
+
     return REGEX.test(value) && isLuhn(value);
   };
 
   module.exports = isVisa;
-
-}).call(this);
+})(); // end IIFE
