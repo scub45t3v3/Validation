@@ -1,16 +1,19 @@
-(function() {
-  var debug, isBoolean, isIterator;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isIterator');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isIterator');
+  const isBoolean = require('./isBoolean');
 
-  isBoolean = require('./isBoolean');
-
-  isIterator = function(value) {
-    var ref;
+  const isIterator = (value) => {
     debug('call:isIterator(%o)', value);
-    return isBoolean(value != null ? typeof value.next === "function" ? (ref = value.next()) != null ? ref.done : void 0 : void 0 : void 0);
+
+    try {
+      return isBoolean(value.next().done);
+    } catch (error) {
+      return false;
+    }
   };
 
   module.exports = isIterator;
-
-}).call(this);
+})(); // end IIFE
