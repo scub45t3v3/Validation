@@ -1,20 +1,20 @@
-(function() {
-  var debug, isJSON;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isJSON');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isJSON');
 
-  isJSON = function(value) {
-    var error;
+  const isJSON = (value) => {
     debug('call:isJSON(%o)', value);
+
     try {
       JSON.parse(value);
+
       return true;
-    } catch (error1) {
-      error = error1;
+    } catch (error) {
       return false;
     }
   };
 
   module.exports = isJSON;
-
-}).call(this);
+})(); // end IIFE
