@@ -1,15 +1,15 @@
-(function() {
-  var GeneratorFunction, debug, isGeneratorFunction;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isGeneratorFunction');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isGeneratorFunction');
+  const GeneratorFunction = require('./util/GeneratorFunction');
 
-  GeneratorFunction = require('./util/GeneratorFunction');
-
-  isGeneratorFunction = function(value) {
+  const isGeneratorFunction = (value) => {
     debug('call:isGeneratorFunction(%o)', value);
+
     return value instanceof GeneratorFunction;
   };
 
   module.exports = isGeneratorFunction;
-
-}).call(this);
+})(); // end IIFE
