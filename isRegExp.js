@@ -1,13 +1,14 @@
-(function() {
-  var debug, isRegExp;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isRegExp');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isRegExp');
 
-  isRegExp = function(value) {
+  const isRegExp = (value) => {
     debug('call:isRegExp(%o)', value);
+
     return value instanceof RegExp;
   };
 
   module.exports = isRegExp;
-
-}).call(this);
+})(); // end IIFE
