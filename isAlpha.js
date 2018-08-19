@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isAlpha;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isAlpha');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isAlpha');
+  const REGEX = /^[a-z]+$/i;
 
-  REGEX = /^[a-z]+$/i;
-
-  isAlpha = function(value) {
+  const isAlpha = (value) => {
     debug('call:isAlpha(%o)', value);
+
     return (value != null) && REGEX.test(value);
   };
 
   module.exports = isAlpha;
-
-}).call(this);
+})(); // end IIFE
