@@ -1,17 +1,16 @@
-(function() {
-  var REGEX, debug, isDinersClub, isLuhn;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isDinersClub');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isDinersClub');
+  const isLuhn = require('./isLuhn');
+  const REGEX = /^3(?:0[0-5]|[68]\d)\d{11}$/;
 
-  isLuhn = require('./isLuhn');
-
-  REGEX = /^3(?:0[0-5]|[68]\d)\d{11}$/;
-
-  isDinersClub = function(value) {
+  const isDinersClub = (value) => {
     debug('call:isDinersClub(%o)', value);
+
     return REGEX.test(value) && isLuhn(value);
   };
 
   module.exports = isDinersClub;
-
-}).call(this);
+})(); // end IIFE
