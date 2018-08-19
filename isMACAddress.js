@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isMACAddress;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isMACAddress');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isMACAddress');
+  const REGEX = /^(?:[a-f\d]{2}:){5}[a-f\d]{2}$/i;
 
-  REGEX = /^(?:[a-f\d]{2}:){5}[a-f\d]{2}$/i;
-
-  isMACAddress = function(value) {
+  const isMACAddress = (value) => {
     debug('call:isMACAddress(%o)', value);
+
     return REGEX.test(value);
   };
 
   module.exports = isMACAddress;
-
-}).call(this);
+})(); // end IIFE
