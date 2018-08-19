@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isISRC;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isISRC');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isISRC');
+  const REGEX = /^[a-z]{2}[a-z\d]{3}\d{7}$/i;
 
-  REGEX = /^[a-z]{2}[a-z\d]{3}\d{7}$/i;
-
-  isISRC = function(value) {
+  const isISRC = (value) => {
     debug('call:isISRC(%o)', value);
+
     return REGEX.test(value);
   };
 
   module.exports = isISRC;
-
-}).call(this);
+})(); // end IIFE
