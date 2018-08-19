@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isAscii;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isAscii');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isAscii');
+  const REGEX = /^[\x00-\x7F]+$/; // eslint-disable-line no-control-regex
 
-  REGEX = /^[\x00-\x7F]+$/;
-
-  isAscii = function(value) {
+  const isAscii = (value) => {
     debug('call:isAscii(%o)', value);
+
     return (value != null) && REGEX.test(value);
   };
 
   module.exports = isAscii;
-
-}).call(this);
+})(); // end IIFE
