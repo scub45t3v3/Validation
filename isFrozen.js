@@ -1,13 +1,14 @@
-(function() {
-  var debug, isFrozen;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isFrozen');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isFrozen');
 
-  isFrozen = function(value) {
+  const isFrozen = (value) => {
     debug('call:isFrozen(%o)', value);
+
     return Object.isFrozen(value);
   };
 
   module.exports = isFrozen;
-
-}).call(this);
+})(); // end IIFE
