@@ -1,17 +1,23 @@
-(function() {
-  var CARDS, debug, isAny, isCreditCard;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isCreditCard');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isCreditCard');
+  const isAny = require('./isAny');
+  const CARDS = [
+    'isAmericanExpress',
+    'isDinersClub',
+    'isDiscover',
+    'isJCB',
+    'isMastercard',
+    'isVisa',
+  ];
 
-  isAny = require('./isAny');
-
-  CARDS = ['isAmericanExpress', 'isDinersClub', 'isDiscover', 'isJCB', 'isMastercard', 'isVisa'];
-
-  isCreditCard = function(value) {
+  const isCreditCard = (value) => {
     debug('call:isCreditCard(%o)', value);
+
     return isAny(value, ...CARDS);
   };
 
   module.exports = isCreditCard;
-
-}).call(this);
+})(); // end IIFE
