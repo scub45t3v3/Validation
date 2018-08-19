@@ -1,17 +1,15 @@
-(function() {
-  var _isMatch, debug, isMatch;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isMatch');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isMatch');
+  const {isMatch: _isMatch} = require('underscore');
 
-  ({isMatch} = require('underscore'));
-
-  _isMatch = isMatch;
-
-  isMatch = function(value, compare) {
+  const isMatch = (value, compare) => {
     debug('call:isMatch(%o, %o)', value, compare);
+
     return _isMatch(value, compare);
   };
 
   module.exports = isMatch;
-
-}).call(this);
+})(); // end IIFE
