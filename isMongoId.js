@@ -1,15 +1,15 @@
-(function() {
-  var debug, isAll, isMongoId;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isMongoId');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isMongoId');
+  const isAll = require('./isAll');
 
-  isAll = require('./isAll');
-
-  isMongoId = function(value) {
+  const isMongoId = (value) => {
     debug('call:isMongoId(%o)', value);
+
     return isAll(value, 'isHexadecimal', ['isLength', 24]);
   };
 
   module.exports = isMongoId;
-
-}).call(this);
+})(); // end IIFE
