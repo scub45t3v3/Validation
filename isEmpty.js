@@ -1,17 +1,15 @@
-(function() {
-  var _isEmpty, debug, isEmpty;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isEmpty');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isEmpty');
+  const {isEmpty: _isEmpty} = require('underscore');
 
-  ({isEmpty} = require('underscore'));
-
-  _isEmpty = isEmpty;
-
-  isEmpty = function(value) {
+  const isEmpty = (value) => {
     debug('call:isEmpty(%o)', value);
+
     return _isEmpty(value);
   };
 
   module.exports = isEmpty;
-
-}).call(this);
+})(); // end IIFE
