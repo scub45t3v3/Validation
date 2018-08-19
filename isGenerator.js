@@ -1,13 +1,14 @@
-(function() {
-  var debug, isGenerator;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isGenerator');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isGenerator');
 
-  isGenerator = function(value) {
+  const isGenerator = (value) => {
     debug('call:isGenerator(%o)', value);
-    return ((value != null ? typeof value.toString === "function" ? value.toString() : void 0 : void 0) || `${value}`) === '[object Generator]';
+
+    return !!value && (value.toString() || `${value}`) === '[object Generator]';
   };
 
   module.exports = isGenerator;
-
-}).call(this);
+})(); // end IIFE
