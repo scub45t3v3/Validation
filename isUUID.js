@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isUUID;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isUUID');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isUUID');
+  const REGEX = /^[a-f\d]{8}(?:-[a-f\d]{4}){3}-[a-f\d]{12}$/i;
 
-  REGEX = /^[a-f\d]{8}(?:-[a-f\d]{4}){3}-[a-f\d]{12}$/i;
-
-  isUUID = function(value) {
+  const isUUID = (value) => {
     debug('call:isUUID(%o)', value);
+
     return REGEX.test(value);
   };
 
   module.exports = isUUID;
-
-}).call(this);
+})(); // end IIFE
