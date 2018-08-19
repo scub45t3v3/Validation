@@ -1,18 +1,18 @@
-(function() {
-  var debug, isFloat, isLongitude;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isLongitude');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isLongitude');
+  const isFloat = require('./isFloat');
 
-  isFloat = require('./isFloat');
-
-  isLongitude = function(value) {
+  const isLongitude = (value) => {
     debug('call:isLongitude(%o)', value);
+
     return isFloat(value, {
       min: -180,
-      max: 180
+      max: 180,
     });
   };
 
   module.exports = isLongitude;
-
-}).call(this);
+})(); // end IIFE
