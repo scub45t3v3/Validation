@@ -1,15 +1,15 @@
-(function() {
-  var REGEX, debug, isHexColor;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isHexColor');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isHexColor');
+  const REGEX = /^#?(?:[a-f\d]{3}){1,2}$/i;
 
-  REGEX = /^#?(?:[a-f\d]{3}){1,2}$/i;
-
-  isHexColor = function(value) {
+  const isHexColor = (value) => {
     debug('call:isHexColor(%o)', value);
+
     return REGEX.test(value);
   };
 
   module.exports = isHexColor;
-
-}).call(this);
+})(); // end IIFE
