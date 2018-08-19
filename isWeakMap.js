@@ -1,13 +1,14 @@
-(function() {
-  var debug, isWeakMap;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isWeakMap');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isWeakMap');
 
-  isWeakMap = function(value) {
+  const isWeakMap = (value) => {
     debug('call:isWeakMap(%o)', value);
+
     return value instanceof WeakMap;
   };
 
   module.exports = isWeakMap;
-
-}).call(this);
+})(); // end IIFE
