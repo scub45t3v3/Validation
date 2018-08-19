@@ -1,17 +1,16 @@
-(function() {
-  var debug, isDate, isRegExp, moment;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isDate');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isDate');
+  const moment = require('moment');
+  const isRegExp = require('./isRegExp');
 
-  moment = require('moment');
-
-  isRegExp = require('./isRegExp');
-
-  isDate = function(value) {
+  const isDate = (value) => {
     debug('call:isDate(%o)', value);
+
     return !isRegExp(value) && moment(value).isValid();
   };
 
   module.exports = isDate;
-
-}).call(this);
+})(); // end IIFE
