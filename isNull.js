@@ -1,13 +1,14 @@
-(function() {
-  var debug, isNull;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isNull');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isNull');
 
-  isNull = function(value) {
+  const isNull = (value) => {
     debug('call:isNull(%o)', value);
+
     return value === null;
   };
 
   module.exports = isNull;
-
-}).call(this);
+})(); // end IIFE
