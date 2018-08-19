@@ -1,13 +1,14 @@
-(function() {
-  var debug, isUndefined;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isUndefined');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isUndefined');
 
-  isUndefined = function(value) {
+  const isUndefined = (value) => {
     debug('call:isUndefined(%o)', value);
-    return value === void 0;
+
+    return value === undefined;
   };
 
   module.exports = isUndefined;
-
-}).call(this);
+})(); // end IIFE
