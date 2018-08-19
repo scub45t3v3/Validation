@@ -1,13 +1,14 @@
-(function() {
-  var debug, isFunction;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isFunction');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isFunction');
 
-  isFunction = function(value) {
+  const isFunction = (value) => {
     debug('call:isFunction(%o)', value);
+
     return typeof value === 'function';
   };
 
   module.exports = isFunction;
-
-}).call(this);
+})(); // end IIFE
