@@ -1,13 +1,14 @@
-(function() {
-  var debug, isSealed;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isSealed');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isSealed');
 
-  isSealed = function(value) {
+  const isSealed = (value) => {
     debug('call:isSealed(%o)', value);
+
     return Object.isSealed(value);
   };
 
   module.exports = isSealed;
-
-}).call(this);
+})(); // end IIFE
