@@ -1,12 +1,13 @@
-(function() {
-  var debug, isIP, net;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isIP');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isIP');
+  const net = require('net');
 
-  net = require('net');
-
-  isIP = function(value, version) {
+  const isIP = (value, version) => {
     debug('call:isIP(%o, %o)', value, version);
+
     switch (version) {
       case 4:
       case '4':
@@ -20,5 +21,4 @@
   };
 
   module.exports = isIP;
-
-}).call(this);
+})(); // end IIFE
