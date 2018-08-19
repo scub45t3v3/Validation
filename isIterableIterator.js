@@ -1,14 +1,18 @@
-(function() {
-  var debug, isIterableIterator;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isIterableIterator');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isIterableIterator');
 
-  isIterableIterator = function(value) {
-    var name;
+  const isIterableIterator = (value) => {
     debug('call:isIterableIterator(%o)', value);
-    return (value != null ? typeof value[name = Symbol.iterator] === "function" ? value[name]() : void 0 : void 0) === value;
+
+    try {
+      return value[Symbol.iterator]() === value;
+    } catch (error) {
+      return false;
+    }
   };
 
   module.exports = isIterableIterator;
-
-}).call(this);
+})(); // end IIFE
