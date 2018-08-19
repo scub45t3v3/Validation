@@ -1,13 +1,14 @@
-(function() {
-  var debug, isString;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isString');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isString');
 
-  isString = function(value) {
+  const isString = (value) => {
     debug('call:isString(%o)', value);
+
     return value instanceof String || typeof value === 'string';
   };
 
   module.exports = isString;
-
-}).call(this);
+})(); // end IIFE
