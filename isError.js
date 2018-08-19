@@ -1,13 +1,14 @@
-(function() {
-  var debug, isError;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isError');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isError');
 
-  isError = function(value) {
+  const isError = (value) => {
     debug('call:isError(%o)', value);
+
     return value instanceof Error;
   };
 
   module.exports = isError;
-
-}).call(this);
+})(); // end IIFE
