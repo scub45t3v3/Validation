@@ -1,13 +1,14 @@
-(function() {
-  var debug, isPromise;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isPromise');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isPromise');
 
-  isPromise = function(value) {
+  const isPromise = (value) => {
     debug('call:isPromise(%o)', value);
+
     return value instanceof Promise;
   };
 
   module.exports = isPromise;
-
-}).call(this);
+})(); // end IIFE
