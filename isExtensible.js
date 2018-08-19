@@ -1,13 +1,14 @@
-(function() {
-  var debug, isExtensible;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isExtensible');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isExtensible');
 
-  isExtensible = function(value) {
+  const isExtensible = (value) => {
     debug('call:isExtensible(%o)', value);
+
     return Object.isExtensible(value);
   };
 
   module.exports = isExtensible;
-
-}).call(this);
+})(); // end IIFE
