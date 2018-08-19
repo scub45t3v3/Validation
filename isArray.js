@@ -1,13 +1,14 @@
-(function() {
-  var debug, isArray;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isArray');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isArray');
 
-  isArray = function(value) {
+  const isArray = (value) => {
     debug('call:isArray(%o)', value);
+
     return Array.isArray(value);
   };
 
   module.exports = isArray;
-
-}).call(this);
+})(); // end IIFE
