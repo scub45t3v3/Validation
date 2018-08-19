@@ -1,17 +1,16 @@
-(function() {
-  var debug, isSingular, isString, pluralize;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isSingular');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isSingular');
+  const pluralize = require('pluralize');
+  const isString = require('./isString');
 
-  pluralize = require('pluralize');
-
-  isString = require('./isString');
-
-  isSingular = function(value) {
+  const isSingular = (value) => {
     debug('call:isSingular(%o)', value);
+
     return isString(value) && pluralize.isSingular(value);
   };
 
   module.exports = isSingular;
-
-}).call(this);
+})(); // end IIFE
