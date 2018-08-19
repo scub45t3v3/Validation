@@ -1,27 +1,26 @@
-(function() {
-  var REGEX, debug, isDomainName, punycode;
+'use strict';
 
-  debug = require('debug')('@scuba-squad:validation:isDomainName');
+(() => {
+  // include dependencies
+  const debug = require('debug')('@scuba-squad:validation:isDomainName');
+  const punycode = require('punycode');
+  const REGEX = /^(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z][a-z\d-]*[a-z\d]$/i;
 
-  punycode = require('punycode');
-
-  REGEX = /^(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z][a-z\d-]*[a-z\d]$/i;
-
-  isDomainName = function(value, idn = true) {
-    var err;
+  const isDomainName = (value, idn = true) => {
     debug('call:isDomainName(%o, %o)', value, idn);
+
     if (idn) {
       try {
         value = punycode.toASCII(value);
       } catch (error) {
-        err = error;
-        debug('error:punycode %o', err);
+        debug('error:punycode %o', error);
+
         return false;
       }
     }
+
     return REGEX.test(value);
   };
 
   module.exports = isDomainName;
-
-}).call(this);
+})(); // end IIFE
