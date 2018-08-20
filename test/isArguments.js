@@ -1,55 +1,108 @@
-(function() {
-  var isArguments, noop, unit;
+'use strict';
 
-  unit = require('unit.js');
+(() => {
+  // include dependencies
+  const unit = require('unit.js');
+  const {noop} = require('underscore');
+  const isArguments = require('../isArguments');
 
-  ({noop} = require('underscore'));
+  // describe #isArguments
+  describe('#isArguments', () => {
+    it('should be a function', () => {
+      unit
+        .function(isArguments);
+    }); // end it
 
-  isArguments = require('../isArguments');
-
-  describe('#isArguments', function() {
-    it('should be a function', function() {
-      unit.function(isArguments);
-      return null;
-    });
     it('should return true for arguments', function() {
-      unit.bool(isArguments(arguments)).isTrue();
-      return null;
-    });
-    it('should return false for arrays', function() {
-      unit.bool(isArguments([])).isFalse().bool(isArguments([1, 2])).isFalse().bool(isArguments(['a', {}, 6])).isFalse();
-      return null;
-    });
-    it('should return false for integers', function() {
-      unit.bool(isArguments(1)).isFalse().bool(isArguments(234987)).isFalse().bool(isArguments(-239874)).isFalse().bool(isArguments(0)).isFalse();
-      return null;
-    });
-    it('should return false for floats', function() {
-      unit.bool(isArguments(1.1)).isFalse().bool(isArguments(-0.4)).isFalse().bool(isArguments(234.4)).isFalse().bool(isArguments(54.00000000001)).isFalse();
-      return null;
-    });
-    it('should return false for functions', function() {
-      unit.bool(isArguments(noop)).isFalse().bool(isArguments(isArguments)).isFalse();
-      return null;
-    });
-    it('should return false for strings', function() {
-      unit.bool(isArguments('adsf')).isFalse().bool(isArguments('34.6')).isFalse().bool(isArguments('-45fg')).isFalse();
-      return null;
-    });
-    it('should return false for regexs', function() {
-      unit.bool(isArguments(/asd/)).isFalse().bool(isArguments(/\d+/)).isFalse().bool(isArguments(/1/)).isFalse().bool(isArguments(new RegExp('3'))).isFalse();
-      return null;
-    });
-    it('should return false for objects', function() {
-      unit.bool(isArguments({})).isFalse().bool(isArguments(new String('asd'))).isFalse().bool(isArguments({
-        a: 5
-      })).isFalse();
-      return null;
-    });
-    return it('should return false for Set', function() {
-      unit.bool(isArguments(new Set())).isFalse().bool(isArguments(new Set().add(1))).isFalse().bool(isArguments(new Set([1, 2, 3]))).isFalse();
-      return null;
-    });
-  });
+      unit
+        .bool(isArguments(arguments)) // eslint-disable-line prefer-rest-params
+        .isTrue();
+    }); // end it
 
-}).call(this);
+    it('should return false for arrays', () => {
+      unit
+        .bool(isArguments([]))
+        .isFalse()
+        .bool(isArguments([1, 2]))
+        .isFalse()
+        .bool(isArguments(['a', {}, 6]))
+        .isFalse();
+    }); // end it
+
+    it('should return false for integers', () => {
+      unit
+        .bool(isArguments(1))
+        .isFalse()
+        .bool(isArguments(234987))
+        .isFalse()
+        .bool(isArguments(-239874))
+        .isFalse()
+        .bool(isArguments(0))
+        .isFalse();
+    }); // end it
+
+    it('should return false for floats', () => {
+      unit
+        .bool(isArguments(1.1))
+        .isFalse()
+        .bool(isArguments(-0.4))
+        .isFalse()
+        .bool(isArguments(234.4))
+        .isFalse()
+        .bool(isArguments(54.00000000001))
+        .isFalse();
+    }); // end it
+
+    it('should return false for functions', () => {
+      unit
+        .bool(isArguments(noop))
+        .isFalse()
+        .bool(isArguments(isArguments))
+        .isFalse();
+    }); // end it
+
+    it('should return false for strings', () => {
+      unit
+        .bool(isArguments('adsf'))
+        .isFalse()
+        .bool(isArguments('34.6'))
+        .isFalse()
+        .bool(isArguments('-45fg'))
+        .isFalse();
+    }); // end it
+
+    it('should return false for regexs', () => {
+      unit
+        .bool(isArguments(/asd/))
+        .isFalse()
+        .bool(isArguments(/\d+/))
+        .isFalse()
+        .bool(isArguments(/1/))
+        .isFalse()
+        .bool(isArguments(new RegExp('3')))
+        .isFalse();
+    }); // end it
+
+    it('should return false for objects', () => {
+      unit
+        .bool(isArguments({}))
+        .isFalse()
+        .bool(isArguments(new String('asd')))
+        .isFalse()
+        .bool(isArguments({
+          a: 5,
+        }))
+        .isFalse();
+    }); // end it
+
+    it('should return false for Set', () => {
+      unit
+        .bool(isArguments(new Set()))
+        .isFalse()
+        .bool(isArguments(new Set().add(1)))
+        .isFalse()
+        .bool(isArguments(new Set([1, 2, 3])))
+        .isFalse();
+    }); // end it
+  }); // end describe #isArguments
+})(); // end IIFE
