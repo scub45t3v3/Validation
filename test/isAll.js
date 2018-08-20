@@ -1,67 +1,96 @@
-(function() {
-  var isAll, noop, unit;
+'use strict';
 
-  unit = require('unit.js');
+(() => {
+  // include dependencies
+  const unit = require('unit.js');
+  const isAll = require('../isAll');
 
-  ({noop} = require('underscore'));
+  // describe #isAll
+  describe('#isAll', () => {
+    it('should be a function', () => {
+      unit
+        .function(isAll);
+    }); // end it
 
-  isAll = require('../isAll');
-
-  describe('#isAll', function() {
-    it('should be a function', function() {
-      unit.function(isAll);
-      return null;
-    });
-    it('should return true for a value that passes truth test for provided functions', function() {
-      var test;
-      test = [
-        function(value) {
+    it('should return true for a value that passes truth test for provided functions', () => {
+      const test = [
+        () => {
           return true;
         },
-        function(value) {
+        (value) => {
           return value > 0;
         },
-        function(value) {
+        (value) => {
           return value < 100;
-        }
+        },
       ];
-      unit.bool(isAll(1, ...test)).isTrue().bool(isAll(99, ...test)).isTrue().bool(isAll(.000001, ...test)).isTrue().bool(isAll(99.99999, ...test)).isTrue();
-      return null;
-    });
-    it('should return true for a value that passes truth test for provided RegExp', function() {
-      var test;
-      test = [/^\d+$/, /5$/];
-      unit.bool(isAll('15', ...test)).isTrue().bool(isAll(5, ...test)).isTrue().bool(isAll('09545', ...test)).isTrue();
-      return null;
-    });
-    it('should return true for a value that passes truth test for provided function references with additional arguments', function() {
-      var test;
-      test = ['isDate', ['isBefore', '2050-01-01'], ['isAfter', '2000-01-01']];
-      unit.bool(isAll(new Date('2010-09-18'), ...test)).isTrue().bool(isAll('2001-01-01', ...test)).isTrue().bool(isAll(1526121842679, ...test)).isTrue().bool(isAll({
-        y: 2005
-      }, ...test)).isTrue();
-      return null;
-    });
-    it('should return false for a value that does not pass truth test for provided function references with additional arguments', function() {
-      var test;
-      test = ['isDate', ['isBefore', '2000-02-01'], ['isAfter', '2000-01-01']];
-      unit.bool(isAll(new Date('2010-09-18'), ...test)).isFalse().bool(isAll('2001-01-01', ...test)).isFalse().bool(isAll(1526121842679, ...test)).isFalse().bool(isAll({
-        y: 2005
-      }, ...test)).isFalse();
-      return null;
-    });
-    return it('should throw an error for any callable argument that can not be resolved to a function', function() {
-      unit.error(function() {
-        return isAll(5, {});
-      }).error(function() {
-        return isAll(5, []);
-      }).error(function() {
-        return isAll(5, '5');
-      }).error(function() {
-        return isAll(5, 'nonExistantMethod');
-      });
-      return null;
-    });
-  });
 
-}).call(this);
+      unit
+        .bool(isAll(1, ...test))
+        .isTrue()
+        .bool(isAll(99, ...test))
+        .isTrue()
+        .bool(isAll(0.000001, ...test))
+        .isTrue()
+        .bool(isAll(99.99999, ...test))
+        .isTrue();
+    }); // end it
+
+    it('should return true for a value that passes truth test for provided RegExp', () => {
+      const test = [/^\d+$/, /5$/];
+      unit
+        .bool(isAll('15', ...test))
+        .isTrue()
+        .bool(isAll(5, ...test))
+        .isTrue()
+        .bool(isAll('09545', ...test))
+        .isTrue();
+    }); // end it
+
+    it('should return true for a value that passes truth test for provided function references with additional arguments', () => {
+      const test = ['isDate', ['isBefore', '2050-01-01'], ['isAfter', '2000-01-01']];
+      unit
+        .bool(isAll(new Date('2010-09-18'), ...test))
+        .isTrue()
+        .bool(isAll('2001-01-01', ...test))
+        .isTrue()
+        .bool(isAll(1526121842679, ...test))
+        .isTrue()
+        .bool(isAll({
+          y: 2005,
+        }, ...test))
+        .isTrue();
+    }); // end it
+
+    it('should return false for a value that does not pass truth test for provided function references with additional arguments', () => {
+      const test = ['isDate', ['isBefore', '2000-02-01'], ['isAfter', '2000-01-01']];
+      unit
+        .bool(isAll(new Date('2010-09-18'), ...test))
+        .isFalse()
+        .bool(isAll('2001-01-01', ...test))
+        .isFalse()
+        .bool(isAll(1526121842679, ...test))
+        .isFalse()
+        .bool(isAll({
+          y: 2005,
+        }, ...test))
+        .isFalse();
+    }); // end it
+
+    it('should throw an error for any callable argument that can not be resolved to a function', () => {
+      unit
+        .error(() => {
+          return isAll(5, {});
+        })
+        .error(() => {
+          return isAll(5, []);
+        })
+        .error(() => {
+          return isAll(5, '5');
+        })
+        .error(() => {
+          return isAll(5, 'nonExistantMethod');
+        });
+    }); // end it
+  }); // end describe #isAll
+})(); // end IIFE
