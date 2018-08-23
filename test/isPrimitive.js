@@ -1,89 +1,174 @@
-(function() {
-  var isPrimitive, noop, unit;
+'use strict';
 
-  unit = require('unit.js');
+(() => {
+  // include dependencies
+  const unit = require('unit.js');
+  const {noop} = require('underscore');
+  const isPrimitive = require('../isPrimitive');
 
-  ({noop} = require('underscore'));
+  // describe #isPrimitive
+  describe('#isPrimitive', () => {
+    it('should be a function', () => {
+      unit
+        .function(isPrimitive);
+    }); // end it
 
-  isPrimitive = require('../isPrimitive');
+    it('should return true for undefined', () => {
+      unit
+        .bool(isPrimitive())
+        .isTrue()
+        .bool(isPrimitive(undefined))
+        .isTrue();
+    }); // end it
 
-  describe('#isPrimitive', function() {
-    it('should be a function', function() {
-      unit.function(isPrimitive);
-      return null;
-    });
-    it('should return true for undefined', function() {
-      unit.bool(isPrimitive()).isTrue().bool(isPrimitive(void 0)).isTrue();
-      return null;
-    });
-    it('should return true for null', function() {
-      unit.bool(isPrimitive(null)).isTrue();
-      return null;
-    });
-    it('should return true for primitive booleans', function() {
-      unit.bool(isPrimitive(true)).isTrue().bool(isPrimitive(false)).isTrue();
-      return null;
-    });
-    it('should return true for primitive strings', function() {
-      unit.bool(isPrimitive('')).isTrue().bool(isPrimitive('hello')).isTrue().bool(isPrimitive('#hash')).isTrue();
-      return null;
-    });
-    it('should return true for primitive numbers', function() {
-      unit.bool(isPrimitive(0)).isTrue().bool(isPrimitive(1)).isTrue().bool(isPrimitive(-1)).isTrue().bool(isPrimitive(0.99)).isTrue().bool(isPrimitive(-0.99)).isTrue();
-      return null;
-    });
-    it('should return true for NaN', function() {
-      unit.bool(isPrimitive(0/0)).isTrue();
-      return null;
-    });
-    it('should return true for Infinity', function() {
-      unit.bool(isPrimitive(2e308)).isTrue().bool(isPrimitive(-2e308)).isTrue();
-      return null;
-    });
-    it('should return true for symbols', function() {
-      unit.bool(isPrimitive(Symbol())).isTrue().bool(isPrimitive(Symbol.iterator)).isTrue();
-      return null;
-    });
-    it('should return false for boolean objects', function() {
-      unit.bool(isPrimitive(new Boolean())).isFalse().bool(isPrimitive(new Boolean(1))).isFalse();
-      return null;
-    });
-    it('should return false for string objects', function() {
-      unit.bool(isPrimitive(new String())).isFalse().bool(isPrimitive(new String('hello'))).isFalse().bool(isPrimitive(new String('#hash'))).isFalse();
-      return null;
-    });
-    it('should return false for number objects', function() {
-      unit.bool(isPrimitive(new Number(0))).isFalse().bool(isPrimitive(new Number(1))).isFalse().bool(isPrimitive(new Number(-1))).isFalse().bool(isPrimitive(new Number(0.99))).isFalse().bool(isPrimitive(new Number(-0.99))).isFalse();
-      return null;
-    });
-    it('should return false for NaN number objects', function() {
-      unit.bool(isPrimitive(new Number(0/0))).isFalse();
-      return null;
-    });
-    it('should return false for Infinity number objects', function() {
-      unit.bool(isPrimitive(new Number(2e308))).isFalse().bool(isPrimitive(new Number(-2e308))).isFalse();
-      return null;
-    });
-    it('should return false for regular expressions', function() {
-      unit.bool(isPrimitive(/asd/)).isFalse().bool(isPrimitive(/^.*$/)).isFalse();
-      return null;
-    });
-    it('should return false for object wrapped symbols', function() {
-      unit.bool(isPrimitive(Object(Symbol()))).isFalse().bool(isPrimitive(Object(Symbol.iterator))).isFalse();
-      return null;
-    });
-    it('should return false for objects', function() {
-      unit.bool(isPrimitive({})).isFalse().bool(isPrimitive(new Date())).isFalse().bool(isPrimitive(new RegExp())).isFalse().bool(isPrimitive(new Set())).isFalse();
-      return null;
-    });
-    it('should return false for arrays', function() {
-      unit.bool(isPrimitive([])).isFalse().bool(isPrimitive(new Array())).isFalse();
-      return null;
-    });
-    return it('should return false for functions', function() {
-      unit.bool(isPrimitive(isPrimitive)).isFalse().bool(isPrimitive(noop)).isFalse();
-      return null;
-    });
-  });
+    it('should return true for null', () => {
+      unit
+        .bool(isPrimitive(null))
+        .isTrue();
+    }); // end it
 
-}).call(this);
+    it('should return true for primitive booleans', () => {
+      unit
+        .bool(isPrimitive(true))
+        .isTrue()
+        .bool(isPrimitive(false))
+        .isTrue();
+    }); // end it
+
+    it('should return true for primitive strings', () => {
+      unit
+        .bool(isPrimitive(''))
+        .isTrue()
+        .bool(isPrimitive('hello'))
+        .isTrue()
+        .bool(isPrimitive('#hash'))
+        .isTrue();
+    }); // end it
+
+    it('should return true for primitive numbers', () => {
+      unit
+        .bool(isPrimitive(0))
+        .isTrue()
+        .bool(isPrimitive(1))
+        .isTrue()
+        .bool(isPrimitive(-1))
+        .isTrue()
+        .bool(isPrimitive(0.99))
+        .isTrue()
+        .bool(isPrimitive(-0.99))
+        .isTrue();
+    }); // end it
+
+    it('should return true for NaN', () => {
+      unit
+        .bool(isPrimitive(0 / 0))
+        .isTrue();
+    }); // end it
+
+    it('should return true for Infinity', () => {
+      unit
+        .bool(isPrimitive(2e308))
+        .isTrue()
+        .bool(isPrimitive(-2e308))
+        .isTrue();
+    }); // end it
+
+    it('should return true for symbols', () => {
+      unit
+        .bool(isPrimitive(Symbol()))
+        .isTrue()
+        .bool(isPrimitive(Symbol.iterator))
+        .isTrue();
+    }); // end it
+
+    it('should return false for boolean objects', () => {
+      unit
+        .bool(isPrimitive(new Boolean()))
+        .isFalse()
+        .bool(isPrimitive(new Boolean(1)))
+        .isFalse();
+    }); // end it
+
+    it('should return false for string objects', () => {
+      unit
+        .bool(isPrimitive(new String()))
+        .isFalse()
+        .bool(isPrimitive(new String('hello')))
+        .isFalse()
+        .bool(isPrimitive(new String('#hash')))
+        .isFalse();
+    }); // end it
+
+    it('should return false for number objects', () => {
+      unit
+        .bool(isPrimitive(new Number(0)))
+        .isFalse()
+        .bool(isPrimitive(new Number(1)))
+        .isFalse()
+        .bool(isPrimitive(new Number(-1)))
+        .isFalse()
+        .bool(isPrimitive(new Number(0.99)))
+        .isFalse()
+        .bool(isPrimitive(new Number(-0.99)))
+        .isFalse();
+    }); // end it
+
+    it('should return false for NaN number objects', () => {
+      unit
+        .bool(isPrimitive(new Number(0 / 0)))
+        .isFalse();
+    }); // end it
+
+    it('should return false for Infinity number objects', () => {
+      unit
+        .bool(isPrimitive(new Number(2e308)))
+        .isFalse()
+        .bool(isPrimitive(new Number(-2e308)))
+        .isFalse();
+    }); // end it
+
+    it('should return false for regular expressions', () => {
+      unit
+        .bool(isPrimitive(/asd/))
+        .isFalse()
+        .bool(isPrimitive(/^.*$/))
+        .isFalse();
+    }); // end it
+
+    it('should return false for object wrapped symbols', () => {
+      unit
+        .bool(isPrimitive(Object(Symbol())))
+        .isFalse()
+        .bool(isPrimitive(Object(Symbol.iterator)))
+        .isFalse();
+    }); // end it
+
+    it('should return false for objects', () => {
+      unit
+        .bool(isPrimitive({}))
+        .isFalse()
+        .bool(isPrimitive(new Date()))
+        .isFalse()
+        .bool(isPrimitive(new RegExp()))
+        .isFalse()
+        .bool(isPrimitive(new Set()))
+        .isFalse();
+    }); // end it
+
+    it('should return false for arrays', () => {
+      unit
+        .bool(isPrimitive([]))
+        .isFalse()
+        .bool(isPrimitive(new Array()))
+        .isFalse();
+    }); // end it
+
+    it('should return false for functions', () => {
+      unit
+        .bool(isPrimitive(isPrimitive))
+        .isFalse()
+        .bool(isPrimitive(noop))
+        .isFalse();
+    }); // end it
+  }); // end describe #isPrimitive
+})(); // end IIFE
