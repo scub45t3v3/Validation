@@ -1712,6 +1712,7 @@ Validation.isWeakSet(new WeakMap()); // false
 
 <a name="test"></a>
 ## Test
+[tests](TEST.md)
 ```bash
 npm install
 npm test
