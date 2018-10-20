@@ -11,5 +11,6 @@
     return (value != null) && REGEX.test(value);
   };
 
+  // export as commonjs module
   module.exports = isAscii;
 })(); // end IIFE

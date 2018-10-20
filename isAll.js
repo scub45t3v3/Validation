@@ -18,5 +18,6 @@
     });
   };
 
+  // export as commonjs module
   module.exports = isAll;
 })(); // end IIFE

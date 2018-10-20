@@ -11,5 +11,6 @@
     return value instanceof GeneratorFunction;
   };
 
+  // export as commonjs module
   module.exports = isGeneratorFunction;
 })(); // end IIFE

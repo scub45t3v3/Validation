@@ -11,5 +11,6 @@
     return _isMatch(value, compare);
   };
 
+  // export as commonjs module
   module.exports = isMatch;
 })(); // end IIFE

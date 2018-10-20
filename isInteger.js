@@ -49,5 +49,6 @@
     return value.isInteger();
   };
 
+  // export as commonjs module
   module.exports = isInteger;
 })(); // end IIFE

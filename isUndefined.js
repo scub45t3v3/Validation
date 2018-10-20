@@ -10,5 +10,6 @@
     return value === undefined;
   };
 
+  // export as commonjs module
   module.exports = isUndefined;
 })(); // end IIFE

@@ -10,5 +10,6 @@
     return (value && (value.toString() || `${value}`)) === '[object Arguments]';
   };
 
+  // export as commonjs module
   module.exports = isArguments;
 })(); // end IIFE

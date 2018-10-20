@@ -12,5 +12,6 @@
     return isString(value) && pluralize.isSingular(value);
   };
 
+  // export as commonjs module
   module.exports = isSingular;
 })(); // end IIFE

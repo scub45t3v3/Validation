@@ -15,5 +15,6 @@
     }
   };
 
+  // export as commonjs module
   module.exports = isIterator;
 })(); // end IIFE

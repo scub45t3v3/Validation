@@ -38,5 +38,6 @@
     return map[sum % 11];
   };
 
+  // export as commonjs module
   module.exports = isVIN;
 })(); // end IIFE

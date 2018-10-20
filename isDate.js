@@ -12,5 +12,6 @@
     return !isRegExp(value) && moment(value).isValid();
   };
 
+  // export as commonjs module
   module.exports = isDate;
 })(); // end IIFE

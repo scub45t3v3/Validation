@@ -38,5 +38,6 @@
     }
   };
 
+  // export as commonjs module
   module.exports = isPhoneNumber;
 })(); // end IIFE

@@ -27,5 +27,6 @@
     }
   };
 
+  // export as commonjs module
   module.exports = isLength;
 })(); // end IIFE

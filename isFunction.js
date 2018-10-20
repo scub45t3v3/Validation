@@ -10,5 +10,6 @@
     return typeof value === 'function';
   };
 
+  // export as commonjs module
   module.exports = isFunction;
 })(); // end IIFE

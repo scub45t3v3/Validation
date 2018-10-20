@@ -11,5 +11,6 @@
     return _isEmpty(value);
   };
 
+  // export as commonjs module
   module.exports = isEmpty;
 })(); // end IIFE

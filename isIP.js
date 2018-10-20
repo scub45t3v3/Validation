@@ -20,5 +20,6 @@
     }
   };
 
+  // export as commonjs module
   module.exports = isIP;
 })(); // end IIFE

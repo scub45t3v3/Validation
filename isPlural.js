@@ -12,5 +12,6 @@
     return isString(value) && pluralize.isPlural(value);
   };
 
+  // export as commonjs module
   module.exports = isPlural;
 })(); // end IIFE

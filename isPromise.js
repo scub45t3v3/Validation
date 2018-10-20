@@ -10,5 +10,6 @@
     return value instanceof Promise;
   };
 
+  // export as commonjs module
   module.exports = isPromise;
 })(); // end IIFE

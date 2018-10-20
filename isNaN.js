@@ -10,5 +10,6 @@
     return Number.isNaN(value);
   };
 
+  // export as commonjs module
   module.exports = isNaN;
 })(); // end IIFE

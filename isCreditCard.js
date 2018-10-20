@@ -19,5 +19,6 @@
     return isAny(value, ...CARDS);
   };
 
+  // export as commonjs module
   module.exports = isCreditCard;
 })(); // end IIFE

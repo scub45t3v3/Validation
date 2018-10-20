@@ -19,5 +19,6 @@
     return false;
   };
 
+  // export as commonjs module
   module.exports = isBefore;
 })(); // end IIFE

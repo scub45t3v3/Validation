@@ -10,5 +10,6 @@
     return value instanceof RegExp;
   };
 
+  // export as commonjs module
   module.exports = isRegExp;
 })(); // end IIFE

@@ -11,5 +11,6 @@
     return isAll(value, 'isHexadecimal', ['isLength', 32]);
   };
 
+  // export as commonjs module
   module.exports = isMD5;
 })(); // end IIFE

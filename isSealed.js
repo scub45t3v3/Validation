@@ -10,5 +10,6 @@
     return Object.isSealed(value);
   };
 
+  // export as commonjs module
   module.exports = isSealed;
 })(); // end IIFE

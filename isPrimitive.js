@@ -12,5 +12,6 @@
     return (value == null) || !!~primitives.indexOf(typeof value);
   };
 
+  // export as commonjs module
   module.exports = isPrimitive;
 })(); // end IIFE

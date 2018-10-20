@@ -11,5 +11,6 @@
     return REGEX.test(value);
   };
 
+  // export as commonjs module
   module.exports = isUUID;
 })(); // end IIFE

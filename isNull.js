@@ -10,5 +10,6 @@
     return value === null;
   };
 
+  // export as commonjs module
   module.exports = isNull;
 })(); // end IIFE

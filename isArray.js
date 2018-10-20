@@ -10,5 +10,6 @@
     return Array.isArray(value);
   };
 
+  // export as commonjs module
   module.exports = isArray;
 })(); // end IIFE

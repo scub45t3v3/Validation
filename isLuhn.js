@@ -40,5 +40,6 @@
     return !(sum % 10);
   };
 
+  // export as commonjs module
   module.exports = isLuhn;
 })(); // end IIFE

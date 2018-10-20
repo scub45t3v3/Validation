@@ -11,5 +11,6 @@
     return isAll(value, 'isHexadecimal', ['isLength', 24]);
   };
 
+  // export as commonjs module
   module.exports = isMongoId;
 })(); // end IIFE

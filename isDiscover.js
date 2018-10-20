@@ -12,5 +12,6 @@
     return REGEX.test(value) && isLuhn(value);
   };
 
+  // export as commonjs module
   module.exports = isDiscover;
 })(); // end IIFE

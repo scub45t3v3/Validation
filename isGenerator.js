@@ -10,5 +10,6 @@
     return `${value}` === '[object Generator]';
   };
 
+  // export as commonjs module
   module.exports = isGenerator;
 })(); // end IIFE

@@ -10,5 +10,6 @@
     return Object.isFrozen(value);
   };
 
+  // export as commonjs module
   module.exports = isFrozen;
 })(); // end IIFE

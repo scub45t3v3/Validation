@@ -17,5 +17,6 @@
     }
   };
 
+  // export as commonjs module
   module.exports = isTime;
 })(); // end IIFE

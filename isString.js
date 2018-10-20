@@ -10,5 +10,6 @@
     return value instanceof String || typeof value === 'string';
   };
 
+  // export as commonjs module
   module.exports = isString;
 })(); // end IIFE

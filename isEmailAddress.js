@@ -43,5 +43,6 @@
     return value && username && domain;
   };
 
+  // export as commonjs module
   module.exports = isEmailAddress;
 })(); // end IIFE

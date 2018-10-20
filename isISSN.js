@@ -29,5 +29,6 @@
     return !(sum % 11);
   };
 
+  // export as commonjs module
   module.exports = isISSN;
 })(); // end IIFE

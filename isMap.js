@@ -10,5 +10,6 @@
     return value instanceof Map;
   };
 
+  // export as commonjs module
   module.exports = isMap;
 })(); // end IIFE

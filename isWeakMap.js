@@ -10,5 +10,6 @@
     return value instanceof WeakMap;
   };
 
+  // export as commonjs module
   module.exports = isWeakMap;
 })(); // end IIFE

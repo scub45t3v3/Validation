@@ -22,5 +22,6 @@
     return REGEX.test(value);
   };
 
+  // export as commonjs module
   module.exports = isDomainName;
 })(); // end IIFE

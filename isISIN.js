@@ -16,5 +16,6 @@
     return REGEX.test(value) && isLuhn(sanitized);
   };
 
+  // export as commonjs module
   module.exports = isISIN;
 })(); // end IIFE

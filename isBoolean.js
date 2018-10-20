@@ -10,5 +10,6 @@
     return value instanceof Boolean || value === true || value === false;
   };
 
+  // export as commonjs module
   module.exports = isBoolean;
 })(); // end IIFE

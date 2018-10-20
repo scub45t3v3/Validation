@@ -14,5 +14,6 @@
     });
   };
 
+  // export as commonjs module
   module.exports = isLongitude;
 })(); // end IIFE

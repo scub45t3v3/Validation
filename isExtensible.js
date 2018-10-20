@@ -10,5 +10,6 @@
     return Object.isExtensible(value);
   };
 
+  // export as commonjs module
   module.exports = isExtensible;
 })(); // end IIFE

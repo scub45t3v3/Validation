@@ -48,5 +48,6 @@
     return true;
   };
 
+  // export as commonjs module
   module.exports = isFloat;
 })(); // end IIFE

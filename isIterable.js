@@ -10,5 +10,6 @@
     return typeof value[Symbol.iterator] === 'function';
   };
 
+  // export as commonjs module
   module.exports = isIterable;
 })(); // end IIFE

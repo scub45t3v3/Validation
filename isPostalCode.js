@@ -28,5 +28,6 @@
     return !!(country && country.isValidPostalCode(value));
   };
 
+  // export as commonjs module
   module.exports = isPostalCode;
 })(); // end IIFE

@@ -15,5 +15,6 @@
       && !(value.length % 4);
   };
 
+  // export as commonjs module
   module.exports = isBase64;
 })(); // end IIFE

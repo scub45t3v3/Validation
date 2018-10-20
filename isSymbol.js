@@ -11,5 +11,6 @@
     return typeof value === 'symbol' || REGEX.test(value);
   };
 
+  // export as commonjs module
   module.exports = isSymbol;
 })(); // end IIFE

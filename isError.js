@@ -10,5 +10,6 @@
     return value instanceof Error;
   };
 
+  // export as commonjs module
   module.exports = isError;
 })(); // end IIFE

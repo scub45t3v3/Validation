@@ -10,5 +10,6 @@
     return value instanceof Set;
   };
 
+  // export as commonjs module
   module.exports = isSet;
 })(); // end IIFE

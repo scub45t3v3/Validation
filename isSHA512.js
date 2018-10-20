@@ -11,5 +11,6 @@
     return isAll(value, 'isHexadecimal', ['isLength', 128]);
   };
 
+  // export as commonjs module
   module.exports = isSHA512;
 })(); // end IIFE

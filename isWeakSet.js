@@ -10,5 +10,6 @@
     return value instanceof WeakSet;
   };
 
+  // export as commonjs module
   module.exports = isWeakSet;
 })(); // end IIFE
