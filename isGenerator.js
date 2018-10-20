@@ -7,7 +7,7 @@
   const isGenerator = (value) => {
     debug('call:isGenerator(%o)', value);
 
-    return !!value && (value.toString() || `${value}`) === '[object Generator]';
+    return `${value}` === '[object Generator]';
   };
 
   module.exports = isGenerator;
