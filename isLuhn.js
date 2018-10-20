@@ -2,7 +2,6 @@
 
 (() => {
   // include dependencies
-  const _ = require('underscore');
   const debug = require('debug')('@scuba-squad:validation:isLuhn');
   const REGEX = /^\d+$/;
   const DOUBLE = [
@@ -25,17 +24,18 @@
       return false;
     }
 
-    value = (value && (value.toString() || `${value}`).split('').reverse()) || undefined;
+    const sum = `${value}`
+      .split('')
+      .reverse()
+      .reduce((memo, val, idx) => {
+        val = +val;
 
-    const sum = _.reduce(value, (memo, val, idx) => {
-      val = parseInt(val);
+        if (idx % 2) {
+          return memo + DOUBLE[val];
+        }
 
-      if (parseInt(idx) % 2) {
-        return memo + DOUBLE[val];
-      }
-
-      return memo + val;
-    }, 0);
+        return memo + val;
+      }, 0);
 
     return !(sum % 10);
   };
