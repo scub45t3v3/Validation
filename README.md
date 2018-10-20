@@ -22,7 +22,7 @@ Collection of helpful functions for data validation
 Via [npm](https://www.npmjs.com/)
 
 ```bash
-npm install Validation
+npm install @scuba-squad/validation
 ```
 
 <a name="api"></a>
