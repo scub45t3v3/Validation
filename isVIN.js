@@ -18,7 +18,7 @@
   const transliterate = (char) => {
     debug('call:transliterate(%o)', char);
 
-    char = (char && char.toUpperCase()) || undefined;
+    char = char && char.toUpperCase();
 
     return '0123456789.ABCDEFGH..JKLMN.P.R..STUVWXYZ'.indexOf(char) % 10;
   };
@@ -28,16 +28,12 @@
 
     const map = '0123456789X';
     const weights = '8765432X098765432';
-
-    let sum = 0;
-
-    value = value.toUpperCase().split('');
-
-    for (let idx = 0; idx < value.length; idx++) {
-      const char = value[idx];
-
-      sum += transliterate(char) * map.indexOf(weights[idx]);
-    }
+    const sum = value
+      .toUpperCase()
+      .split('')
+      .reduce((memo, char, idx) => {
+        return memo + (transliterate(char) * map.indexOf(weights[idx]));
+      }, 0);
 
     return map[sum % 11];
   };
