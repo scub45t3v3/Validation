@@ -13,7 +13,7 @@
     const util = PhoneNumberUtil.getInstance();
 
     if (isString(country)) {
-      const iso = (country && country.trim().toUpperCase()) || undefined;
+      const iso = country.trim().toUpperCase();
 
       country = Country.getByIso2Code(iso);
       country || (country = Country.getByIso3Code(iso));
