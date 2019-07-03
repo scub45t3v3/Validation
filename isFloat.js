@@ -33,7 +33,7 @@
     }
 
     if (opt.safe) {
-      opt.min || (opt.min = Number.MIN_VALUE);
+      opt.min || (opt.min = Number.MAX_VALUE * -1);
       opt.max || (opt.max = Number.MAX_VALUE);
     }
 

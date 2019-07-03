@@ -23,6 +23,10 @@
         .bool(isFloat(-2398.74))
         .isTrue()
         .bool(isFloat(2.0))
+        .isTrue()
+        .bool(isFloat(0, {
+          safe: true,
+        }))
         .isTrue();
     }); // end it
 
@@ -162,7 +166,7 @@
           safe: true,
         }))
         .isFalse()
-        .bool(isFloat(`${Number.MIN_VALUE}9`, {
+        .bool(isFloat(`-${Number.MAX_VALUE}9`, {
           safe: true,
         }))
         .isFalse();
