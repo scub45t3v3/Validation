@@ -17,7 +17,7 @@
       unit
         .bool(isLength('a'))
         .isTrue()
-        .bool(isLength('alkjdfhwekjcfncn83hr;32hhew;ihp81hluehfleriufhwedjklkdf'))
+        .bool(isLength('alkjdfhwekjcfncn83hr;32hhew;ihp81hluehflefhwedjklkdf'))
         .isTrue();
     }); // end it
 
@@ -31,6 +31,26 @@
         .isTrue();
     }); // end it
 
+    it('should return true for arrays with length greater than min', () => {
+      unit
+        .bool(isLength([4, 70, false, 'asd'], {min: 3}))
+        .isTrue()
+        .bool(isLength([2011], {min: 0}))
+        .isTrue()
+        .bool(isLength([2000, 6, 15, 5], {min: 4}))
+        .isTrue();
+    }); // end it
+
+    it('should return true for arrays with length less than max', () => {
+      unit
+        .bool(isLength([4, 70, false, 'asd'], {max: 5}))
+        .isTrue()
+        .bool(isLength([2011], {max: 2}))
+        .isTrue()
+        .bool(isLength([2000, 6, 15, 5], {max: 4}))
+        .isTrue();
+    }); // end it
+
     it('should return true for function with arguments', () => {
       unit
         .bool(isLength(isLength))
@@ -41,13 +61,69 @@
         .isTrue();
     }); // end it
 
+    it('should return true for function with arguments greater than min', () => {
+      unit
+        .bool(isLength(isLength, {min: 1}))
+        .isTrue()
+        .bool(isLength(parseInt, {min: 1}))
+        .isTrue()
+        .bool(isLength(JSON.parse, {min: 2}))
+        .isTrue();
+    }); // end it
+
+    it('should return true for function with arguments less than max', () => {
+      unit
+        .bool(isLength(isLength, {max: 3}))
+        .isTrue()
+        .bool(isLength(parseInt, {max: 4}))
+        .isTrue()
+        .bool(isLength(JSON.parse, {max: 2}))
+        .isTrue();
+    }); // end it
+
     it('should return true for objects with a length property', () => {
-      unit.bool(isLength({
-        length: 5,
-      })).isTrue()
+      unit
+        .bool(isLength({
+          length: 5,
+        }))
+        .isTrue()
         .bool(isLength({
           a: 5,
           length: 1,
+        }))
+        .isTrue();
+    }); // end it
+
+    it('should return true for objects with a length property greater than min', () => {
+      unit
+        .bool(isLength({
+          length: 5,
+        }, {
+          min: 4,
+        }))
+        .isTrue()
+        .bool(isLength({
+          a: 5,
+          length: 1,
+        }, {
+          min: 0,
+        }))
+        .isTrue();
+    }); // end it
+
+    it('should return true for objects with a length property less than max', () => {
+      unit
+        .bool(isLength({
+          length: 5,
+        }, {
+          max: 6,
+        }))
+        .isTrue()
+        .bool(isLength({
+          a: 5,
+          length: 1,
+        }, {
+          max: 2,
         }))
         .isTrue();
     }); // end it

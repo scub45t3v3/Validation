@@ -18,7 +18,7 @@
     }
 
     try {
-      opt.min || (opt.min = 1);
+      isInteger(opt.min) || (opt.min = 1);
       opt.safe = true;
 
       return isInteger(length, opt);
