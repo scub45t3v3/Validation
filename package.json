@@ -1,7 +1,7 @@
 {
   "name": "@scuba-squad/validation",
   "description": "Validation library with several data validation methods",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "public": true,
   "main": "index.js",
   "license": "MIT",
