@@ -9,7 +9,7 @@
   const isRegExp = require('../isRegExp');
   const isArray = require('../isArray');
 
-  const toCallable = function(value) {
+  const toCallable = (value) => {
     debug('call:toCallable(%o)', value);
 
     if (isFunction(value)) {
