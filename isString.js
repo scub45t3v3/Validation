@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isString');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isString');
 
-  const isString = (value) => {
-    debug('call:isString(%o)', value);
+const isString = (value) => {
+  debug('call:isString(%o)', value);
 
-    return value instanceof String || typeof value === 'string';
-  };
+  return value instanceof String || typeof value === 'string';
+};
 
-  // export as commonjs module
-  module.exports = isString;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isString;
