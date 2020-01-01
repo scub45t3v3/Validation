@@ -1,54 +1,52 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isInteger');
-  const BigNumber = require('bignumber.js');
-  const isFloat = require('./isFloat');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isInteger');
+const BigNumber = require('bignumber.js');
+const isFloat = require('./isFloat');
 
-  const isInteger = (value, opt = {}) => {
-    debug('call:isInteger(%o, %o)', value, opt);
+const isInteger = (value, opt = {}) => {
+  debug('call:isInteger(%o, %o)', value, opt);
 
-    value = new BigNumber(value);
+  value = new BigNumber(value);
 
-    if (!value.isFinite()) {
-      return false;
-    }
+  if (!value.isFinite()) {
+    return false;
+  }
 
-    if (opt && opt.min != null && !isFloat(opt.min)) {
-      debug('error:min %o is not a number', opt.min);
+  if (opt && opt.min != null && !isFloat(opt.min)) {
+    debug('error:min %o is not a number', opt.min);
 
-      throw new TypeError('opt.min must be a valid number');
-    }
+    throw new TypeError('opt.min must be a valid number');
+  }
 
-    if (opt && opt.max != null && !isFloat(opt.max)) {
-      debug('error:max %o is not a number', opt.max);
+  if (opt && opt.max != null && !isFloat(opt.max)) {
+    debug('error:max %o is not a number', opt.max);
 
-      throw new TypeError('opt.min must be a valid number');
-    }
+    throw new TypeError('opt.min must be a valid number');
+  }
 
-    if (opt && opt.step != null && !isFloat(opt.step)) {
-      debug('error:step %o is not a number', opt.step);
+  if (opt && opt.step != null && !isFloat(opt.step)) {
+    debug('error:step %o is not a number', opt.step);
 
-      throw new TypeError('opt.step must be a valid number');
-    }
+    throw new TypeError('opt.step must be a valid number');
+  }
 
-    if (opt.safe) {
-      opt.min || (opt.min = Number.MIN_SAFE_INTEGER);
-      opt.max || (opt.max = Number.MAX_SAFE_INTEGER);
-    }
+  if (opt.safe) {
+    opt.min || (opt.min = Number.MIN_SAFE_INTEGER);
+    opt.max || (opt.max = Number.MAX_SAFE_INTEGER);
+  }
 
-    if (opt.min != null && value.lt(opt.min)) {
-      return false;
-    } else if (opt.max != null && value.gt(opt.max)) {
-      return false;
-    } else if (opt.step != null && !value.mod(opt.step).eq(0)) {
-      return false;
-    }
+  if (opt.min != null && value.lt(opt.min)) {
+    return false;
+  } else if (opt.max != null && value.gt(opt.max)) {
+    return false;
+  } else if (opt.step != null && !value.mod(opt.step).eq(0)) {
+    return false;
+  }
 
-    return value.isInteger();
-  };
+  return value.isInteger();
+};
 
-  // export as commonjs module
-  module.exports = isInteger;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isInteger;
