@@ -4,7 +4,7 @@
 const debug = require('debug')('@scuba-squad:validation:isEmailAddress');
 const isLength = require('./isLength');
 const isDomainName = require('./isDomainName');
-const REGEX = /^((?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+)@([^\s:[\]/%?#@]+)$/i;
+const REGEX = /^(?<username>(?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+)@(?<domain>[^\s:[\]/%?#@]+)$/i;
 
 /*
  * The following method validates the local-part to dot-atom RFC 5322
@@ -21,25 +21,20 @@ const REGEX = /^((?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+)@([^\s:[
  */
 const isEmailAddress = (value) => {
   debug('call:isEmailAddress(%o)', value);
+  const {
+    groups: {
+      username,
+      domain,
+    } = {},
+  } = REGEX.exec(value) || {};
 
-  try {
-    value = value.match(REGEX);
-  } catch (error) {
-    return false;
-  }
-
-  const domain = isDomainName(value && value[2], true);
-  const username = isLength(value && value[1], {
-    min: 1,
-    max: 64,
-  });
-
-  value = isLength(value && value[0], {
+  return isLength(value, {
     min: 6,
     max: 255,
-  });
-
-  return value && username && domain;
+  }) && isLength(username, {
+    min: 1,
+    max: 64,
+  }) && isDomainName(domain, true);
 };
 
 // export as commonjs module
