@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isSet');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isSet');
 
-  const isSet = (value) => {
-    debug('call:isSet(%o)', value);
+const isSet = (value) => {
+  debug('call:isSet(%o)', value);
 
-    return value instanceof Set;
-  };
+  return value instanceof Set;
+};
 
-  // export as commonjs module
-  module.exports = isSet;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isSet;
