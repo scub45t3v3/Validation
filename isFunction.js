@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isFunction');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isFunction');
 
-  const isFunction = (value) => {
-    debug('call:isFunction(%o)', value);
+const isFunction = (value) => {
+  debug('call:isFunction(%o)', value);
 
-    return typeof value === 'function';
-  };
+  return typeof value === 'function';
+};
 
-  // export as commonjs module
-  module.exports = isFunction;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isFunction;
