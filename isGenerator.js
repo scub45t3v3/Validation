@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isGenerator');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isGenerator');
 
-  const isGenerator = (value) => {
-    debug('call:isGenerator(%o)', value);
+const isGenerator = (value) => {
+  debug('call:isGenerator(%o)', value);
 
-    return `${value}` === '[object Generator]';
-  };
+  return `${value}` === '[object Generator]';
+};
 
-  // export as commonjs module
-  module.exports = isGenerator;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isGenerator;
