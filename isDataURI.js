@@ -1,16 +1,14 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isDataURI');
-  const REGEX = /^data:(?:[\w-]+\/[\w.+-]+(?:;[\w!#$%&'*+.^`{|}~-]+=[\w!#$%&'*+.^`{|}~-]+)*)?(?:;base64)?,[\w()/!$&'*+.,;=~:@?%-]*$/i; // schema
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isDataURI');
+const REGEX = /^data:(?:[\w-]+\/[\w.+-]+(?:;[\w!#$%&'*+.^`{|}~-]+=[\w!#$%&'*+.^`{|}~-]+)*)?(?:;base64)?,[\w()/!$&'*+.,;=~:@?%-]*$/i; // schema
 
-  const isDataURI = (value) => {
-    debug('call:isDataURI(%o)', value);
+const isDataURI = (value) => {
+  debug('call:isDataURI(%o)', value);
 
-    return REGEX.test(value);
-  };
+  return REGEX.test(value);
+};
 
-  // export as commonjs module
-  module.exports = isDataURI;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isDataURI;
