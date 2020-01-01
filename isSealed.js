@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isSealed');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isSealed');
 
-  const isSealed = (value) => {
-    debug('call:isSealed(%o)', value);
+const isSealed = (value) => {
+  debug('call:isSealed(%o)', value);
 
-    return Object.isSealed(value);
-  };
+  return Object.isSealed(value);
+};
 
-  // export as commonjs module
-  module.exports = isSealed;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isSealed;
