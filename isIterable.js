@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isIterable');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isIterable');
 
-  const isIterable = (value) => {
-    debug('call:isIterable(%o)', value);
+const isIterable = (value) => {
+  debug('call:isIterable(%o)', value);
 
-    return typeof value[Symbol.iterator] === 'function';
-  };
+  return typeof value[Symbol.iterator] === 'function';
+};
 
-  // export as commonjs module
-  module.exports = isIterable;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isIterable;
