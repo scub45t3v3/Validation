@@ -1,15 +1,13 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isMap');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isMap');
 
-  const isMap = (value) => {
-    debug('call:isMap(%o)', value);
+const isMap = (value) => {
+  debug('call:isMap(%o)', value);
 
-    return value instanceof Map;
-  };
+  return value instanceof Map;
+};
 
-  // export as commonjs module
-  module.exports = isMap;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isMap;
