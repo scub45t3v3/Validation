@@ -1,33 +1,31 @@
 'use strict';
 
-(() => {
-  // include dependencies
-  const debug = require('debug')('@scuba-squad:validation:isPostalCode');
-  const Country = require('@scuba-squad/country');
-  const isString = require('./isString');
+// include dependencies
+const debug = require('debug')('@scuba-squad:validation:isPostalCode');
+const Country = require('@scuba-squad/country');
+const isString = require('./isString');
 
-  const isPostalCode = (value, country) => {
-    debug('call:isPostalCode(%o, %o)', value, country);
+const isPostalCode = (value, country) => {
+  debug('call:isPostalCode(%o, %o)', value, country);
 
-    if (!country) {
-      return !!Country.getByPostalCode(value);
-    }
+  if (!country) {
+    return !!Country.getByPostalCode(value);
+  }
 
-    if (isString(country)) {
-      const iso = country.trim().toUpperCase();
+  if (isString(country)) {
+    const iso = country.trim().toUpperCase();
 
-      country = Country.getByIso2Code(iso);
-      country || (country = Country.getByIso3Code(iso));
-      country || (country = Country.getByIsoNumericCode(iso));
-    }
+    country = Country.getByIso2Code(iso);
+    country || (country = Country.getByIso3Code(iso));
+    country || (country = Country.getByIsoNumericCode(iso));
+  }
 
-    if (!(country instanceof Country)) {
-      throw new TypeError('country must be a string or @scuba-squad/country object');
-    }
+  if (!(country instanceof Country)) {
+    throw new TypeError('country must be a string or @scuba-squad/country object');
+  }
 
-    return !!(country && country.isValidPostalCode(value));
-  };
+  return !!(country && country.isValidPostalCode(value));
+};
 
-  // export as commonjs module
-  module.exports = isPostalCode;
-})(); // end IIFE
+// export as commonjs module
+module.exports = isPostalCode;
