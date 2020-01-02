@@ -91,7 +91,7 @@ unit
   .object(index)
   .hasProperties(FUNCTIONS)
   .matchEach((value, key) => {
-    return typeof value === 'function' && /^is[A-Z]/.test(key);
+    return typeof value === 'function' && /^is[A-Z]/u.test(key);
   });
 ```
 
@@ -263,13 +263,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isAfter(/asd/))
+  .bool(isAfter(/asd/u))
   .isFalse()
-  .bool(isAfter(/\d+/))
+  .bool(isAfter(/\d+/u))
   .isFalse()
-  .bool(isAfter(/1/))
+  .bool(isAfter(/1/u))
   .isFalse()
-  .bool(isAfter(new RegExp('3')))
+  .bool(isAfter(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -332,7 +332,7 @@ unit
 should return true for a value that passes truth test for provided RegExp.
 
 ```js
-const test = [/^\d+$/, /5$/];
+const test = [/^\d+$/u, /5$/u];
 unit
   .bool(isAll('15', ...test))
   .isTrue()
@@ -511,13 +511,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isAlpha(/asd/))
+  .bool(isAlpha(/asd/u))
   .isFalse()
-  .bool(isAlpha(/\d+/))
+  .bool(isAlpha(/\d+/u))
   .isFalse()
-  .bool(isAlpha(/1/))
+  .bool(isAlpha(/1/u))
   .isFalse()
-  .bool(isAlpha(new RegExp('3')))
+  .bool(isAlpha(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -680,13 +680,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isAlphaNumeric(/asd/))
+  .bool(isAlphaNumeric(/asd/u))
   .isFalse()
-  .bool(isAlphaNumeric(/\d+/))
+  .bool(isAlphaNumeric(/\d+/u))
   .isFalse()
-  .bool(isAlphaNumeric(/1/))
+  .bool(isAlphaNumeric(/1/u))
   .isFalse()
-  .bool(isAlphaNumeric(new RegExp('3')))
+  .bool(isAlphaNumeric(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -813,13 +813,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isAmericanExpress(/asd/))
+  .bool(isAmericanExpress(/asd/u))
   .isFalse()
-  .bool(isAmericanExpress(/\d+/))
+  .bool(isAmericanExpress(/\d+/u))
   .isFalse()
-  .bool(isAmericanExpress(/1/))
+  .bool(isAmericanExpress(/1/u))
   .isFalse()
-  .bool(isAmericanExpress(new RegExp('3')))
+  .bool(isAmericanExpress(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -872,7 +872,7 @@ unit
 should return true for a value that passes truth test for provided RegExp.
 
 ```js
-const test = [/^\d+$/, /^hello/i];
+const test = [/^\d+$/u, /^hello/iu];
 unit
   .bool(isAny('hello', ...test))
   .isTrue()
@@ -1013,13 +1013,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isArguments(/asd/))
+  .bool(isArguments(/asd/u))
   .isFalse()
-  .bool(isArguments(/\d+/))
+  .bool(isArguments(/\d+/u))
   .isFalse()
-  .bool(isArguments(/1/))
+  .bool(isArguments(/1/u))
   .isFalse()
-  .bool(isArguments(new RegExp('3')))
+  .bool(isArguments(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -1124,13 +1124,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isArray(/asd/))
+  .bool(isArray(/asd/u))
   .isFalse()
-  .bool(isArray(/\d+/))
+  .bool(isArray(/\d+/u))
   .isFalse()
-  .bool(isArray(/1/))
+  .bool(isArray(/1/u))
   .isFalse()
-  .bool(isArray(new RegExp('3')))
+  .bool(isArray(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -1253,13 +1253,13 @@ should return true for regexs.
 
 ```js
 unit
-  .bool(isAscii(/asd/))
+  .bool(isAscii(/asd/u))
   .isTrue()
-  .bool(isAscii(/\d+/))
+  .bool(isAscii(/\d+/u))
   .isTrue()
-  .bool(isAscii(/1/))
+  .bool(isAscii(/1/u))
   .isTrue()
-  .bool(isAscii(new RegExp('3')))
+  .bool(isAscii(new RegExp('3', 'u')))
   .isTrue();
 ```
 
@@ -1426,13 +1426,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isBase64(/asd/))
+  .bool(isBase64(/asd/u))
   .isFalse()
-  .bool(isBase64(/\d+/))
+  .bool(isBase64(/\d+/u))
   .isFalse()
-  .bool(isBase64(/1/))
+  .bool(isBase64(/1/u))
   .isFalse()
-  .bool(isBase64(new RegExp('3')))
+  .bool(isBase64(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -1616,13 +1616,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isBefore(/asd/))
+  .bool(isBefore(/asd/u))
   .isFalse()
-  .bool(isBefore(/\d+/))
+  .bool(isBefore(/\d+/u))
   .isFalse()
-  .bool(isBefore(/1/))
+  .bool(isBefore(/1/u))
   .isFalse()
-  .bool(isBefore(new RegExp('3')))
+  .bool(isBefore(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -1737,13 +1737,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isBoolean(/asd/))
+  .bool(isBoolean(/asd/u))
   .isFalse()
-  .bool(isBoolean(/\d+/))
+  .bool(isBoolean(/\d+/u))
   .isFalse()
-  .bool(isBoolean(/1/))
+  .bool(isBoolean(/1/u))
   .isFalse()
-  .bool(isBoolean(new RegExp('3')))
+  .bool(isBoolean(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -1902,13 +1902,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isCreditCard(/asd/))
+  .bool(isCreditCard(/asd/u))
   .isFalse()
-  .bool(isCreditCard(/\d+/))
+  .bool(isCreditCard(/\d+/u))
   .isFalse()
-  .bool(isCreditCard(/1/))
+  .bool(isCreditCard(/1/u))
   .isFalse()
-  .bool(isCreditCard(new RegExp('3')))
+  .bool(isCreditCard(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2025,13 +2025,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isDataURI(/asd/))
+  .bool(isDataURI(/asd/u))
   .isFalse()
-  .bool(isDataURI(/\d+/))
+  .bool(isDataURI(/\d+/u))
   .isFalse()
-  .bool(isDataURI(/1/))
+  .bool(isDataURI(/1/u))
   .isFalse()
-  .bool(isDataURI(new RegExp('3')))
+  .bool(isDataURI(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2212,13 +2212,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isDate(/asd/))
+  .bool(isDate(/asd/u))
   .isFalse()
-  .bool(isDate(/\d+/))
+  .bool(isDate(/\d+/u))
   .isFalse()
-  .bool(isDate(/1/))
+  .bool(isDate(/1/u))
   .isFalse()
-  .bool(isDate(new RegExp('3')))
+  .bool(isDate(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2335,13 +2335,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isDinersClub(/asd/))
+  .bool(isDinersClub(/asd/u))
   .isFalse()
-  .bool(isDinersClub(/\d+/))
+  .bool(isDinersClub(/\d+/u))
   .isFalse()
-  .bool(isDinersClub(/1/))
+  .bool(isDinersClub(/1/u))
   .isFalse()
-  .bool(isDinersClub(new RegExp('3')))
+  .bool(isDinersClub(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2448,13 +2448,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isDiscover(/asd/))
+  .bool(isDiscover(/asd/u))
   .isFalse()
-  .bool(isDiscover(/\d+/))
+  .bool(isDiscover(/\d+/u))
   .isFalse()
-  .bool(isDiscover(/1/))
+  .bool(isDiscover(/1/u))
   .isFalse()
-  .bool(isDiscover(new RegExp('3')))
+  .bool(isDiscover(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2603,13 +2603,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isDomainName(/asd/))
+  .bool(isDomainName(/asd/u))
   .isFalse()
-  .bool(isDomainName(/\d+/))
+  .bool(isDomainName(/\d+/u))
   .isFalse()
-  .bool(isDomainName(/1/))
+  .bool(isDomainName(/1/u))
   .isFalse()
-  .bool(isDomainName(new RegExp('3')))
+  .bool(isDomainName(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2752,13 +2752,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isEmailAddress(/asd/))
+  .bool(isEmailAddress(/asd/u))
   .isFalse()
-  .bool(isEmailAddress(/\d+/))
+  .bool(isEmailAddress(/\d+/u))
   .isFalse()
-  .bool(isEmailAddress(/1/))
+  .bool(isEmailAddress(/1/u))
   .isFalse()
-  .bool(isEmailAddress(new RegExp('3')))
+  .bool(isEmailAddress(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -2847,13 +2847,13 @@ should return true for regexs.
 
 ```js
 unit
-  .bool(isEmpty(/asd/))
+  .bool(isEmpty(/asd/u))
   .isTrue()
-  .bool(isEmpty(/\d+/))
+  .bool(isEmpty(/\d+/u))
   .isTrue()
-  .bool(isEmpty(/1/))
+  .bool(isEmpty(/1/u))
   .isTrue()
-  .bool(isEmpty(new RegExp('3')))
+  .bool(isEmpty(new RegExp('3', 'u')))
   .isTrue();
 ```
 
@@ -2914,7 +2914,7 @@ unit
   .isTrue()
   .bool(isEqual('hi', 'hi'))
   .isTrue()
-  .bool(isEqual(/\d/, /\d/))
+  .bool(isEqual(/\d/u, /\d/u))
   .isTrue()
   .bool(isEqual([1, 2, 3], [1, 2, 3]))
   .isTrue();
@@ -2932,7 +2932,7 @@ unit
   .isTrue()
   .bool(isEqual(new Boolean(false), false))
   .isTrue()
-  .bool(isEqual(new RegExp('\\d'), /\d/))
+  .bool(isEqual(new RegExp('\\d', 'u'), /\d/u))
   .isTrue()
   .bool(isEqual(new Array(1, 2, 3), [1, 2, 3]))
   .isTrue();
@@ -2948,7 +2948,7 @@ unit
   .isTrue()
   .bool(isEqual(new String('a'), new String('a')))
   .isTrue()
-  .bool(isEqual(new RegExp('asd'), new RegExp('asd')))
+  .bool(isEqual(new RegExp('asd', 'u'), new RegExp('asd', 'u')))
   .isTrue()
   .bool(isEqual(new Array(1, 2), new Array(1, 2)))
   .isTrue();
@@ -3011,7 +3011,7 @@ unit
   .isFalse()
   .bool(isEqual(new Boolean(false), true))
   .isFalse()
-  .bool(isEqual(new RegExp('asd', 'i'), /asd/))
+  .bool(isEqual(new RegExp('asd', 'iu'), /asd/u))
   .isFalse()
   .bool(isEqual(new Array(1, 2, 3), [1, 2]))
   .isFalse();
@@ -3027,7 +3027,7 @@ unit
   .isFalse()
   .bool(isEqual(true, false))
   .isFalse()
-  .bool(isEqual(/asd/, /asd/i))
+  .bool(isEqual(/asd/u, /asd/iu))
   .isFalse()
   .bool(isEqual([1, 2, 3], [1, 3, 2]))
   .isFalse();
@@ -3116,13 +3116,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isError(/asd/))
+  .bool(isError(/asd/u))
   .isFalse()
-  .bool(isError(/\d+/))
+  .bool(isError(/\d+/u))
   .isFalse()
-  .bool(isError(/1/))
+  .bool(isError(/1/u))
   .isFalse()
-  .bool(isError(new RegExp('3')))
+  .bool(isError(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -3189,13 +3189,13 @@ should return true for regexs.
 
 ```js
 unit
-  .bool(isExtensible(/asd/))
+  .bool(isExtensible(/asd/u))
   .isTrue()
-  .bool(isExtensible(/\d+/))
+  .bool(isExtensible(/\d+/u))
   .isTrue()
-  .bool(isExtensible(/1/))
+  .bool(isExtensible(/1/u))
   .isTrue()
-  .bool(isExtensible(new RegExp('3')))
+  .bool(isExtensible(new RegExp('3', 'u')))
   .isTrue();
 ```
 
@@ -3370,13 +3370,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isFloat(/asd/))
+  .bool(isFloat(/asd/u))
   .isFalse()
-  .bool(isFloat(/\d+/))
+  .bool(isFloat(/\d+/u))
   .isFalse()
-  .bool(isFloat(/1/))
+  .bool(isFloat(/1/u))
   .isFalse()
-  .bool(isFloat(new RegExp('3')))
+  .bool(isFloat(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -3497,7 +3497,7 @@ unit
   })
   .error(() => {
     return isFloat(5, {
-      min: /a/,
+      min: /a/u,
     });
   })
   .error(() => {
@@ -3528,7 +3528,7 @@ unit
   })
   .error(() => {
     return isFloat(5, {
-      max: /a/,
+      max: /a/u,
     });
   })
   .error(() => {
@@ -3559,7 +3559,7 @@ unit
   })
   .error(() => {
     return isFloat(5, {
-      step: /a/,
+      step: /a/u,
     });
   })
   .error(() => {
@@ -3680,13 +3680,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isFrozen(/asd/))
+  .bool(isFrozen(/asd/u))
   .isFalse()
-  .bool(isFrozen(/\d+/))
+  .bool(isFrozen(/\d+/u))
   .isFalse()
-  .bool(isFrozen(/1/))
+  .bool(isFrozen(/1/u))
   .isFalse()
-  .bool(isFrozen(new RegExp('3')))
+  .bool(isFrozen(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -3815,13 +3815,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isFunction(/asd/))
+  .bool(isFunction(/asd/u))
   .isFalse()
-  .bool(isFunction(/\d+/))
+  .bool(isFunction(/\d+/u))
   .isFalse()
-  .bool(isFunction(/1/))
+  .bool(isFunction(/1/u))
   .isFalse()
-  .bool(isFunction(new RegExp('3')))
+  .bool(isFunction(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -3925,13 +3925,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isGenerator(/asd/))
+  .bool(isGenerator(/asd/u))
   .isFalse()
-  .bool(isGenerator(/\d+/))
+  .bool(isGenerator(/\d+/u))
   .isFalse()
-  .bool(isGenerator(/1/))
+  .bool(isGenerator(/1/u))
   .isFalse()
-  .bool(isGenerator(new RegExp('3')))
+  .bool(isGenerator(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4045,13 +4045,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isGeneratorFunction(/asd/))
+  .bool(isGeneratorFunction(/asd/u))
   .isFalse()
-  .bool(isGeneratorFunction(/\d+/))
+  .bool(isGeneratorFunction(/\d+/u))
   .isFalse()
-  .bool(isGeneratorFunction(/1/))
+  .bool(isGeneratorFunction(/1/u))
   .isFalse()
-  .bool(isGeneratorFunction(new RegExp('3')))
+  .bool(isGeneratorFunction(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4192,13 +4192,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isHexColor(/asd/))
+  .bool(isHexColor(/asd/u))
   .isFalse()
-  .bool(isHexColor(/\d+/))
+  .bool(isHexColor(/\d+/u))
   .isFalse()
-  .bool(isHexColor(/1/))
+  .bool(isHexColor(/1/u))
   .isFalse()
-  .bool(isHexColor(new RegExp('3')))
+  .bool(isHexColor(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4337,13 +4337,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isHexadecimal(/asd/))
+  .bool(isHexadecimal(/asd/u))
   .isFalse()
-  .bool(isHexadecimal(/\d+/))
+  .bool(isHexadecimal(/\d+/u))
   .isFalse()
-  .bool(isHexadecimal(/1/))
+  .bool(isHexadecimal(/1/u))
   .isFalse()
-  .bool(isHexadecimal(new RegExp('3')))
+  .bool(isHexadecimal(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4536,13 +4536,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isIP(/asd/))
+  .bool(isIP(/asd/u))
   .isFalse()
-  .bool(isIP(/\d+/))
+  .bool(isIP(/\d+/u))
   .isFalse()
-  .bool(isIP(/1/))
+  .bool(isIP(/1/u))
   .isFalse()
-  .bool(isIP(new RegExp('3')))
+  .bool(isIP(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4753,13 +4753,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isISBN(/asd/))
+  .bool(isISBN(/asd/u))
   .isFalse()
-  .bool(isISBN(/\d+/))
+  .bool(isISBN(/\d+/u))
   .isFalse()
-  .bool(isISBN(/1/))
+  .bool(isISBN(/1/u))
   .isFalse()
-  .bool(isISBN(new RegExp('3')))
+  .bool(isISBN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -4918,13 +4918,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isISIN(/asd/))
+  .bool(isISIN(/asd/u))
   .isFalse()
-  .bool(isISIN(/\d+/))
+  .bool(isISIN(/\d+/u))
   .isFalse()
-  .bool(isISIN(/1/))
+  .bool(isISIN(/1/u))
   .isFalse()
-  .bool(isISIN(new RegExp('3')))
+  .bool(isISIN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -5099,13 +5099,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isISRC(/asd/))
+  .bool(isISRC(/asd/u))
   .isFalse()
-  .bool(isISRC(/\d+/))
+  .bool(isISRC(/\d+/u))
   .isFalse()
-  .bool(isISRC(/1/))
+  .bool(isISRC(/1/u))
   .isFalse()
-  .bool(isISRC(new RegExp('3')))
+  .bool(isISRC(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -5256,13 +5256,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isISSN(/asd/))
+  .bool(isISSN(/asd/u))
   .isFalse()
-  .bool(isISSN(/\d+/))
+  .bool(isISSN(/\d+/u))
   .isFalse()
-  .bool(isISSN(/1/))
+  .bool(isISSN(/1/u))
   .isFalse()
-  .bool(isISSN(new RegExp('3')))
+  .bool(isISSN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -5393,13 +5393,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isInteger(/asd/))
+  .bool(isInteger(/asd/u))
   .isFalse()
-  .bool(isInteger(/\d+/))
+  .bool(isInteger(/\d+/u))
   .isFalse()
-  .bool(isInteger(/1/))
+  .bool(isInteger(/1/u))
   .isFalse()
-  .bool(isInteger(new RegExp('3')))
+  .bool(isInteger(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -5520,7 +5520,7 @@ unit
   })
   .error(() => {
     return isInteger(5, {
-      min: /a/,
+      min: /a/u,
     });
   })
   .error(() => {
@@ -5551,7 +5551,7 @@ unit
   })
   .error(() => {
     return isInteger(5, {
-      max: /a/,
+      max: /a/u,
     });
   })
   .error(() => {
@@ -5582,7 +5582,7 @@ unit
   })
   .error(() => {
     return isInteger(5, {
-      step: /a/,
+      step: /a/u,
     });
   })
   .error(() => {
@@ -5740,13 +5740,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isIterable(/asd/))
+  .bool(isIterable(/asd/u))
   .isFalse()
-  .bool(isIterable(/\d+/))
+  .bool(isIterable(/\d+/u))
   .isFalse()
-  .bool(isIterable(/1/))
+  .bool(isIterable(/1/u))
   .isFalse()
-  .bool(isIterable(new RegExp('3')))
+  .bool(isIterable(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -5948,13 +5948,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isIterableIterator(/asd/))
+  .bool(isIterableIterator(/asd/u))
   .isFalse()
-  .bool(isIterableIterator(/\d+/))
+  .bool(isIterableIterator(/\d+/u))
   .isFalse()
-  .bool(isIterableIterator(/1/))
+  .bool(isIterableIterator(/1/u))
   .isFalse()
-  .bool(isIterableIterator(new RegExp('3')))
+  .bool(isIterableIterator(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6123,13 +6123,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isIterator(/asd/))
+  .bool(isIterator(/asd/u))
   .isFalse()
-  .bool(isIterator(/\d+/))
+  .bool(isIterator(/\d+/u))
   .isFalse()
-  .bool(isIterator(/1/))
+  .bool(isIterator(/1/u))
   .isFalse()
-  .bool(isIterator(new RegExp('3')))
+  .bool(isIterator(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6224,13 +6224,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isJCB(/asd/))
+  .bool(isJCB(/asd/u))
   .isFalse()
-  .bool(isJCB(/\d+/))
+  .bool(isJCB(/\d+/u))
   .isFalse()
-  .bool(isJCB(/1/))
+  .bool(isJCB(/1/u))
   .isFalse()
-  .bool(isJCB(new RegExp('3')))
+  .bool(isJCB(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6327,13 +6327,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isJSON(/asd/))
+  .bool(isJSON(/asd/u))
   .isFalse()
-  .bool(isJSON(/\d+/))
+  .bool(isJSON(/\d+/u))
   .isFalse()
-  .bool(isJSON(/1/))
+  .bool(isJSON(/1/u))
   .isFalse()
-  .bool(isJSON(new RegExp('3')))
+  .bool(isJSON(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6430,13 +6430,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isLatitude(/asd/))
+  .bool(isLatitude(/asd/u))
   .isFalse()
-  .bool(isLatitude(/\d+/))
+  .bool(isLatitude(/\d+/u))
   .isFalse()
-  .bool(isLatitude(/1/))
+  .bool(isLatitude(/1/u))
   .isFalse()
-  .bool(isLatitude(new RegExp('3')))
+  .bool(isLatitude(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6733,13 +6733,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isLength(/asd/))
+  .bool(isLength(/asd/u))
   .isFalse()
-  .bool(isLength(/\d+/))
+  .bool(isLength(/\d+/u))
   .isFalse()
-  .bool(isLength(/1/))
+  .bool(isLength(/1/u))
   .isFalse()
-  .bool(isLength(new RegExp('3')))
+  .bool(isLength(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -6814,13 +6814,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isLongitude(/asd/))
+  .bool(isLongitude(/asd/u))
   .isFalse()
-  .bool(isLongitude(/\d+/))
+  .bool(isLongitude(/\d+/u))
   .isFalse()
-  .bool(isLongitude(/1/))
+  .bool(isLongitude(/1/u))
   .isFalse()
-  .bool(isLongitude(new RegExp('3')))
+  .bool(isLongitude(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7013,13 +7013,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isLuhn(/asd/))
+  .bool(isLuhn(/asd/u))
   .isFalse()
-  .bool(isLuhn(/\d+/))
+  .bool(isLuhn(/\d+/u))
   .isFalse()
-  .bool(isLuhn(/1/))
+  .bool(isLuhn(/1/u))
   .isFalse()
-  .bool(isLuhn(new RegExp('3')))
+  .bool(isLuhn(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7138,13 +7138,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isMACAddress(/asd/))
+  .bool(isMACAddress(/asd/u))
   .isFalse()
-  .bool(isMACAddress(/\d+/))
+  .bool(isMACAddress(/\d+/u))
   .isFalse()
-  .bool(isMACAddress(/1/))
+  .bool(isMACAddress(/1/u))
   .isFalse()
-  .bool(isMACAddress(new RegExp('3')))
+  .bool(isMACAddress(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7263,13 +7263,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isMD5(/asd/))
+  .bool(isMD5(/asd/u))
   .isFalse()
-  .bool(isMD5(/\d+/))
+  .bool(isMD5(/\d+/u))
   .isFalse()
-  .bool(isMD5(/1/))
+  .bool(isMD5(/1/u))
   .isFalse()
-  .bool(isMD5(new RegExp('3')))
+  .bool(isMD5(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7502,13 +7502,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isMastercard(/asd/))
+  .bool(isMastercard(/asd/u))
   .isFalse()
-  .bool(isMastercard(/\d+/))
+  .bool(isMastercard(/\d+/u))
   .isFalse()
-  .bool(isMastercard(/1/))
+  .bool(isMastercard(/1/u))
   .isFalse()
-  .bool(isMastercard(new RegExp('3')))
+  .bool(isMastercard(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7688,13 +7688,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isMongoId(/asd/))
+  .bool(isMongoId(/asd/u))
   .isFalse()
-  .bool(isMongoId(/\d+/))
+  .bool(isMongoId(/\d+/u))
   .isFalse()
-  .bool(isMongoId(/1/))
+  .bool(isMongoId(/1/u))
   .isFalse()
-  .bool(isMongoId(new RegExp('3')))
+  .bool(isMongoId(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7773,13 +7773,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isNaN(/asd/))
+  .bool(isNaN(/asd/u))
   .isFalse()
-  .bool(isNaN(/\d+/))
+  .bool(isNaN(/\d+/u))
   .isFalse()
-  .bool(isNaN(/1/))
+  .bool(isNaN(/1/u))
   .isFalse()
-  .bool(isNaN(new RegExp('3')))
+  .bool(isNaN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -7878,13 +7878,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isNull(/asd/))
+  .bool(isNull(/asd/u))
   .isFalse()
-  .bool(isNull(/\d+/))
+  .bool(isNull(/\d+/u))
   .isFalse()
-  .bool(isNull(/1/))
+  .bool(isNull(/1/u))
   .isFalse()
-  .bool(isNull(new RegExp('3')))
+  .bool(isNull(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -8317,13 +8317,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isPhoneNumber(/asd/))
+  .bool(isPhoneNumber(/asd/u))
   .isFalse()
-  .bool(isPhoneNumber(/\d+/))
+  .bool(isPhoneNumber(/\d+/u))
   .isFalse()
-  .bool(isPhoneNumber(/1/))
+  .bool(isPhoneNumber(/1/u))
   .isFalse()
-  .bool(isPhoneNumber(new RegExp('3')))
+  .bool(isPhoneNumber(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -8420,13 +8420,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isPlural(/asd/))
+  .bool(isPlural(/asd/u))
   .isFalse()
-  .bool(isPlural(/\d+/))
+  .bool(isPlural(/\d+/u))
   .isFalse()
-  .bool(isPlural(/1/))
+  .bool(isPlural(/1/u))
   .isFalse()
-  .bool(isPlural(new RegExp('3')))
+  .bool(isPlural(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -8543,13 +8543,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isPort(/asd/))
+  .bool(isPort(/asd/u))
   .isFalse()
-  .bool(isPort(/\d+/))
+  .bool(isPort(/\d+/u))
   .isFalse()
-  .bool(isPort(/1/))
+  .bool(isPort(/1/u))
   .isFalse()
-  .bool(isPort(new RegExp('3')))
+  .bool(isPort(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -8917,13 +8917,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isPostalCode(/asd/))
+  .bool(isPostalCode(/asd/u))
   .isFalse()
-  .bool(isPostalCode(/\d+/))
+  .bool(isPostalCode(/\d+/u))
   .isFalse()
-  .bool(isPostalCode(/1/))
+  .bool(isPostalCode(/1/u))
   .isFalse()
-  .bool(isPostalCode(new RegExp('3')))
+  .bool(isPostalCode(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -9116,9 +9116,9 @@ should return false for regular expressions.
 
 ```js
 unit
-  .bool(isPrimitive(/asd/))
+  .bool(isPrimitive(/asd/u))
   .isFalse()
-  .bool(isPrimitive(/^.*$/))
+  .bool(isPrimitive(/^.*$/u))
   .isFalse();
 ```
 
@@ -9140,7 +9140,7 @@ unit
   .isFalse()
   .bool(isPrimitive(new Date()))
   .isFalse()
-  .bool(isPrimitive(new RegExp()))
+  .bool(isPrimitive(new RegExp('', 'u')))
   .isFalse()
   .bool(isPrimitive(new Set()))
   .isFalse();
@@ -9397,13 +9397,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isPunctuation(/asd/))
+  .bool(isPunctuation(/asd/u))
   .isFalse()
-  .bool(isPunctuation(/\d+/))
+  .bool(isPunctuation(/\d+/u))
   .isFalse()
-  .bool(isPunctuation(/1/))
+  .bool(isPunctuation(/1/u))
   .isFalse()
-  .bool(isPunctuation(new RegExp('3')))
+  .bool(isPunctuation(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -9432,13 +9432,13 @@ should return true for regexs.
 
 ```js
 unit
-  .bool(isRegExp(/asd/))
+  .bool(isRegExp(/asd/u))
   .isTrue()
-  .bool(isRegExp(/\d+/))
+  .bool(isRegExp(/\d+/u))
   .isTrue()
-  .bool(isRegExp(/1/))
+  .bool(isRegExp(/1/u))
   .isTrue()
-  .bool(isRegExp(new RegExp('3')))
+  .bool(isRegExp(new RegExp('3', 'u')))
   .isTrue();
 ```
 
@@ -9611,13 +9611,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSHA1(/asd/))
+  .bool(isSHA1(/asd/u))
   .isFalse()
-  .bool(isSHA1(/\d+/))
+  .bool(isSHA1(/\d+/u))
   .isFalse()
-  .bool(isSHA1(/1/))
+  .bool(isSHA1(/1/u))
   .isFalse()
-  .bool(isSHA1(new RegExp('3')))
+  .bool(isSHA1(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -9736,13 +9736,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSHA256(/asd/))
+  .bool(isSHA256(/asd/u))
   .isFalse()
-  .bool(isSHA256(/\d+/))
+  .bool(isSHA256(/\d+/u))
   .isFalse()
-  .bool(isSHA256(/1/))
+  .bool(isSHA256(/1/u))
   .isFalse()
-  .bool(isSHA256(new RegExp('3')))
+  .bool(isSHA256(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -9861,13 +9861,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSHA384(/asd/))
+  .bool(isSHA384(/asd/u))
   .isFalse()
-  .bool(isSHA384(/\d+/))
+  .bool(isSHA384(/\d+/u))
   .isFalse()
-  .bool(isSHA384(/1/))
+  .bool(isSHA384(/1/u))
   .isFalse()
-  .bool(isSHA384(new RegExp('3')))
+  .bool(isSHA384(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -9986,13 +9986,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSHA512(/asd/))
+  .bool(isSHA512(/asd/u))
   .isFalse()
-  .bool(isSHA512(/\d+/))
+  .bool(isSHA512(/\d+/u))
   .isFalse()
-  .bool(isSHA512(/1/))
+  .bool(isSHA512(/1/u))
   .isFalse()
-  .bool(isSHA512(new RegExp('3')))
+  .bool(isSHA512(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -10109,13 +10109,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSealed(/asd/))
+  .bool(isSealed(/asd/u))
   .isFalse()
-  .bool(isSealed(/\d+/))
+  .bool(isSealed(/\d+/u))
   .isFalse()
-  .bool(isSealed(/1/))
+  .bool(isSealed(/1/u))
   .isFalse()
-  .bool(isSealed(new RegExp('3')))
+  .bool(isSealed(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -10269,13 +10269,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSemVer(/asd/))
+  .bool(isSemVer(/asd/u))
   .isFalse()
-  .bool(isSemVer(/\d+/))
+  .bool(isSemVer(/\d+/u))
   .isFalse()
-  .bool(isSemVer(/1/))
+  .bool(isSemVer(/1/u))
   .isFalse()
-  .bool(isSemVer(new RegExp('3')))
+  .bool(isSemVer(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -10516,13 +10516,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isSingular(/asd/))
+  .bool(isSingular(/asd/u))
   .isFalse()
-  .bool(isSingular(/\d+/))
+  .bool(isSingular(/\d+/u))
   .isFalse()
-  .bool(isSingular(/1/))
+  .bool(isSingular(/1/u))
   .isFalse()
-  .bool(isSingular(new RegExp('3')))
+  .bool(isSingular(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -10609,13 +10609,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isString(/asd/))
+  .bool(isString(/asd/u))
   .isFalse()
-  .bool(isString(/\d+/))
+  .bool(isString(/\d+/u))
   .isFalse()
-  .bool(isString(/1/))
+  .bool(isString(/1/u))
   .isFalse()
-  .bool(isString(new RegExp('3')))
+  .bool(isString(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -10902,13 +10902,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isTime(/asd/))
+  .bool(isTime(/asd/u))
   .isFalse()
-  .bool(isTime(/\d+/))
+  .bool(isTime(/\d+/u))
   .isFalse()
-  .bool(isTime(/1/))
+  .bool(isTime(/1/u))
   .isFalse()
-  .bool(isTime(new RegExp('3')))
+  .bool(isTime(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11109,13 +11109,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isURL(/asd/))
+  .bool(isURL(/asd/u))
   .isFalse()
-  .bool(isURL(/\d+/))
+  .bool(isURL(/\d+/u))
   .isFalse()
-  .bool(isURL(/1/))
+  .bool(isURL(/1/u))
   .isFalse()
-  .bool(isURL(new RegExp('3')))
+  .bool(isURL(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11244,13 +11244,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isURN(/asd/))
+  .bool(isURN(/asd/u))
   .isFalse()
-  .bool(isURN(/\d+/))
+  .bool(isURN(/\d+/u))
   .isFalse()
-  .bool(isURN(/1/))
+  .bool(isURN(/1/u))
   .isFalse()
-  .bool(isURN(new RegExp('3')))
+  .bool(isURN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11375,13 +11375,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isUUID(/asd/))
+  .bool(isUUID(/asd/u))
   .isFalse()
-  .bool(isUUID(/\d+/))
+  .bool(isUUID(/\d+/u))
   .isFalse()
-  .bool(isUUID(/1/))
+  .bool(isUUID(/1/u))
   .isFalse()
-  .bool(isUUID(new RegExp('3')))
+  .bool(isUUID(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11487,13 +11487,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isUndefined(/asd/))
+  .bool(isUndefined(/asd/u))
   .isFalse()
-  .bool(isUndefined(/\d+/))
+  .bool(isUndefined(/\d+/u))
   .isFalse()
-  .bool(isUndefined(/1/))
+  .bool(isUndefined(/1/u))
   .isFalse()
-  .bool(isUndefined(new RegExp('3')))
+  .bool(isUndefined(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11664,13 +11664,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isVIN(/asd/))
+  .bool(isVIN(/asd/u))
   .isFalse()
-  .bool(isVIN(/\d+/))
+  .bool(isVIN(/\d+/u))
   .isFalse()
-  .bool(isVIN(/1/))
+  .bool(isVIN(/1/u))
   .isFalse()
-  .bool(isVIN(new RegExp('3')))
+  .bool(isVIN(new RegExp('3', 'u')))
   .isFalse();
 ```
 
@@ -11793,13 +11793,13 @@ should return false for regexs.
 
 ```js
 unit
-  .bool(isVisa(/asd/))
+  .bool(isVisa(/asd/u))
   .isFalse()
-  .bool(isVisa(/\d+/))
+  .bool(isVisa(/\d+/u))
   .isFalse()
-  .bool(isVisa(/1/))
+  .bool(isVisa(/1/u))
   .isFalse()
-  .bool(isVisa(new RegExp('3')))
+  .bool(isVisa(new RegExp('3', 'u')))
   .isFalse();
 ```
 

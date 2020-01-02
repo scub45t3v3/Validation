@@ -72,13 +72,13 @@ describe('#isPlural', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isPlural(/asd/))
+      .bool(isPlural(/asd/u))
       .isFalse()
-      .bool(isPlural(/\d+/))
+      .bool(isPlural(/\d+/u))
       .isFalse()
-      .bool(isPlural(/1/))
+      .bool(isPlural(/1/u))
       .isFalse()
-      .bool(isPlural(new RegExp('3')))
+      .bool(isPlural(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

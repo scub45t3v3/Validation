@@ -100,13 +100,13 @@ describe('#isUUID', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isUUID(/asd/))
+      .bool(isUUID(/asd/u))
       .isFalse()
-      .bool(isUUID(/\d+/))
+      .bool(isUUID(/\d+/u))
       .isFalse()
-      .bool(isUUID(/1/))
+      .bool(isUUID(/1/u))
       .isFalse()
-      .bool(isUUID(new RegExp('3')))
+      .bool(isUUID(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

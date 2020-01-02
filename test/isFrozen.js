@@ -90,13 +90,13 @@ describe('#isFrozen', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isFrozen(/asd/))
+      .bool(isFrozen(/asd/u))
       .isFalse()
-      .bool(isFrozen(/\d+/))
+      .bool(isFrozen(/\d+/u))
       .isFalse()
-      .bool(isFrozen(/1/))
+      .bool(isFrozen(/1/u))
       .isFalse()
-      .bool(isFrozen(new RegExp('3')))
+      .bool(isFrozen(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

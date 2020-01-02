@@ -72,13 +72,13 @@ describe('#isJSON', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isJSON(/asd/))
+      .bool(isJSON(/asd/u))
       .isFalse()
-      .bool(isJSON(/\d+/))
+      .bool(isJSON(/\d+/u))
       .isFalse()
-      .bool(isJSON(/1/))
+      .bool(isJSON(/1/u))
       .isFalse()
-      .bool(isJSON(new RegExp('3')))
+      .bool(isJSON(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

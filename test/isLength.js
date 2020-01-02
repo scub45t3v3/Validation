@@ -230,13 +230,13 @@ describe('#isLength', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isLength(/asd/))
+      .bool(isLength(/asd/u))
       .isFalse()
-      .bool(isLength(/\d+/))
+      .bool(isLength(/\d+/u))
       .isFalse()
-      .bool(isLength(/1/))
+      .bool(isLength(/1/u))
       .isFalse()
-      .bool(isLength(new RegExp('3')))
+      .bool(isLength(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 }); // end describe #isLength

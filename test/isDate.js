@@ -152,13 +152,13 @@ describe('#isDate', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isDate(/asd/))
+      .bool(isDate(/asd/u))
       .isFalse()
-      .bool(isDate(/\d+/))
+      .bool(isDate(/\d+/u))
       .isFalse()
-      .bool(isDate(/1/))
+      .bool(isDate(/1/u))
       .isFalse()
-      .bool(isDate(new RegExp('3')))
+      .bool(isDate(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

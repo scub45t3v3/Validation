@@ -128,9 +128,9 @@ describe('#isPrimitive', () => {
 
   it('should return false for regular expressions', () => {
     unit
-      .bool(isPrimitive(/asd/))
+      .bool(isPrimitive(/asd/u))
       .isFalse()
-      .bool(isPrimitive(/^.*$/))
+      .bool(isPrimitive(/^.*$/u))
       .isFalse();
   }); // end it
 
@@ -148,7 +148,7 @@ describe('#isPrimitive', () => {
       .isFalse()
       .bool(isPrimitive(new Date()))
       .isFalse()
-      .bool(isPrimitive(new RegExp()))
+      .bool(isPrimitive(new RegExp('', 'u')))
       .isFalse()
       .bool(isPrimitive(new Set()))
       .isFalse();

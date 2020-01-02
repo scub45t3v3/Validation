@@ -382,13 +382,13 @@ describe('#isPhoneNumber', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isPhoneNumber(/asd/))
+      .bool(isPhoneNumber(/asd/u))
       .isFalse()
-      .bool(isPhoneNumber(/\d+/))
+      .bool(isPhoneNumber(/\d+/u))
       .isFalse()
-      .bool(isPhoneNumber(/1/))
+      .bool(isPhoneNumber(/1/u))
       .isFalse()
-      .bool(isPhoneNumber(new RegExp('3')))
+      .bool(isPhoneNumber(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

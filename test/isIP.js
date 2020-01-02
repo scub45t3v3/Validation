@@ -142,13 +142,13 @@ describe('#isIP', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isIP(/asd/))
+      .bool(isIP(/asd/u))
       .isFalse()
-      .bool(isIP(/\d+/))
+      .bool(isIP(/\d+/u))
       .isFalse()
-      .bool(isIP(/1/))
+      .bool(isIP(/1/u))
       .isFalse()
-      .bool(isIP(new RegExp('3')))
+      .bool(isIP(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

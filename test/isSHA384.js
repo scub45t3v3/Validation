@@ -94,13 +94,13 @@ describe('#isSHA384', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSHA384(/asd/))
+      .bool(isSHA384(/asd/u))
       .isFalse()
-      .bool(isSHA384(/\d+/))
+      .bool(isSHA384(/\d+/u))
       .isFalse()
-      .bool(isSHA384(/1/))
+      .bool(isSHA384(/1/u))
       .isFalse()
-      .bool(isSHA384(new RegExp('3')))
+      .bool(isSHA384(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

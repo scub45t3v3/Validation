@@ -93,13 +93,13 @@ describe('#isMD5', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isMD5(/asd/))
+      .bool(isMD5(/asd/u))
       .isFalse()
-      .bool(isMD5(/\d+/))
+      .bool(isMD5(/\d+/u))
       .isFalse()
-      .bool(isMD5(/1/))
+      .bool(isMD5(/1/u))
       .isFalse()
-      .bool(isMD5(new RegExp('3')))
+      .bool(isMD5(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -72,13 +72,13 @@ describe('#isSingular', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSingular(/asd/))
+      .bool(isSingular(/asd/u))
       .isFalse()
-      .bool(isSingular(/\d+/))
+      .bool(isSingular(/\d+/u))
       .isFalse()
-      .bool(isSingular(/1/))
+      .bool(isSingular(/1/u))
       .isFalse()
-      .bool(isSingular(new RegExp('3')))
+      .bool(isSingular(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

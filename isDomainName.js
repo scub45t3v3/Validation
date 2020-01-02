@@ -3,7 +3,7 @@
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isDomainName');
 const punycode = require('punycode');
-const REGEX = /^(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z][a-z\d-]*[a-z\d]$/i;
+const REGEX = /^(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z][a-z\d-]*[a-z\d]$/iu;
 
 const isDomainName = (value, idn = true) => {
   debug('call:isDomainName(%o, %o)', value, idn);

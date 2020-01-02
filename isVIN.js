@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isVIN');
-const REGEX = /^[a-hj-nprs-z\d]{17}$/i;
+const REGEX = /^[a-hj-nprs-z\d]{17}$/iu;
 
 const isVIN = (value) => {
   debug('call:isVIN(%o)', value);

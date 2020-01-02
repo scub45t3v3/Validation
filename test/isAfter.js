@@ -155,13 +155,13 @@ describe('#isAfter', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isAfter(/asd/))
+      .bool(isAfter(/asd/u))
       .isFalse()
-      .bool(isAfter(/\d+/))
+      .bool(isAfter(/\d+/u))
       .isFalse()
-      .bool(isAfter(/1/))
+      .bool(isAfter(/1/u))
       .isFalse()
-      .bool(isAfter(new RegExp('3')))
+      .bool(isAfter(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

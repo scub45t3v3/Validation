@@ -80,13 +80,13 @@ describe('#isDinersClub', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isDinersClub(/asd/))
+      .bool(isDinersClub(/asd/u))
       .isFalse()
-      .bool(isDinersClub(/\d+/))
+      .bool(isDinersClub(/\d+/u))
       .isFalse()
-      .bool(isDinersClub(/1/))
+      .bool(isDinersClub(/1/u))
       .isFalse()
-      .bool(isDinersClub(new RegExp('3')))
+      .bool(isDinersClub(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

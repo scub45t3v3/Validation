@@ -3,7 +3,7 @@
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isBase64');
 const isRegExp = require('./isRegExp');
-const REGEX = /^[a-z\d+/]+={0,2}$/i;
+const REGEX = /^[a-z\d+/]+={0,2}$/iu;
 
 const isBase64 = (value) => {
   debug('call:isBase64(%o)', value);

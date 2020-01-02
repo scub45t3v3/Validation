@@ -118,13 +118,13 @@ describe('#isAlphaNumeric', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isAlphaNumeric(/asd/))
+      .bool(isAlphaNumeric(/asd/u))
       .isFalse()
-      .bool(isAlphaNumeric(/\d+/))
+      .bool(isAlphaNumeric(/\d+/u))
       .isFalse()
-      .bool(isAlphaNumeric(/1/))
+      .bool(isAlphaNumeric(/1/u))
       .isFalse()
-      .bool(isAlphaNumeric(new RegExp('3')))
+      .bool(isAlphaNumeric(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

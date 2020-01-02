@@ -126,13 +126,13 @@ describe('#isVIN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isVIN(/asd/))
+      .bool(isVIN(/asd/u))
       .isFalse()
-      .bool(isVIN(/\d+/))
+      .bool(isVIN(/\d+/u))
       .isFalse()
-      .bool(isVIN(/1/))
+      .bool(isVIN(/1/u))
       .isFalse()
-      .bool(isVIN(new RegExp('3')))
+      .bool(isVIN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

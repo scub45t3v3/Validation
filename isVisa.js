@@ -3,7 +3,7 @@
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isVisa');
 const isLuhn = require('./isLuhn');
-const REGEX = /^4\d{12}(?:\d{3})?$/;
+const REGEX = /^4\d{12}(?:\d{3})?$/u;
 
 const isVisa = (value) => {
   debug('call:isVisa(%o)', value);

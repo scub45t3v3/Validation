@@ -36,7 +36,7 @@ describe('#isAll', () => {
   }); // end it
 
   it('should return true for a value that passes truth test for provided RegExp', () => {
-    const test = [/^\d+$/, /5$/];
+    const test = [/^\d+$/u, /5$/u];
     unit
       .bool(isAll('15', ...test))
       .isTrue()

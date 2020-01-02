@@ -118,13 +118,13 @@ describe('#isEmailAddress', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isEmailAddress(/asd/))
+      .bool(isEmailAddress(/asd/u))
       .isFalse()
-      .bool(isEmailAddress(/\d+/))
+      .bool(isEmailAddress(/\d+/u))
       .isFalse()
-      .bool(isEmailAddress(/1/))
+      .bool(isEmailAddress(/1/u))
       .isFalse()
-      .bool(isEmailAddress(new RegExp('3')))
+      .bool(isEmailAddress(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

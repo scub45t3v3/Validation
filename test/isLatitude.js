@@ -71,13 +71,13 @@ describe('#isLatitude', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isLatitude(/asd/))
+      .bool(isLatitude(/asd/u))
       .isFalse()
-      .bool(isLatitude(/\d+/))
+      .bool(isLatitude(/\d+/u))
       .isFalse()
-      .bool(isLatitude(/1/))
+      .bool(isLatitude(/1/u))
       .isFalse()
-      .bool(isLatitude(new RegExp('3')))
+      .bool(isLatitude(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

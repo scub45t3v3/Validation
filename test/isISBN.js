@@ -164,13 +164,13 @@ describe('#isISBN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isISBN(/asd/))
+      .bool(isISBN(/asd/u))
       .isFalse()
-      .bool(isISBN(/\d+/))
+      .bool(isISBN(/\d+/u))
       .isFalse()
-      .bool(isISBN(/1/))
+      .bool(isISBN(/1/u))
       .isFalse()
-      .bool(isISBN(new RegExp('3')))
+      .bool(isISBN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

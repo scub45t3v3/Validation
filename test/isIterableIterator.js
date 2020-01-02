@@ -170,13 +170,13 @@ describe('#isIterableIterator', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isIterableIterator(/asd/))
+      .bool(isIterableIterator(/asd/u))
       .isFalse()
-      .bool(isIterableIterator(/\d+/))
+      .bool(isIterableIterator(/\d+/u))
       .isFalse()
-      .bool(isIterableIterator(/1/))
+      .bool(isIterableIterator(/1/u))
       .isFalse()
-      .bool(isIterableIterator(new RegExp('3')))
+      .bool(isIterableIterator(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 }); // end describe #isIterableIterator

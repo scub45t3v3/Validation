@@ -130,13 +130,13 @@ describe('#isISRC', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isISRC(/asd/))
+      .bool(isISRC(/asd/u))
       .isFalse()
-      .bool(isISRC(/\d+/))
+      .bool(isISRC(/\d+/u))
       .isFalse()
-      .bool(isISRC(/1/))
+      .bool(isISRC(/1/u))
       .isFalse()
-      .bool(isISRC(new RegExp('3')))
+      .bool(isISRC(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

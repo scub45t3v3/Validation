@@ -94,13 +94,13 @@ describe('#isMongoId', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isMongoId(/asd/))
+      .bool(isMongoId(/asd/u))
       .isFalse()
-      .bool(isMongoId(/\d+/))
+      .bool(isMongoId(/\d+/u))
       .isFalse()
-      .bool(isMongoId(/1/))
+      .bool(isMongoId(/1/u))
       .isFalse()
-      .bool(isMongoId(new RegExp('3')))
+      .bool(isMongoId(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -104,13 +104,13 @@ describe('#isURN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isURN(/asd/))
+      .bool(isURN(/asd/u))
       .isFalse()
-      .bool(isURN(/\d+/))
+      .bool(isURN(/\d+/u))
       .isFalse()
-      .bool(isURN(/1/))
+      .bool(isURN(/1/u))
       .isFalse()
-      .bool(isURN(new RegExp('3')))
+      .bool(isURN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

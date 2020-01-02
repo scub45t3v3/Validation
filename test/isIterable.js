@@ -119,13 +119,13 @@ describe('#isIterable', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isIterable(/asd/))
+      .bool(isIterable(/asd/u))
       .isFalse()
-      .bool(isIterable(/\d+/))
+      .bool(isIterable(/\d+/u))
       .isFalse()
-      .bool(isIterable(/1/))
+      .bool(isIterable(/1/u))
       .isFalse()
-      .bool(isIterable(new RegExp('3')))
+      .bool(isIterable(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 }); // end describe #isIterable

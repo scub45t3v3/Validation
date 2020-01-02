@@ -56,13 +56,13 @@ describe('#isFunction', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isFunction(/asd/))
+      .bool(isFunction(/asd/u))
       .isFalse()
-      .bool(isFunction(/\d+/))
+      .bool(isFunction(/\d+/u))
       .isFalse()
-      .bool(isFunction(/1/))
+      .bool(isFunction(/1/u))
       .isFalse()
-      .bool(isFunction(new RegExp('3')))
+      .bool(isFunction(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

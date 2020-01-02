@@ -66,13 +66,13 @@ describe('#isArray', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isArray(/asd/))
+      .bool(isArray(/asd/u))
       .isFalse()
-      .bool(isArray(/\d+/))
+      .bool(isArray(/\d+/u))
       .isFalse()
-      .bool(isArray(/1/))
+      .bool(isArray(/1/u))
       .isFalse()
-      .bool(isArray(new RegExp('3')))
+      .bool(isArray(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

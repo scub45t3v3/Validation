@@ -92,13 +92,13 @@ describe('#isHexColor', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isHexColor(/asd/))
+      .bool(isHexColor(/asd/u))
       .isFalse()
-      .bool(isHexColor(/\d+/))
+      .bool(isHexColor(/\d+/u))
       .isFalse()
-      .bool(isHexColor(/1/))
+      .bool(isHexColor(/1/u))
       .isFalse()
-      .bool(isHexColor(new RegExp('3')))
+      .bool(isHexColor(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

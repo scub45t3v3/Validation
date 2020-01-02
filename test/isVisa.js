@@ -82,13 +82,13 @@ describe('#isVisa', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isVisa(/asd/))
+      .bool(isVisa(/asd/u))
       .isFalse()
-      .bool(isVisa(/\d+/))
+      .bool(isVisa(/\d+/u))
       .isFalse()
-      .bool(isVisa(/1/))
+      .bool(isVisa(/1/u))
       .isFalse()
-      .bool(isVisa(new RegExp('3')))
+      .bool(isVisa(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

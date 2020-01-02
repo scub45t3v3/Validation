@@ -89,13 +89,13 @@ describe('#isInteger', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isInteger(/asd/))
+      .bool(isInteger(/asd/u))
       .isFalse()
-      .bool(isInteger(/\d+/))
+      .bool(isInteger(/\d+/u))
       .isFalse()
-      .bool(isInteger(/1/))
+      .bool(isInteger(/1/u))
       .isFalse()
-      .bool(isInteger(new RegExp('3')))
+      .bool(isInteger(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 
@@ -202,7 +202,7 @@ describe('#isInteger', () => {
       })
       .error(() => {
         return isInteger(5, {
-          min: /a/,
+          min: /a/u,
         });
       })
       .error(() => {
@@ -231,7 +231,7 @@ describe('#isInteger', () => {
       })
       .error(() => {
         return isInteger(5, {
-          max: /a/,
+          max: /a/u,
         });
       })
       .error(() => {
@@ -260,7 +260,7 @@ describe('#isInteger', () => {
       })
       .error(() => {
         return isInteger(5, {
-          step: /a/,
+          step: /a/u,
         });
       })
       .error(() => {

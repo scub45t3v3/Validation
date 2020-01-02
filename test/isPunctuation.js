@@ -84,13 +84,13 @@ describe('#isPunctuation', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isPunctuation(/asd/))
+      .bool(isPunctuation(/asd/u))
       .isFalse()
-      .bool(isPunctuation(/\d+/))
+      .bool(isPunctuation(/\d+/u))
       .isFalse()
-      .bool(isPunctuation(/1/))
+      .bool(isPunctuation(/1/u))
       .isFalse()
-      .bool(isPunctuation(new RegExp('3')))
+      .bool(isPunctuation(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

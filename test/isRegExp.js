@@ -13,13 +13,13 @@ describe('#isRegExp', () => {
 
   it('should return true for regexs', () => {
     unit
-      .bool(isRegExp(/asd/))
+      .bool(isRegExp(/asd/u))
       .isTrue()
-      .bool(isRegExp(/\d+/))
+      .bool(isRegExp(/\d+/u))
       .isTrue()
-      .bool(isRegExp(/1/))
+      .bool(isRegExp(/1/u))
       .isTrue()
-      .bool(isRegExp(new RegExp('3')))
+      .bool(isRegExp(new RegExp('3', 'u')))
       .isTrue();
   }); // end it
 

@@ -47,13 +47,13 @@ describe('#isString', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isString(/asd/))
+      .bool(isString(/asd/u))
       .isFalse()
-      .bool(isString(/\d+/))
+      .bool(isString(/\d+/u))
       .isFalse()
-      .bool(isString(/1/))
+      .bool(isString(/1/u))
       .isFalse()
-      .bool(isString(new RegExp('3')))
+      .bool(isString(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

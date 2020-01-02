@@ -155,13 +155,13 @@ describe('#isBefore', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isBefore(/asd/))
+      .bool(isBefore(/asd/u))
       .isFalse()
-      .bool(isBefore(/\d+/))
+      .bool(isBefore(/\d+/u))
       .isFalse()
-      .bool(isBefore(/1/))
+      .bool(isBefore(/1/u))
       .isFalse()
-      .bool(isBefore(new RegExp('3')))
+      .bool(isBefore(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -80,13 +80,13 @@ describe('#isDiscover', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isDiscover(/asd/))
+      .bool(isDiscover(/asd/u))
       .isFalse()
-      .bool(isDiscover(/\d+/))
+      .bool(isDiscover(/\d+/u))
       .isFalse()
-      .bool(isDiscover(/1/))
+      .bool(isDiscover(/1/u))
       .isFalse()
-      .bool(isDiscover(new RegExp('3')))
+      .bool(isDiscover(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -55,13 +55,13 @@ describe('#isNaN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isNaN(/asd/))
+      .bool(isNaN(/asd/u))
       .isFalse()
-      .bool(isNaN(/\d+/))
+      .bool(isNaN(/\d+/u))
       .isFalse()
-      .bool(isNaN(/1/))
+      .bool(isNaN(/1/u))
       .isFalse()
-      .bool(isNaN(new RegExp('3')))
+      .bool(isNaN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

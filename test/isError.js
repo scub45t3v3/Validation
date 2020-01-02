@@ -74,13 +74,13 @@ describe('#isError', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isError(/asd/))
+      .bool(isError(/asd/u))
       .isFalse()
-      .bool(isError(/\d+/))
+      .bool(isError(/\d+/u))
       .isFalse()
-      .bool(isError(/1/))
+      .bool(isError(/1/u))
       .isFalse()
-      .bool(isError(new RegExp('3')))
+      .bool(isError(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

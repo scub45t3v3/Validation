@@ -93,7 +93,7 @@ describe('@scuba-squad/validation', () => {
       .object(index)
       .hasProperties(FUNCTIONS)
       .matchEach((value, key) => {
-        return typeof value === 'function' && /^is[A-Z]/.test(key);
+        return typeof value === 'function' && /^is[A-Z]/u.test(key);
       });
   }); // end it
 }); // end describe @scuba-squad/validation

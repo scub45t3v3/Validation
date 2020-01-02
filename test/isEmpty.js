@@ -64,13 +64,13 @@ describe('#isEmpty', () => {
 
   it('should return true for regexs', () => {
     unit
-      .bool(isEmpty(/asd/))
+      .bool(isEmpty(/asd/u))
       .isTrue()
-      .bool(isEmpty(/\d+/))
+      .bool(isEmpty(/\d+/u))
       .isTrue()
-      .bool(isEmpty(/1/))
+      .bool(isEmpty(/1/u))
       .isTrue()
-      .bool(isEmpty(new RegExp('3')))
+      .bool(isEmpty(new RegExp('3', 'u')))
       .isTrue();
   }); // end it
 

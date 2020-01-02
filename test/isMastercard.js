@@ -80,13 +80,13 @@ describe('#isMastercard', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isMastercard(/asd/))
+      .bool(isMastercard(/asd/u))
       .isFalse()
-      .bool(isMastercard(/\d+/))
+      .bool(isMastercard(/\d+/u))
       .isFalse()
-      .bool(isMastercard(/1/))
+      .bool(isMastercard(/1/u))
       .isFalse()
-      .bool(isMastercard(new RegExp('3')))
+      .bool(isMastercard(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

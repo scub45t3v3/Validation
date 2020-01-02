@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isHexColor');
-const REGEX = /^#?(?:[a-f\d]{3}){1,2}$/i;
+const REGEX = /^#?(?:[a-f\d]{3}){1,2}$/iu;
 
 const isHexColor = (value) => {
   debug('call:isHexColor(%o)', value);

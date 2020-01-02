@@ -63,13 +63,13 @@ describe('#isLongitude', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isLongitude(/asd/))
+      .bool(isLongitude(/asd/u))
       .isFalse()
-      .bool(isLongitude(/\d+/))
+      .bool(isLongitude(/\d+/u))
       .isFalse()
-      .bool(isLongitude(/1/))
+      .bool(isLongitude(/1/u))
       .isFalse()
-      .bool(isLongitude(new RegExp('3')))
+      .bool(isLongitude(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

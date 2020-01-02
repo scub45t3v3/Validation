@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isSymbol');
-const REGEX = /^Symbol\(.*\)$/;
+const REGEX = /^Symbol\(.*\)$/u;
 
 const isSymbol = (value) => {
   debug('call:isSymbol(%o)', value);

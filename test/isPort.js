@@ -73,13 +73,13 @@ describe('#isPort', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isPort(/asd/))
+      .bool(isPort(/asd/u))
       .isFalse()
-      .bool(isPort(/\d+/))
+      .bool(isPort(/\d+/u))
       .isFalse()
-      .bool(isPort(/1/))
+      .bool(isPort(/1/u))
       .isFalse()
-      .bool(isPort(new RegExp('3')))
+      .bool(isPort(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

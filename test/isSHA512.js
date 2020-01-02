@@ -94,13 +94,13 @@ describe('#isSHA512', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSHA512(/asd/))
+      .bool(isSHA512(/asd/u))
       .isFalse()
-      .bool(isSHA512(/\d+/))
+      .bool(isSHA512(/\d+/u))
       .isFalse()
-      .bool(isSHA512(/1/))
+      .bool(isSHA512(/1/u))
       .isFalse()
-      .bool(isSHA512(new RegExp('3')))
+      .bool(isSHA512(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

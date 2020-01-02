@@ -36,7 +36,7 @@ describe('#isAny', () => {
   }); // end it
 
   it('should return true for a value that passes truth test for provided RegExp', () => {
-    const test = [/^\d+$/, /^hello/i];
+    const test = [/^\d+$/u, /^hello/iu];
     unit
       .bool(isAny('hello', ...test))
       .isTrue()

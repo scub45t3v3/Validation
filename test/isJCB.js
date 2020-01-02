@@ -80,13 +80,13 @@ describe('#isJCB', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isJCB(/asd/))
+      .bool(isJCB(/asd/u))
       .isFalse()
-      .bool(isJCB(/\d+/))
+      .bool(isJCB(/\d+/u))
       .isFalse()
-      .bool(isJCB(/1/))
+      .bool(isJCB(/1/u))
       .isFalse()
-      .bool(isJCB(new RegExp('3')))
+      .bool(isJCB(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -150,13 +150,13 @@ describe('#isLuhn', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isLuhn(/asd/))
+      .bool(isLuhn(/asd/u))
       .isFalse()
-      .bool(isLuhn(/\d+/))
+      .bool(isLuhn(/\d+/u))
       .isFalse()
-      .bool(isLuhn(/1/))
+      .bool(isLuhn(/1/u))
       .isFalse()
-      .bool(isLuhn(new RegExp('3')))
+      .bool(isLuhn(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

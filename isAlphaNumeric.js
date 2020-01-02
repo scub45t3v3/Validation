@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isAlphaNumeric');
-const REGEX = /^[a-z\d]+$/i;
+const REGEX = /^[a-z\d]+$/iu;
 
 const isAlphaNumeric = (value) => {
   debug('call:isAlphaNumeric(%o)', value);

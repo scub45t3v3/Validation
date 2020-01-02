@@ -94,13 +94,13 @@ describe('#isSemVer', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSemVer(/asd/))
+      .bool(isSemVer(/asd/u))
       .isFalse()
-      .bool(isSemVer(/\d+/))
+      .bool(isSemVer(/\d+/u))
       .isFalse()
-      .bool(isSemVer(/1/))
+      .bool(isSemVer(/1/u))
       .isFalse()
-      .bool(isSemVer(new RegExp('3')))
+      .bool(isSemVer(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

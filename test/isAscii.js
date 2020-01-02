@@ -76,13 +76,13 @@ describe('#isAscii', () => {
 
   it('should return true for regexs', () => {
     unit
-      .bool(isAscii(/asd/))
+      .bool(isAscii(/asd/u))
       .isTrue()
-      .bool(isAscii(/\d+/))
+      .bool(isAscii(/\d+/u))
       .isTrue()
-      .bool(isAscii(/1/))
+      .bool(isAscii(/1/u))
       .isTrue()
-      .bool(isAscii(new RegExp('3')))
+      .bool(isAscii(new RegExp('3', 'u')))
       .isTrue();
   }); // end it
 

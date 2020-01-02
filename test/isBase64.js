@@ -106,13 +106,13 @@ describe('#isBase64', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isBase64(/asd/))
+      .bool(isBase64(/asd/u))
       .isFalse()
-      .bool(isBase64(/\d+/))
+      .bool(isBase64(/\d+/u))
       .isFalse()
-      .bool(isBase64(/1/))
+      .bool(isBase64(/1/u))
       .isFalse()
-      .bool(isBase64(new RegExp('3')))
+      .bool(isBase64(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

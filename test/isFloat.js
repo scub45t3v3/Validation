@@ -67,13 +67,13 @@ describe('#isFloat', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isFloat(/asd/))
+      .bool(isFloat(/asd/u))
       .isFalse()
-      .bool(isFloat(/\d+/))
+      .bool(isFloat(/\d+/u))
       .isFalse()
-      .bool(isFloat(/1/))
+      .bool(isFloat(/1/u))
       .isFalse()
-      .bool(isFloat(new RegExp('3')))
+      .bool(isFloat(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 
@@ -180,7 +180,7 @@ describe('#isFloat', () => {
       })
       .error(() => {
         return isFloat(5, {
-          min: /a/,
+          min: /a/u,
         });
       })
       .error(() => {
@@ -209,7 +209,7 @@ describe('#isFloat', () => {
       })
       .error(() => {
         return isFloat(5, {
-          max: /a/,
+          max: /a/u,
         });
       })
       .error(() => {
@@ -238,7 +238,7 @@ describe('#isFloat', () => {
       })
       .error(() => {
         return isFloat(5, {
-          step: /a/,
+          step: /a/u,
         });
       })
       .error(() => {

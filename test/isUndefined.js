@@ -79,13 +79,13 @@ describe('#isUndefined', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isUndefined(/asd/))
+      .bool(isUndefined(/asd/u))
       .isFalse()
-      .bool(isUndefined(/\d+/))
+      .bool(isUndefined(/\d+/u))
       .isFalse()
-      .bool(isUndefined(/1/))
+      .bool(isUndefined(/1/u))
       .isFalse()
-      .bool(isUndefined(new RegExp('3')))
+      .bool(isUndefined(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

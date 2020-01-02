@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isMACAddress');
-const REGEX = /^(?:[a-f\d]{2}:){5}[a-f\d]{2}$/i;
+const REGEX = /^(?:[a-f\d]{2}:){5}[a-f\d]{2}$/iu;
 
 const isMACAddress = (value) => {
   debug('call:isMACAddress(%o)', value);

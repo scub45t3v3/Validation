@@ -66,13 +66,13 @@ describe('#isGenerator', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isGenerator(/asd/))
+      .bool(isGenerator(/asd/u))
       .isFalse()
-      .bool(isGenerator(/\d+/))
+      .bool(isGenerator(/\d+/u))
       .isFalse()
-      .bool(isGenerator(/1/))
+      .bool(isGenerator(/1/u))
       .isFalse()
-      .bool(isGenerator(new RegExp('3')))
+      .bool(isGenerator(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

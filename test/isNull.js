@@ -59,13 +59,13 @@ describe('#isNull', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isNull(/asd/))
+      .bool(isNull(/asd/u))
       .isFalse()
-      .bool(isNull(/\d+/))
+      .bool(isNull(/\d+/u))
       .isFalse()
-      .bool(isNull(/1/))
+      .bool(isNull(/1/u))
       .isFalse()
-      .bool(isNull(new RegExp('3')))
+      .bool(isNull(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

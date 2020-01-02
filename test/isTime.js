@@ -108,13 +108,13 @@ describe('#isTime', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isTime(/asd/))
+      .bool(isTime(/asd/u))
       .isFalse()
-      .bool(isTime(/\d+/))
+      .bool(isTime(/\d+/u))
       .isFalse()
-      .bool(isTime(/1/))
+      .bool(isTime(/1/u))
       .isFalse()
-      .bool(isTime(new RegExp('3')))
+      .bool(isTime(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

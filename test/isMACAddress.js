@@ -94,13 +94,13 @@ describe('#isMACAddress', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isMACAddress(/asd/))
+      .bool(isMACAddress(/asd/u))
       .isFalse()
-      .bool(isMACAddress(/\d+/))
+      .bool(isMACAddress(/\d+/u))
       .isFalse()
-      .bool(isMACAddress(/1/))
+      .bool(isMACAddress(/1/u))
       .isFalse()
-      .bool(isMACAddress(new RegExp('3')))
+      .bool(isMACAddress(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -78,13 +78,13 @@ describe('#isBoolean', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isBoolean(/asd/))
+      .bool(isBoolean(/asd/u))
       .isFalse()
-      .bool(isBoolean(/\d+/))
+      .bool(isBoolean(/\d+/u))
       .isFalse()
-      .bool(isBoolean(/1/))
+      .bool(isBoolean(/1/u))
       .isFalse()
-      .bool(isBoolean(new RegExp('3')))
+      .bool(isBoolean(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

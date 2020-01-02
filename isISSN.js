@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isISSN');
-const REGEX = /^\d{4}-?\d{3}[\dX]$/i;
+const REGEX = /^\d{4}-?\d{3}[\dX]$/iu;
 
 const isISSN = (value) => {
   debug('call:isISSN(%o)', value);
@@ -13,9 +13,9 @@ const isISSN = (value) => {
     return false;
   }
 
-  value = value.replace(/[^\dX]/gi, '').split('');
+  value = value.replace(/[^\dX]/giu, '').split('');
 
-  if (/^x$/i.test(value[7])) {
+  if (/^x$/iu.test(value[7])) {
     value[7] = 10;
   }
 

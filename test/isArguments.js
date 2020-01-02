@@ -72,13 +72,13 @@ describe('#isArguments', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isArguments(/asd/))
+      .bool(isArguments(/asd/u))
       .isFalse()
-      .bool(isArguments(/\d+/))
+      .bool(isArguments(/\d+/u))
       .isFalse()
-      .bool(isArguments(/1/))
+      .bool(isArguments(/1/u))
       .isFalse()
-      .bool(isArguments(new RegExp('3')))
+      .bool(isArguments(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

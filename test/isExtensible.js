@@ -34,13 +34,13 @@ describe('#isExtensible', () => {
 
   it('should return true for regexs', () => {
     unit
-      .bool(isExtensible(/asd/))
+      .bool(isExtensible(/asd/u))
       .isTrue()
-      .bool(isExtensible(/\d+/))
+      .bool(isExtensible(/\d+/u))
       .isTrue()
-      .bool(isExtensible(/1/))
+      .bool(isExtensible(/1/u))
       .isTrue()
-      .bool(isExtensible(new RegExp('3')))
+      .bool(isExtensible(new RegExp('3', 'u')))
       .isTrue();
   }); // end it
 

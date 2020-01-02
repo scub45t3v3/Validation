@@ -116,13 +116,13 @@ describe('#isISIN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isISIN(/asd/))
+      .bool(isISIN(/asd/u))
       .isFalse()
-      .bool(isISIN(/\d+/))
+      .bool(isISIN(/\d+/u))
       .isFalse()
-      .bool(isISIN(/1/))
+      .bool(isISIN(/1/u))
       .isFalse()
-      .bool(isISIN(new RegExp('3')))
+      .bool(isISIN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -23,7 +23,7 @@ describe('#isEqual', () => {
       .isTrue()
       .bool(isEqual('hi', 'hi'))
       .isTrue()
-      .bool(isEqual(/\d/, /\d/))
+      .bool(isEqual(/\d/u, /\d/u))
       .isTrue()
       .bool(isEqual([1, 2, 3], [1, 2, 3]))
       .isTrue();
@@ -39,7 +39,7 @@ describe('#isEqual', () => {
       .isTrue()
       .bool(isEqual(new Boolean(false), false))
       .isTrue()
-      .bool(isEqual(new RegExp('\\d'), /\d/))
+      .bool(isEqual(new RegExp('\\d', 'u'), /\d/u))
       .isTrue()
       .bool(isEqual(new Array(1, 2, 3), [1, 2, 3]))
       .isTrue();
@@ -53,7 +53,7 @@ describe('#isEqual', () => {
       .isTrue()
       .bool(isEqual(new String('a'), new String('a')))
       .isTrue()
-      .bool(isEqual(new RegExp('asd'), new RegExp('asd')))
+      .bool(isEqual(new RegExp('asd', 'u'), new RegExp('asd', 'u')))
       .isTrue()
       .bool(isEqual(new Array(1, 2), new Array(1, 2)))
       .isTrue();
@@ -110,7 +110,7 @@ describe('#isEqual', () => {
       .isFalse()
       .bool(isEqual(new Boolean(false), true))
       .isFalse()
-      .bool(isEqual(new RegExp('asd', 'i'), /asd/))
+      .bool(isEqual(new RegExp('asd', 'iu'), /asd/u))
       .isFalse()
       .bool(isEqual(new Array(1, 2, 3), [1, 2]))
       .isFalse();
@@ -124,7 +124,7 @@ describe('#isEqual', () => {
       .isFalse()
       .bool(isEqual(true, false))
       .isFalse()
-      .bool(isEqual(/asd/, /asd/i))
+      .bool(isEqual(/asd/u, /asd/iu))
       .isFalse()
       .bool(isEqual([1, 2, 3], [1, 3, 2]))
       .isFalse();

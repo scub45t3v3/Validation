@@ -90,13 +90,13 @@ describe('#isSealed', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSealed(/asd/))
+      .bool(isSealed(/asd/u))
       .isFalse()
-      .bool(isSealed(/\d+/))
+      .bool(isSealed(/\d+/u))
       .isFalse()
-      .bool(isSealed(/1/))
+      .bool(isSealed(/1/u))
       .isFalse()
-      .bool(isSealed(new RegExp('3')))
+      .bool(isSealed(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

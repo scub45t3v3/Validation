@@ -4,7 +4,7 @@
 const debug = require('debug')('@scuba-squad:validation:isEmailAddress');
 const isLength = require('./isLength');
 const isDomainName = require('./isDomainName');
-const REGEX = /^(?<username>(?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+)@(?<domain>[^\s:[\]/%?#@]+)$/i;
+const REGEX = /^(?<username>(?:[\w!#$%&'*+/=?^`{|}~-]+\.?)*[\w!#$%&'*+/=?^`{|}~-]+)@(?<domain>[^\s:[\]/%?#@]+)$/iu;
 
 /*
  * The following method validates the local-part to dot-atom RFC 5322

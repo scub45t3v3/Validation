@@ -323,13 +323,13 @@ describe('#isPostalCode', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isPostalCode(/asd/))
+      .bool(isPostalCode(/asd/u))
       .isFalse()
-      .bool(isPostalCode(/\d+/))
+      .bool(isPostalCode(/\d+/u))
       .isFalse()
-      .bool(isPostalCode(/1/))
+      .bool(isPostalCode(/1/u))
       .isFalse()
-      .bool(isPostalCode(new RegExp('3')))
+      .bool(isPostalCode(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

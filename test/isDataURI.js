@@ -92,13 +92,13 @@ describe('#isDataURI', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isDataURI(/asd/))
+      .bool(isDataURI(/asd/u))
       .isFalse()
-      .bool(isDataURI(/\d+/))
+      .bool(isDataURI(/\d+/u))
       .isFalse()
-      .bool(isDataURI(/1/))
+      .bool(isDataURI(/1/u))
       .isFalse()
-      .bool(isDataURI(new RegExp('3')))
+      .bool(isDataURI(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

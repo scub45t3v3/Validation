@@ -2,13 +2,13 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isISBN');
-const REGEX_10 = /^\d{9}[\dX]$/;
-const REGEX_13 = /^\d{13}$/;
+const REGEX_10 = /^\d{9}[\dX]$/u;
+const REGEX_13 = /^\d{13}$/u;
 
 const isISBN = (value, version) => {
   debug('call:isISBN(%o, %o)', value, version);
 
-  const sanitized = (value && (value.toString() || `${value}`).toUpperCase().replace(/[\s-]+/g, '')) || undefined;
+  const sanitized = (value && (value.toString() || `${value}`).toUpperCase().replace(/[\s-]+/gu, '')) || undefined;
   version || (version = (sanitized && sanitized.length) || undefined);
 
   switch (version) {

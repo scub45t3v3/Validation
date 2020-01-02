@@ -108,13 +108,13 @@ describe('#isISSN', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isISSN(/asd/))
+      .bool(isISSN(/asd/u))
       .isFalse()
-      .bool(isISSN(/\d+/))
+      .bool(isISSN(/\d+/u))
       .isFalse()
-      .bool(isISSN(/1/))
+      .bool(isISSN(/1/u))
       .isFalse()
-      .bool(isISSN(new RegExp('3')))
+      .bool(isISSN(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

@@ -122,13 +122,13 @@ describe('#isDomainName', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isDomainName(/asd/))
+      .bool(isDomainName(/asd/u))
       .isFalse()
-      .bool(isDomainName(/\d+/))
+      .bool(isDomainName(/\d+/u))
       .isFalse()
-      .bool(isDomainName(/1/))
+      .bool(isDomainName(/1/u))
       .isFalse()
-      .bool(isDomainName(new RegExp('3')))
+      .bool(isDomainName(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

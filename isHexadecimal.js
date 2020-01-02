@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isHexadecimal');
-const REGEX = /^[a-f\d]+$/i;
+const REGEX = /^[a-f\d]+$/iu;
 
 const isHexadecimal = (value) => {
   debug('call:isHexadecimal(%o)', value);

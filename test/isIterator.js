@@ -141,13 +141,13 @@ describe('#isIterator', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isIterator(/asd/))
+      .bool(isIterator(/asd/u))
       .isFalse()
-      .bool(isIterator(/\d+/))
+      .bool(isIterator(/\d+/u))
       .isFalse()
-      .bool(isIterator(/1/))
+      .bool(isIterator(/1/u))
       .isFalse()
-      .bool(isIterator(new RegExp('3')))
+      .bool(isIterator(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 }); // end describe #isIterator

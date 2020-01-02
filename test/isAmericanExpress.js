@@ -82,13 +82,13 @@ describe('#isAmericanExpress', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isAmericanExpress(/asd/))
+      .bool(isAmericanExpress(/asd/u))
       .isFalse()
-      .bool(isAmericanExpress(/\d+/))
+      .bool(isAmericanExpress(/\d+/u))
       .isFalse()
-      .bool(isAmericanExpress(/1/))
+      .bool(isAmericanExpress(/1/u))
       .isFalse()
-      .bool(isAmericanExpress(new RegExp('3')))
+      .bool(isAmericanExpress(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

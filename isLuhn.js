@@ -2,7 +2,7 @@
 
 // include dependencies
 const debug = require('debug')('@scuba-squad:validation:isLuhn');
-const REGEX = /^\d+$/;
+const REGEX = /^\d+$/u;
 const DOUBLE = [
   0,
   2,

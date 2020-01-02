@@ -94,13 +94,13 @@ describe('#isSHA256', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isSHA256(/asd/))
+      .bool(isSHA256(/asd/u))
       .isFalse()
-      .bool(isSHA256(/\d+/))
+      .bool(isSHA256(/\d+/u))
       .isFalse()
-      .bool(isSHA256(/1/))
+      .bool(isSHA256(/1/u))
       .isFalse()
-      .bool(isSHA256(new RegExp('3')))
+      .bool(isSHA256(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

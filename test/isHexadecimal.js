@@ -106,13 +106,13 @@ describe('#isHexadecimal', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isHexadecimal(/asd/))
+      .bool(isHexadecimal(/asd/u))
       .isFalse()
-      .bool(isHexadecimal(/\d+/))
+      .bool(isHexadecimal(/\d+/u))
       .isFalse()
-      .bool(isHexadecimal(/1/))
+      .bool(isHexadecimal(/1/u))
       .isFalse()
-      .bool(isHexadecimal(new RegExp('3')))
+      .bool(isHexadecimal(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 

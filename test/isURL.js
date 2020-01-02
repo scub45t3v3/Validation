@@ -174,13 +174,13 @@ describe('#isURL', () => {
 
   it('should return false for regexs', () => {
     unit
-      .bool(isURL(/asd/))
+      .bool(isURL(/asd/u))
       .isFalse()
-      .bool(isURL(/\d+/))
+      .bool(isURL(/\d+/u))
       .isFalse()
-      .bool(isURL(/1/))
+      .bool(isURL(/1/u))
       .isFalse()
-      .bool(isURL(new RegExp('3')))
+      .bool(isURL(new RegExp('3', 'u')))
       .isFalse();
   }); // end it
 
