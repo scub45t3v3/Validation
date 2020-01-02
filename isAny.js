@@ -7,7 +7,6 @@ const toCallable = require('./util/toCallable');
 
 const isAny = (value, ...args) => {
   debug('call:isAny(%o, %o)', value, args);
-
   args = _.map(args, toCallable);
 
   return _.any(args, (func) => {

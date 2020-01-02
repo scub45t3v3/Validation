@@ -49,6 +49,7 @@ describe('#isBefore', () => {
 
   it('should return true for numeric arrays', () => {
     const now = new Date();
+
     unit
       .bool(isBefore([now.getFullYear(), now.getMonth(), now.getDate()]))
       .isTrue()

@@ -16,7 +16,6 @@ const isVIN = (value) => {
 
 const transliterate = (char) => {
   debug('call:transliterate(%o)', char);
-
   char = char && char.toUpperCase();
 
   return '0123456789.ABCDEFGH..JKLMN.P.R..STUVWXYZ'.indexOf(char) % 10;
@@ -24,7 +23,6 @@ const transliterate = (char) => {
 
 const getCheckDigit = (value) => {
   debug('call:getCheckDigit(%o)', value);
-
   const map = '0123456789X';
   const weights = '8765432X098765432';
   const sum = value

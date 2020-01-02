@@ -7,7 +7,6 @@ const REGEX_13 = /^\d{13}$/u;
 
 const isISBN = (value, version) => {
   debug('call:isISBN(%o, %o)', value, version);
-
   const sanitized = (value && (value.toString() || `${value}`).toUpperCase().replace(/[\s-]+/gu, '')) || undefined;
   version || (version = (sanitized && sanitized.length) || undefined);
 
@@ -25,7 +24,6 @@ const isISBN = (value, version) => {
 
 const isISBN10 = (value) => {
   debug('call:isISBN10(%o)', value);
-
   let sum = 0;
 
   if (!REGEX_10.test(value)) {
@@ -49,7 +47,6 @@ const isISBN10 = (value) => {
 
 const isISBN13 = (value) => {
   debug('call:isISBN13(%o)', value);
-
   let sum = 0;
 
   if (!REGEX_13.test(value)) {

@@ -8,7 +8,6 @@ const isString = require('./isString');
 
 const isPhoneNumber = (value, country) => {
   debug('call:isPhoneNumber(%o, %o)', value, country);
-
   const util = PhoneNumberUtil.getInstance();
 
   if (isString(country)) {

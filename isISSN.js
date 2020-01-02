@@ -6,7 +6,6 @@ const REGEX = /^\d{4}-?\d{3}[\dX]$/iu;
 
 const isISSN = (value) => {
   debug('call:isISSN(%o)', value);
-
   let sum = 0;
 
   if (!REGEX.test(value)) {

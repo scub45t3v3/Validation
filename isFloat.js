@@ -6,7 +6,6 @@ const BigNumber = require('bignumber.js');
 
 const isFloat = (value, opt = {}) => {
   debug('call:isFloat(%o, %o)', value, opt);
-
   value = new BigNumber(value);
 
   if (!value.isFinite()) {

@@ -6,6 +6,7 @@ const REGEX = /^(?<hour>[0-1]?\d|2[0-3])(?::?(?<minute>[0-5]\d)(?::?(?<second>[0
 
 const isTime = (value) => {
   debug('call:isTime(%o)', value);
+
   try {
     const {
       groups: {

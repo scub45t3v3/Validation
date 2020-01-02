@@ -7,7 +7,6 @@ const toCallable = require('./util/toCallable');
 
 const isAll = (value, ...args) => {
   debug('call:isAll(%o, %o)', value, args);
-
   args = _.map(args, toCallable);
 
   return _.all(args, (func) => {

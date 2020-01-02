@@ -6,7 +6,6 @@ const isInteger = require('./isInteger');
 
 const isLength = (value, opt = {}) => {
   debug('call:isLength(%o, %o)', value, opt);
-
   const length = (value && (value.length || value.size)) || undefined;
 
   if (isInteger(opt)) {

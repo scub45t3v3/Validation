@@ -7,7 +7,6 @@ const isFloat = require('./isFloat');
 
 const isInteger = (value, opt = {}) => {
   debug('call:isInteger(%o, %o)', value, opt);
-
   value = new BigNumber(value);
 
   if (!value.isFinite()) {

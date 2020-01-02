@@ -37,6 +37,7 @@ describe('#isAll', () => {
 
   it('should return true for a value that passes truth test for provided RegExp', () => {
     const test = [/^\d+$/u, /5$/u];
+
     unit
       .bool(isAll('15', ...test))
       .isTrue()
@@ -48,6 +49,7 @@ describe('#isAll', () => {
 
   it('should return true for a value that passes truth test for provided function references with additional arguments', () => {
     const test = ['isDate', ['isBefore', '2050-01-01'], ['isAfter', '2000-01-01']];
+
     unit
       .bool(isAll(new Date('2010-09-18'), ...test))
       .isTrue()
@@ -63,6 +65,7 @@ describe('#isAll', () => {
 
   it('should return false for a value that does not pass truth test for provided function references with additional arguments', () => {
     const test = ['isDate', ['isBefore', '2000-02-01'], ['isAfter', '2000-01-01']];
+
     unit
       .bool(isAll(new Date('2010-09-18'), ...test))
       .isFalse()

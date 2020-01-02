@@ -49,6 +49,7 @@ describe('#isAfter', () => {
 
   it('should return true for numeric arrays', () => {
     const now = new Date();
+
     unit
       .bool(isAfter([now.getFullYear() + 1, now.getMonth(), now.getDate()]))
       .isTrue()
