@@ -22,31 +22,69 @@ describe('#isLength', () => {
 
   it('should return true for arrays', () => {
     unit
-      .bool(isLength([4, 70, false, 'asd']))
+      .bool(isLength([
+        4,
+        70,
+        false,
+        'asd',
+      ]))
       .isTrue()
       .bool(isLength([2011]))
       .isTrue()
-      .bool(isLength([2000, 6, 15, 5]))
+      .bool(isLength([
+        2000,
+        6,
+        15,
+        5,
+      ]))
       .isTrue();
   }); // end it
 
   it('should return true for arrays with length greater than min', () => {
     unit
-      .bool(isLength([4, 70, false, 'asd'], {min: 3}))
+      .bool(isLength([
+        4,
+        70,
+        false,
+        'asd',
+      ], {
+        min: 3,
+      }))
       .isTrue()
       .bool(isLength([2011], {min: 0}))
       .isTrue()
-      .bool(isLength([2000, 6, 15, 5], {min: 4}))
+      .bool(isLength([
+        2000,
+        6,
+        15,
+        5,
+      ], {
+        min: 4,
+      }))
       .isTrue();
   }); // end it
 
   it('should return true for arrays with length less than max', () => {
     unit
-      .bool(isLength([4, 70, false, 'asd'], {max: 5}))
+      .bool(isLength([
+        4,
+        70,
+        false,
+        'asd',
+      ], {
+        max: 5,
+      }))
       .isTrue()
       .bool(isLength([2011], {max: 2}))
       .isTrue()
-      .bool(isLength([2000, 6, 15, 5], {max: 4}))
+      .bool(isLength([
+        2000,
+        6,
+        15,
+        5,
+      ], {
+        max: 4,
+      }))
       .isTrue();
   }); // end it
 
@@ -137,11 +175,21 @@ describe('#isLength', () => {
 
   it('should return false for arrays not equal to length', () => {
     unit
-      .bool(isLength([4, 70, false, 'asd'], 1))
+      .bool(isLength([
+        4,
+        70,
+        false,
+        'asd',
+      ], 1))
       .isFalse()
       .bool(isLength([2011], 2))
       .isFalse()
-      .bool(isLength([2000, 6, 15, 5], 10))
+      .bool(isLength([
+        2000,
+        6,
+        15,
+        5,
+      ], 10))
       .isFalse();
   }); // end it
 

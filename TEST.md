@@ -332,7 +332,10 @@ unit
 should return true for a value that passes truth test for provided RegExp.
 
 ```js
-const test = [/^\d+$/u, /5$/u];
+const test = [
+  /^\d+$/u,
+  /5$/u,
+];
 unit
   .bool(isAll('15', ...test))
   .isTrue()
@@ -345,7 +348,11 @@ unit
 should return true for a value that passes truth test for provided function references with additional arguments.
 
 ```js
-const test = ['isDate', ['isBefore', '2050-01-01'], ['isAfter', '2000-01-01']];
+const test = [
+  'isDate',
+  ['isBefore', '2050-01-01'],
+  ['isAfter', '2000-01-01'],
+];
 unit
   .bool(isAll(new Date('2010-09-18'), ...test))
   .isTrue()
@@ -362,7 +369,11 @@ unit
 should return false for a value that does not pass truth test for provided function references with additional arguments.
 
 ```js
-const test = ['isDate', ['isBefore', '2000-02-01'], ['isAfter', '2000-01-01']];
+const test = [
+  'isDate',
+  ['isBefore', '2000-02-01'],
+  ['isAfter', '2000-01-01'],
+];
 unit
   .bool(isAll(new Date('2010-09-18'), ...test))
   .isFalse()
@@ -872,7 +883,10 @@ unit
 should return true for a value that passes truth test for provided RegExp.
 
 ```js
-const test = [/^\d+$/u, /^hello/iu];
+const test = [
+  /^\d+$/u,
+  /^hello/iu,
+];
 unit
   .bool(isAny('hello', ...test))
   .isTrue()
@@ -885,7 +899,12 @@ unit
 should return true for a value that passes truth test for provided function references.
 
 ```js
-const test = ['isDate', 'isString', 'isNull', 'isUndefined'];
+const test = [
+  'isDate',
+  'isString',
+  'isNull',
+  'isUndefined',
+];
 unit
   .bool(isAny(new Date('2010-09-18'), ...test))
   .isTrue()
@@ -1501,7 +1520,11 @@ should return true for numeric arrays.
 ```js
 const now = new Date();
 unit
-  .bool(isBefore([now.getFullYear(), now.getMonth(), now.getDate()]))
+  .bool(isBefore([
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+  ]))
   .isTrue()
   .bool(isBefore([2010, 1, 6]))
   .isTrue()
@@ -6489,11 +6512,21 @@ should return true for arrays.
 
 ```js
 unit
-  .bool(isLength([4, 70, false, 'asd']))
+  .bool(isLength([
+    4,
+    70,
+    false,
+    'asd',
+  ]))
   .isTrue()
   .bool(isLength([2011]))
   .isTrue()
-  .bool(isLength([2000, 6, 15, 5]))
+  .bool(isLength([
+    2000,
+    6,
+    15,
+    5,
+  ]))
   .isTrue();
 ```
 
@@ -6501,11 +6534,25 @@ should return true for arrays with length greater than min.
 
 ```js
 unit
-  .bool(isLength([4, 70, false, 'asd'], {min: 3}))
+  .bool(isLength([
+    4,
+    70,
+    false,
+    'asd',
+  ], {
+    min: 3,
+  }))
   .isTrue()
   .bool(isLength([2011], {min: 0}))
   .isTrue()
-  .bool(isLength([2000, 6, 15, 5], {min: 4}))
+  .bool(isLength([
+    2000,
+    6,
+    15,
+    5,
+  ], {
+    min: 4,
+  }))
   .isTrue();
 ```
 
@@ -6513,11 +6560,25 @@ should return true for arrays with length less than max.
 
 ```js
 unit
-  .bool(isLength([4, 70, false, 'asd'], {max: 5}))
+  .bool(isLength([
+    4,
+    70,
+    false,
+    'asd',
+  ], {
+    max: 5,
+  }))
   .isTrue()
   .bool(isLength([2011], {max: 2}))
   .isTrue()
-  .bool(isLength([2000, 6, 15, 5], {max: 4}))
+  .bool(isLength([
+    2000,
+    6,
+    15,
+    5,
+  ], {
+    max: 4,
+  }))
   .isTrue();
 ```
 
@@ -6624,11 +6685,21 @@ should return false for arrays not equal to length.
 
 ```js
 unit
-  .bool(isLength([4, 70, false, 'asd'], 1))
+  .bool(isLength([
+    4,
+    70,
+    false,
+    'asd',
+  ], 1))
   .isFalse()
   .bool(isLength([2011], 2))
   .isFalse()
-  .bool(isLength([2000, 6, 15, 5], 10))
+  .bool(isLength([
+    2000,
+    6,
+    15,
+    5,
+  ], 10))
   .isFalse();
 ```
 

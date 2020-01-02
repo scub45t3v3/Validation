@@ -51,7 +51,11 @@ describe('#isBefore', () => {
     const now = new Date();
 
     unit
-      .bool(isBefore([now.getFullYear(), now.getMonth(), now.getDate()]))
+      .bool(isBefore([
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+      ]))
       .isTrue()
       .bool(isBefore([2010, 1, 6]))
       .isTrue()
