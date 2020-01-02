@@ -10,7 +10,11 @@ const isURL = (value) => {
   debug('call:isURL(%o)', value);
 
   try {
-    value = REGEX.exec(value).groups.domain.replace(/^\[|\]$/gu, '');
+    value = REGEX
+      .exec(value)
+      .groups
+      .domain
+      .replace(/^\[|\]$/gu, '');
 
     return isDomainName(value) || isIP(value);
   } catch (error) {
