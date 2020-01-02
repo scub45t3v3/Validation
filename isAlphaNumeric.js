@@ -7,7 +7,7 @@ const REGEX = /^[a-z\d]+$/iu;
 const isAlphaNumeric = (value) => {
   debug('call:isAlphaNumeric(%o)', value);
 
-  return (value != null) && REGEX.test(value);
+  return value != null && REGEX.test(value);
 };
 
 // export as commonjs module

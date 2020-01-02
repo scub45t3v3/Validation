@@ -12,7 +12,7 @@ const PRIMITIVES = [
 const isPrimitive = (value) => {
   debug('call:isPrimitive(%o)', value);
 
-  return (value == null) || PRIMITIVES.includes(typeof value);
+  return value == null || PRIMITIVES.includes(typeof value);
 };
 
 // export as commonjs module

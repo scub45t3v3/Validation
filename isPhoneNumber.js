@@ -13,9 +13,9 @@ const isPhoneNumber = (value, country) => {
   if (isString(country)) {
     const iso = country.trim().toUpperCase();
 
-    country = Country.getByIso2Code(iso);
-    country || (country = Country.getByIso3Code(iso));
-    country || (country = Country.getByIsoNumericCode(iso));
+    country = Country.getByIso2Code(iso)
+      || Country.getByIso3Code(iso)
+      || Country.getByIsoNumericCode(iso);
   }
 
   try {

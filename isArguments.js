@@ -6,7 +6,7 @@ const debug = require('debug')('@scuba-squad:validation:isArguments');
 const isArguments = (value) => {
   debug('call:isArguments(%o)', value);
 
-  return (value && (value.toString() || `${value}`)) === '[object Arguments]';
+  return (value && `${value}`) === '[object Arguments]';
 };
 
 // export as commonjs module

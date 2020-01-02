@@ -7,7 +7,7 @@ const REGEX_13 = /^\d{13}$/u;
 
 const isISBN = (value, version) => {
   debug('call:isISBN(%o, %o)', value, version);
-  const sanitized = (value && (value.toString() || `${value}`).toUpperCase().replace(/[\s-]+/gu, '')) || undefined;
+  const sanitized = (value && `${value}`.toUpperCase().replace(/[\s-]+/gu, '')) || undefined;
   version || (version = (sanitized && sanitized.length) || undefined);
 
   switch (version) {
@@ -20,7 +20,7 @@ const isISBN = (value, version) => {
     default:
       return false;
   }
-}; // end ISISBN
+}; // end isISBN
 
 const isISBN10 = (value) => {
   debug('call:isISBN10(%o)', value);
@@ -43,7 +43,7 @@ const isISBN10 = (value) => {
   }
 
   return !(sum % 11);
-}; // end ISISBN10
+}; // end isISBN10
 
 const isISBN13 = (value) => {
   debug('call:isISBN13(%o)', value);
