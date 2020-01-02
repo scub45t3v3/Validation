@@ -11,8 +11,6 @@ const isAll = (value, ...args) => {
   args = _.map(args, toCallable);
 
   return _.all(args, (func) => {
-    debug('call:%s(%o)', func.name, value);
-
     return func(value);
   });
 };

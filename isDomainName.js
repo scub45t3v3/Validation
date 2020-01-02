@@ -12,8 +12,6 @@ const isDomainName = (value, idn = true) => {
     try {
       value = punycode.toASCII(value);
     } catch (error) {
-      debug('error:punycode %o', error);
-
       return false;
     }
   }

@@ -30,8 +30,6 @@ const toCallable = (value) => {
     return _.partial(func, _, ...rest);
   }
 
-  debug('error:value %o can not be converted to a function', value);
-
   throw new TypeError(`${value} can not be called`);
 }; // end toCallable
 

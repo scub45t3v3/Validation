@@ -11,8 +11,6 @@ const isAny = (value, ...args) => {
   args = _.map(args, toCallable);
 
   return _.any(args, (func) => {
-    debug('call:%s(%o)', func.name, value);
-
     return func(value);
   });
 };
