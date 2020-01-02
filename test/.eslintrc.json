@@ -5,6 +5,9 @@
   "rules": {
     "no-new-wrappers": [
       "off"
+    ],
+    "prefer-regex-literals": [
+      "off"
     ]
   }
 }
