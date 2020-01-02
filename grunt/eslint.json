@@ -1,8 +1,5 @@
 {
   "src": ["*.js"],
   "util": ["util/**/*.js"],
-  "test": ["test/**/*.js"],
-  "options": {
-
-  }
+  "test": ["test/**/*.js"]
 }
