@@ -6,23 +6,22 @@ const REGEX = /^\d{4}-?\d{3}[\dX]$/iu;
 
 const isISSN = (value) => {
   debug('call:isISSN(%o)', value);
-  let sum = 0;
 
   if (!REGEX.test(value)) {
     return false;
   }
 
-  value = value.replace(/[^\dX]/giu, '').split('');
+  const sum = `${value}`
+    .toUpperCase()
+    .replace(/[^\dX]/giu, '')
+    .split('')
+    .reverse()
+    .reduce((memo, val, idx) => {
+      idx++; // convert from 0 base
+      val = (val === 'X' && 10) || +val;
 
-  if (/^x$/iu.test(value[7])) {
-    value[7] = 10;
-  }
-
-  for (let idx = 0; idx < value.length; idx++) {
-    const val = parseInt(value[idx]);
-
-    sum += (8 - idx) * val;
-  }
+      return memo + (idx * val);
+    }, 0);
 
   return !(sum % 11);
 };
