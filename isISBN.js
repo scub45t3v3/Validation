@@ -7,8 +7,8 @@ const REGEX_13 = /^\d{13}$/u;
 
 const isISBN = (value, version) => {
   debug('call:isISBN(%o, %o)', value, version);
-  const sanitized = (value && `${value}`.toUpperCase().replace(/[\s-]+/gu, '')) || undefined;
-  version || (version = (sanitized && sanitized.length) || undefined);
+  const sanitized = (value && `${value}`.replace(/[\s-]+/gu, '')) || '';
+  version || (version = sanitized.length);
 
   switch (version) {
     case 10:
@@ -24,46 +24,43 @@ const isISBN = (value, version) => {
 
 const isISBN10 = (value) => {
   debug('call:isISBN10(%o)', value);
-  let sum = 0;
 
   if (!REGEX_10.test(value)) {
     return false;
   }
 
-  value = value.split('').reverse();
+  const sum = `${value}`
+    .toUpperCase()
+    .split('')
+    .reverse()
+    .reduce((memo, val, idx) => {
+      idx++; // convert from 0 base
+      val = (val === 'X' && 10) || +val;
 
-  if (value[0] === 'X') {
-    value[0] = 10;
-  }
-
-  for (let idx = 0; idx < value.length; idx++) {
-    const val = value[idx];
-
-    sum += (idx + 1) * parseInt(val);
-  }
+      return memo + (idx * val);
+    }, 0);
 
   return !(sum % 11);
 }; // end isISBN10
 
 const isISBN13 = (value) => {
   debug('call:isISBN13(%o)', value);
-  let sum = 0;
 
   if (!REGEX_13.test(value)) {
     return false;
   }
 
-  value = value.split('');
+  const sum = value
+    .split('')
+    .reduce((memo, val, idx) => {
+      val = +val;
 
-  for (let idx = 0; idx < value.length; idx++) {
-    let val = parseInt(value[idx]);
+      if (idx % 2) {
+        val *= 3;
+      }
 
-    if (idx % 2) {
-      val *= 3;
-    }
-
-    sum += val;
-  }
+      return memo + val;
+    }, 0);
 
   return !(sum % 10);
 }; // end isISBN13
