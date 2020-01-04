@@ -15,7 +15,7 @@ const isTime = (value) => {
       },
     } = REGEX.exec(`${value}`.trim());
 
-    return meridiem == null || parseInt(hour) < 13;
+    return meridiem == null || +hour < 13;
   } catch (error) {
     return false;
   }
