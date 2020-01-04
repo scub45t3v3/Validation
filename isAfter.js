@@ -10,7 +10,7 @@ const isAfter = (value, compare = Date.now()) => {
   debug('call:isAfter(%o, %o)', value, compare);
 
   if (isFloat(value) && isFloat(compare)) {
-    return parseFloat(value) > parseFloat(compare);
+    return +value > +compare;
   } else if (isDate(value)) {
     return moment(value).isAfter(compare);
   }
