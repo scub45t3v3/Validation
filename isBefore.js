@@ -10,7 +10,7 @@ const isBefore = (value, compare = Date.now()) => {
   debug('call:isBefore(%o, %o)', value, compare);
 
   if (isFloat(value) && isFloat(compare)) {
-    return parseFloat(value) < parseFloat(compare);
+    return +value < +compare;
   } else if (isDate(value)) {
     return moment(value).isBefore(compare);
   }
