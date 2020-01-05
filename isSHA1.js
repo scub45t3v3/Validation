@@ -7,7 +7,7 @@ const isAll = require('./isAll');
 const isSHA1 = (value) => {
   debug('call:isSHA1(%o)', value);
 
-  return isAll(value, 'isHexadecimal', ['isLength', 40]);
+  return isAll(`${value}`, 'isHexadecimal', ['isLength', 40]);
 };
 
 // export as commonjs module
