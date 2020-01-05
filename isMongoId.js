@@ -7,7 +7,7 @@ const isAll = require('./isAll');
 const isMongoId = (value) => {
   debug('call:isMongoId(%o)', value);
 
-  return isAll(value, 'isHexadecimal', ['isLength', 24]);
+  return isAll(`${value}`, 'isHexadecimal', ['isLength', 24]);
 };
 
 // export as commonjs module
