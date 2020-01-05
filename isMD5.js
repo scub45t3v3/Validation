@@ -7,7 +7,7 @@ const isAll = require('./isAll');
 const isMD5 = (value) => {
   debug('call:isMD5(%o)', value);
 
-  return isAll(value, 'isHexadecimal', ['isLength', 32]);
+  return isAll(`${value}`, 'isHexadecimal', ['isLength', 32]);
 };
 
 // export as commonjs module
