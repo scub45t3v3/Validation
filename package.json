@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@scuba-squad/country": "^2.0.0",
+    "@scuba-squad/url": "^2.0.0",
     "bignumber.js": "^9.0.0",
     "debug": "^4.1.1",
     "google-libphonenumber": "^3.2.3",
