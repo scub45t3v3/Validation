@@ -1,7 +1,7 @@
 # Validation
 
 <a name="status"></a>
-[![Build Status](https://travis-ci.org/scub45t3v3/Validation.svg?branch=master)](https://travis-ci.org/scub45t3v3/Validation)
+[![Build Status](https://github.com/scub45t3v3/validation/workflows/CI/badge.svg?event=push)](https://github.com/scub45t3v3/validation/actions)
 [![Coverage Status](https://coveralls.io/repos/github/scub45t3v3/Validation/badge.svg)](https://coveralls.io/github/scub45t3v3/Validation)
 
 <a name="toc"></a>
